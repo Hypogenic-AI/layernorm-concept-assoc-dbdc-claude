@@ -1,0 +1,23 @@
+PDF: papers/arxiv_2511.10566_impact_of_layer_norm_on_memorization_and_generalization_in_t.pdf
+Total pages: 53
+Pages per chunk: 3
+
+Chunks:
+  arxiv_2511.10566_impact_of_layer_norm_on_memorization_and_generalization_in_t_chunk_001.pdf: pages 1-3
+  arxiv_2511.10566_impact_of_layer_norm_on_memorization_and_generalization_in_t_chunk_002.pdf: pages 4-6
+  arxiv_2511.10566_impact_of_layer_norm_on_memorization_and_generalization_in_t_chunk_003.pdf: pages 7-9
+  arxiv_2511.10566_impact_of_layer_norm_on_memorization_and_generalization_in_t_chunk_004.pdf: pages 10-12
+  arxiv_2511.10566_impact_of_layer_norm_on_memorization_and_generalization_in_t_chunk_005.pdf: pages 13-15
+  arxiv_2511.10566_impact_of_layer_norm_on_memorization_and_generalization_in_t_chunk_006.pdf: pages 16-18
+  arxiv_2511.10566_impact_of_layer_norm_on_memorization_and_generalization_in_t_chunk_007.pdf: pages 19-21
+  arxiv_2511.10566_impact_of_layer_norm_on_memorization_and_generalization_in_t_chunk_008.pdf: pages 22-24
+  arxiv_2511.10566_impact_of_layer_norm_on_memorization_and_generalization_in_t_chunk_009.pdf: pages 25-27
+  arxiv_2511.10566_impact_of_layer_norm_on_memorization_and_generalization_in_t_chunk_010.pdf: pages 28-30
+  arxiv_2511.10566_impact_of_layer_norm_on_memorization_and_generalization_in_t_chunk_011.pdf: pages 31-33
+  arxiv_2511.10566_impact_of_layer_norm_on_memorization_and_generalization_in_t_chunk_012.pdf: pages 34-36
+  arxiv_2511.10566_impact_of_layer_norm_on_memorization_and_generalization_in_t_chunk_013.pdf: pages 37-39
+  arxiv_2511.10566_impact_of_layer_norm_on_memorization_and_generalization_in_t_chunk_014.pdf: pages 40-42
+  arxiv_2511.10566_impact_of_layer_norm_on_memorization_and_generalization_in_t_chunk_015.pdf: pages 43-45
+  arxiv_2511.10566_impact_of_layer_norm_on_memorization_and_generalization_in_t_chunk_016.pdf: pages 46-48
+  arxiv_2511.10566_impact_of_layer_norm_on_memorization_and_generalization_in_t_chunk_017.pdf: pages 49-51
+  arxiv_2511.10566_impact_of_layer_norm_on_memorization_and_generalization_in_t_chunk_018.pdf: pages 52-53

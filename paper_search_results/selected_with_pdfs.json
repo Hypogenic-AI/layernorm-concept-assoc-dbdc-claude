@@ -1,0 +1,762 @@
+[
+  {
+    "title": "Probing the Creativity of Large Language Models: Can models produce divergent semantic association?",
+    "year": 2023,
+    "authors": "Honghua Chen, Nai Ding",
+    "url": "https://api.semanticscholar.org/CorpusId:264172665",
+    "relevance": 3,
+    "abstract": "Large language models possess remarkable capacity for processing language, but it remains unclear whether these models can further generate creative content. The present study aims to investigate the creative thinking of large language models through a cognitive perspective. We utilize the divergent association task (DAT), an objective measurement of creativity that asks models to generate unrelated words and calculates the semantic distance between them. We compare the results across different models and decoding strategies. Our findings indicate that: (1) When using the greedy search strategy, GPT-4 outperforms 96% of humans, while GPT-3.5-turbo exceeds the average human level. (2) Stochastic sampling and temperature scaling are effective to obtain higher DAT scores for models except GPT-4, but face a trade-off between creativity and stability. These results imply that advanced large language models have divergent semantic associations, which is a fundamental process underlying creativity.",
+    "citations": 47,
+    "_source": "search3.json",
+    "_tier": "T2",
+    "external_ids": {
+      "DBLP": "journals/corr/abs-2310-11158",
+      "ArXiv": "2310.11158",
+      "DOI": "10.48550/arXiv.2310.11158",
+      "CorpusId": 264172665
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "Divergent creativity in humans and large language models",
+    "year": 2024,
+    "authors": "Antoine Bellemare\u2010Pepin, Franccois Lespinasse, Philipp Tholke, Y. Harel, K. Mathewson, Jay A. Olson, Y. Bengio, Karim Jerbi CoCo Lab, Psychology Department, U. Montr'eal, Montreal, Qc, Canada, Music department, C. University, Sociology, Anthropology department, Mila, Department of Social Psychology, University of Toronto Mississauga, Mississauga, On, D. Science, Op\u00e9rations Research, Unique Center",
+    "url": "https://api.semanticscholar.org/CorpusId:269981975",
+    "relevance": 3,
+    "abstract": "The recent surge of Large Language Models (LLMs) has led to claims that they are approaching a level of creativity akin to human capabilities. This idea has sparked a blend of excitement and apprehension. However, a critical piece that has been missing in this discourse is a systematic evaluation of LLMs\u2019 semantic diversity, particularly in comparison to human divergent thinking. To bridge this gap, we leverage recent advances in computational creativity to analyze semantic divergence in both state-of-the-art LLMs and a substantial dataset of 100,000 humans. These divergence-based measures index associative thinking\u2014the ability to access and combine remote concepts in semantic space\u2014an established facet of creative cognition. We benchmark performance on the Divergent Association Task (DAT) and across multiple creative-writing tasks (haiku, story synopses, and flash fiction), using identical, objective scoring. We found evidence that LLMs can surpass average human performance on the DAT, and approach human creative writing abilities, yet they remain below the mean creativity scores observed among the more creative segment of human participants. Notably, even the top performing LLMs are still largely surpassed by the aggregated top half of human participants, underscoring a ceiling that current LLMs still fail to surpass. We also systematically varied linguistic strategy prompts and temperature, observing reliable gains in semantic divergence for several models. Our human-machine benchmarking framework addresses the polemic surrounding the imminent replacement of human creative labor by AI, disentangling the quality of the respective creative linguistic outputs using established objective measures. While prompting deeper exploration of the distinctive elements of human inventive thought compared to those of AI systems, we lay out a series of techniques to improve their outputs with respect to semantic diversity, such as prompt design and hyper-parameter tuning.",
+    "citations": 33,
+    "_source": "search3.json",
+    "_tier": "T2",
+    "external_ids": {
+      "PubMedCentral": "12824279",
+      "ArXiv": "2405.13012",
+      "DBLP": "journals/corr/abs-2405-13012",
+      "DOI": "10.1038/s41598-025-25157-3",
+      "CorpusId": 269981975,
+      "PubMed": "41565675"
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": "CCBY"
+    }
+  },
+  {
+    "title": "Traveling Words: A Geometric Interpretation of Transformers",
+    "year": 2023,
+    "authors": "Raul Molina",
+    "url": "https://api.semanticscholar.org/CorpusId:261822108",
+    "relevance": 3,
+    "abstract": "Transformers have significantly advanced the field of natural language processing, but comprehending their internal mechanisms remains a challenge. In this paper, we introduce a novel geometric perspective that elucidates the inner mechanisms of transformer operations. Our primary contribution is illustrating how layer normalization confines the latent features to a hyper-sphere, subsequently enabling attention to mold the semantic representation of words on this surface. This geometric viewpoint seamlessly connects established properties such as iterative refinement and contextual embeddings. We validate our insights by probing a pre-trained 124M parameter GPT-2 model. Our findings reveal clear query-key attention patterns in early layers and build upon prior observations regarding the subject-specific nature of attention heads at deeper layers. Harnessing these geometric insights, we present an intuitive understanding of transformers, depicting them as processes that model the trajectory of word particles along the hyper-sphere.",
+    "citations": 5,
+    "_source": "search2.json",
+    "_tier": "T3",
+    "external_ids": {
+      "DBLP": "journals/corr/abs-2309-07315",
+      "ArXiv": "2309.07315",
+      "DOI": "10.48550/arXiv.2309.07315",
+      "CorpusId": 261822108
+    },
+    "open_access_pdf": {
+      "url": "https://arxiv.org/pdf/2309.07315",
+      "status": "CLOSED",
+      "license": null
+    }
+  },
+  {
+    "title": "Is Temperature the Creativity Parameter of Large Language Models?",
+    "year": 2024,
+    "authors": "Max Peeperkorn, Tom Kouwenhoven, Daniel G. Brown, Anna K. Jordanous",
+    "url": "https://api.semanticscholar.org/CorpusId:269484653",
+    "relevance": 3,
+    "abstract": "Large language models (LLMs) are applied to all sorts of creative tasks, and their outputs vary from beautiful, to peculiar, to pastiche, into plain plagiarism. The temperature parameter of an LLM regulates the amount of randomness, leading to more diverse outputs; therefore, it is often claimed to be the creativity parameter. Here, we investigate this claim using a narrative generation task with a predetermined fixed context, model and prompt. Specifically, we present an empirical analysis of the LLM output for different temperature values using four necessary conditions for creativity in narrative generation: novelty, typicality, cohesion, and coherence. We find that temperature is weakly correlated with novelty, and unsurprisingly, moderately correlated with incoherence, but there is no relationship with either cohesion or typicality. However, the influence of temperature on creativity is far more nuanced and weak than suggested by the\"creativity parameter\"claim; overall results suggest that the LLM generates slightly more novel outputs as temperatures get higher. Finally, we discuss ideas to allow more controlled LLM creativity, rather than relying on chance via changing the temperature parameter.",
+    "citations": 137,
+    "_source": "search3.json",
+    "_tier": "T2",
+    "external_ids": {
+      "DBLP": "conf/icccrea/PeeperkornK0J24",
+      "ArXiv": "2405.00492",
+      "DOI": "10.48550/arXiv.2405.00492",
+      "CorpusId": 269484653
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "Geometric Interpretation of Layer Normalization and a Comparative Analysis with RMSNorm",
+    "year": 2026,
+    "authors": "Akshat Gupta, Atahan Ozdemir, G. Anumanchipalli",
+    "url": "https://api.semanticscholar.org/CorpusId:272753441",
+    "relevance": 3,
+    "abstract": ",",
+    "citations": 6,
+    "_source": "search2.json",
+    "_tier": "T1",
+    "external_ids": {
+      "DBLP": "conf/eacl/GuptaOGA26",
+      "DOI": "10.18653/v1/2026.findings-eacl.20",
+      "CorpusId": 272753441
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "Normalization in Attention Dynamics",
+    "year": 2025,
+    "authors": "Nikita Karagodin, Shu Ge, Yury Polyanskiy, Philippe Rigollet",
+    "url": "https://api.semanticscholar.org/CorpusId:282390226",
+    "relevance": 3,
+    "abstract": "We study the effect of normalization schemes on token representations in deep transformers. Modeling their evolution as interacting particles on the sphere, we show that normalization acts as a form of speed regulation. This perspective enables a unified analysis of several schemes -- including Post-LN, Pre-LN, Mix-LN, Peri-LN, nGPT -- revealing how they influence clustering dynamics and representation collapse. Our framework clarifies how different schemes shape token representations across layers and provides a principled basis for comparing them, identifying Peri-LN as a particularly effective choice.",
+    "citations": 3,
+    "_source": "search2.json",
+    "_tier": "T1",
+    "external_ids": {
+      "ArXiv": "2510.22026",
+      "DBLP": "journals/corr/abs-2510-22026",
+      "DOI": "10.48550/arXiv.2510.22026",
+      "CorpusId": 282390226
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "On Separate Normalization in Self-supervised Transformers",
+    "year": 2023,
+    "authors": "Xiaohui Chen, Yinkai Wang, Yuanqi Du, S. Hassoun, Liping Liu",
+    "url": "https://api.semanticscholar.org/CorpusId:262217416",
+    "relevance": 2,
+    "abstract": "Self-supervised training methods for transformers have demonstrated remarkable performance across various domains. Previous transformer-based models, such as masked autoencoders (MAE), typically utilize a single normalization layer for both the [CLS] symbol and the tokens. We propose in this paper a simple modification that employs separate normalization layers for the tokens and the [CLS] symbol to better capture their distinct characteristics and enhance downstream task performance. Our method aims to alleviate the potential negative effects of using the same normalization statistics for both token types, which may not be optimally aligned with their individual roles. We empirically show that by utilizing a separate normalization layer, the [CLS] embeddings can better encode the global contextual information and are distributed more uniformly in its anisotropic space. When replacing the conventional normalization layer with the two separate layers, we observe an average 2.7% performance improvement over the image, natural language, and graph domains.",
+    "citations": 4,
+    "_source": "search2.json",
+    "_tier": "T1",
+    "external_ids": {
+      "DBLP": "journals/corr/abs-2309-12931",
+      "ArXiv": "2309.12931",
+      "DOI": "10.48550/arXiv.2309.12931",
+      "CorpusId": 262217416
+    },
+    "open_access_pdf": {
+      "url": "https://arxiv.org/pdf/2309.12931",
+      "status": "CLOSED",
+      "license": null
+    }
+  },
+  {
+    "title": "Learning in Compact Spaces with Approximately Normalized Transformers",
+    "year": 2025,
+    "authors": "Jorg K. H. Franke, Urs Spiegelhalter, Marianna Nezhurina, J. Jitsev, Frank Hutter, Michael Hefenbrock",
+    "url": "https://api.semanticscholar.org/CorpusId:278959715",
+    "relevance": 3,
+    "abstract": "The successful training of deep neural networks requires addressing challenges such as overfitting, numerical instabilities leading to divergence, and increasing variance in the residual stream. A common solution is to apply regularization and normalization techniques that usually require tuning additional hyperparameters. An alternative is to force all parameters and representations to lie on a hypersphere. This removes the need for regularization and increases convergence speed, but comes with additional costs. In this work, we propose a more holistic, approximate normalization via simple scalar multiplications motivated by the tight concentration of the norms of high-dimensional random vectors. Additionally, instead of applying strict normalization for the parameters, we constrain their norms. These modifications remove the need for weight decay and learning rate warm-up as well, but do not increase the total number of normalization layers. Our experiments with transformer architectures show up to 40% faster convergence compared to GPT models with QK normalization, with only 3% additional runtime cost. When deriving scaling laws, we found that our method enables training with larger batch sizes while preserving the favorable scaling characteristics of classic GPT architectures.",
+    "citations": 1,
+    "_source": "search2.json",
+    "_tier": "T1",
+    "external_ids": {
+      "ArXiv": "2505.22014",
+      "DBLP": "journals/corr/abs-2505-22014",
+      "DOI": "10.48550/arXiv.2505.22014",
+      "CorpusId": 278959715
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "On the Expressivity Role of LayerNorm in Transformers' Attention",
+    "year": 2023,
+    "authors": "Shaked Brody, Uri Alon, Eran Yahav",
+    "url": "https://www.semanticscholar.org/paper/d078b6e88bc4749f4eb83f289537a88b4aaf54e6",
+    "relevance": 3,
+    "abstract": "Layer Normalization (LayerNorm) is an inherent component in all Transformer-based models. In this paper, we show that LayerNorm is crucial to the expressivity of the multi-head attention layer that follows it. This is in contrast to the common belief that LayerNorm's only role is to normalize the activations during the forward pass, and their gradients during the backward pass. We consider a geometric interpretation of LayerNorm and show that it consists of two components: (a) projection of the input vectors to a $d-1$ space that is orthogonal to the $\\left[1,1,...,1\\right]$ vector, and (b) scaling of all vectors to the same norm of $\\sqrt{d}$. We show that each of these components is important for the attention layer that follows it in Transformers: (a) projection allows the attention mechanism to create an attention query that attends to all keys equally, offloading the need to learn this operation by the attention; and (b) scaling allows each key to potentially receive the highest attention, and prevents keys from being\"un-select-able\". We show empirically that Transformers do indeed benefit from these properties of LayeNorm in general language modeling and even in computing simple functions such as\"majority\". Our code is available at https://github.com/tech-srl/layer_norm_expressivity_role .",
+    "citations": 46,
+    "_source": "search2.json",
+    "_tier": "T1",
+    "external_ids": {
+      "DBLP": "journals/corr/abs-2305-02582",
+      "ArXiv": "2305.02582",
+      "DOI": "10.48550/arXiv.2305.02582",
+      "CorpusId": 258480306
+    },
+    "open_access_pdf": {
+      "url": "http://arxiv.org/pdf/2305.02582",
+      "status": "GREEN",
+      "license": null
+    }
+  },
+  {
+    "title": "Transformer Normalisation Layers and the Independence of Semantic Subspaces",
+    "year": 2024,
+    "authors": "S. Menary, Samuel Kaski, Andr\u00e9 Freitas",
+    "url": "https://www.semanticscholar.org/paper/5e969b6c033a3ec1665fc16296110d76be357f80",
+    "relevance": 3,
+    "abstract": "Recent works have shown that transformers can solve contextual reasoning tasks by internally executing computational graphs called circuits. Circuits often use attention to logically match information from subspaces of the representation, e.g. using position-in-sequence to identify the previous token. In this work, we consider a semantic subspace to be any independent subspace of the latent representation that can fully determine an attention distribution. We show that Pre-Norm, the placement of normalisation layer used by state-of-the-art transformers, violates this ability unless the model learns a strict representation structure of orthogonal spheres. This is because it causes linear subspaces to interfere through their common normalisation factor. Theoretically, we analyse circuit stability by modelling this interference as random noise on the $L_2$-norms of the query/key/value vectors, predicting a phenomenon of circuit collapse when sparse-attention shifts to a different token. Empirically, we investigate the sensitivity of real-world models trained for mathematical addition, observing a 1% rate of circuit collapse when the norms are artificially perturbed by $\\lesssim$10%. We contrast Pre-Norm with QKV-Norm, which places normalisation after the attention head's linear operators. Theoretically this relaxes the representational constraints. Empirically we observe comparable in-distribution but worse out-of-distribution performance.",
+    "citations": 4,
+    "_source": "search2.json",
+    "_tier": "T1",
+    "external_ids": {
+      "DBLP": "journals/corr/abs-2406-17837",
+      "ArXiv": "2406.17837",
+      "DOI": "10.48550/arXiv.2406.17837",
+      "CorpusId": 270737758
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "GeoNorm: Unify Pre-Norm and Post-Norm with Geodesic Optimization",
+    "year": 2026,
+    "authors": "Chuanyang Zheng, Jiankai Sun, Yihang Gao, Chi Wang, Yuehao Wang, Jing Xiong, Liliang Ren, Bo Peng, Qingmei Wang, Xiaoran Shang, Mac Schwager, Anderson Schneider, Yuriy Nevmyvaka, Xiaodong Liu",
+    "url": "https://api.semanticscholar.org/CorpusId:285140214",
+    "relevance": 3,
+    "abstract": "The placement of normalization layers, specifically Pre-Norm and Post-Norm, remains an open question in Transformer architecture design. In this work, we rethink these approaches through the lens of manifold optimization, interpreting the outputs of the Feed-Forward Network (FFN) and attention layers as update directions in optimization. Building on this perspective, we introduce GeoNorm, a novel method that replaces standard normalization with geodesic updates on the manifold. Furthermore, analogous to learning rate schedules, we propose a layer-wise update decay for the FFN and attention components. Comprehensive experiments demonstrate that GeoNorm consistently outperforms existing normalization methods in Transformer models. Crucially, GeoNorm can be seamlessly integrated into standard Transformer architectures, achieving performance improvements with negligible additional computational cost.",
+    "citations": 0,
+    "_source": "search2.json",
+    "_tier": "T1",
+    "external_ids": {
+      "ArXiv": "2601.22095",
+      "DBLP": "journals/corr/abs-2601-22095",
+      "DOI": "10.48550/arXiv.2601.22095",
+      "CorpusId": 285140214
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "nGPT: Normalized Transformer with Representation Learning on the Hypersphere",
+    "year": 2024,
+    "authors": "I. Loshchilov, Cheng-Ping Hsieh, Simeng Sun, Boris Ginsburg",
+    "url": "https://api.semanticscholar.org/CorpusId:273026160",
+    "relevance": 3,
+    "abstract": "We propose a novel neural network architecture, the normalized Transformer (nGPT) with representation learning on the hypersphere. In nGPT, all vectors forming the embeddings, MLP, attention matrices and hidden states are unit norm normalized. The input stream of tokens travels on the surface of a hypersphere, with each layer contributing a displacement towards the target output predictions. These displacements are defined by the MLP and attention blocks, whose vector components also reside on the same hypersphere. Experiments show that nGPT learns much faster, reducing the number of training steps required to achieve the same accuracy by a factor of 4 to 20, depending on the sequence length.",
+    "citations": 46,
+    "_source": "search2.json",
+    "_tier": "T1",
+    "external_ids": {
+      "DBLP": "journals/corr/abs-2410-01131",
+      "ArXiv": "2410.01131",
+      "DOI": "10.48550/arXiv.2410.01131",
+      "CorpusId": 273026160
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "Norm of Mean Contextualized Embeddings Determines their Variance",
+    "year": 2024,
+    "authors": "Hiroaki Yamagiwa, H. Shimodaira",
+    "url": "https://api.semanticscholar.org/CorpusId:272693810",
+    "relevance": 2,
+    "abstract": "Contextualized embeddings vary by context, even for the same token, and form a distribution in the embedding space. To analyze this distribution, we focus on the norm of the mean embedding and the variance of the embeddings. In this study, we first demonstrate that these values follow the well-known formula for variance in statistics and provide an efficient sequential computation method. Then, by observing embeddings from intermediate layers of several Transformer models, we found a strong trade-off relationship between the norm and the variance: as the mean embedding becomes closer to the origin, the variance increases. This trade-off is likely influenced by the layer normalization mechanism used in Transformer models. Furthermore, when the sets of token embeddings are treated as clusters, we show that the variance of the entire embedding set can theoretically be decomposed into the within-cluster variance and the between-cluster variance. We found experimentally that as the layers of Transformer models deepen, the embeddings move farther from the origin, the between-cluster variance relatively decreases, and the within-cluster variance relatively increases. These results are consistent with existing studies on the anisotropy of the embedding spaces across layers.",
+    "citations": 0,
+    "_source": "search2.json",
+    "_tier": "T4",
+    "external_ids": {
+      "DBLP": "conf/coling/YamagiwaS25",
+      "ArXiv": "2409.11253",
+      "DOI": "10.48550/arXiv.2409.11253",
+      "CorpusId": 272693810
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "Analysis of mean-field models arising from self-attention dynamics in transformer architectures with layer normalization",
+    "year": 2025,
+    "authors": "Martin Burger, Samira Kabri, Yury Korolev, Tim Roith, Lukas Weigand",
+    "url": "https://www.semanticscholar.org/paper/32ffed624f1b2f2e34dd9e8f9fecccf8cdfbe089",
+    "relevance": 2,
+    "abstract": "The aim of this article is to provide a mathematical analysis of transformer architectures using a self-attention mechanism with layer normalization. In particular, observed patterns in such architectures resembling either clusters or uniform distributions pose a number of challenging mathematical questions. We focus on a special case that admits a gradient flow formulation in the spaces of probability measures on the unit sphere under a special metric, which allows us to give at least partial answers in a rigorous way. The arising mathematical problems resemble those recently studied in aggregation equations but with additional challenges emerging from restricting the dynamics to the sphere and the particular form of the interaction energy. We provide a rigorous framework for studying the gradient flow, which also suggests a possible metric geometry to study the general case (i.e. one that is not described by a gradient flow). We further analyse the stationary points of the induced self-attention dynamics. The latter are related to stationary points of the interaction energy in the Wasserstein geometry, and we further discuss energy minimizers and maximizers in different parameter settings. This article is part of the theme issue \u2018Partial differential equations in data science\u2019.",
+    "citations": 14,
+    "_source": "search2.json",
+    "_tier": "T1",
+    "external_ids": {
+      "ArXiv": "2501.03096",
+      "PubMedCentral": "12152857",
+      "DOI": "10.1098/rsta.2024.0233",
+      "CorpusId": 275336472,
+      "PubMed": "40471030"
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": "CCBY"
+    }
+  },
+  {
+    "title": "Gated Removal of Normalization in Transformers Enables Stable Training and Efficient Inference",
+    "year": 2026,
+    "authors": "Andrei Kanavalau, Carmen Amo Alonso, Sanjay Lall",
+    "url": "https://api.semanticscholar.org/CorpusId:285470883",
+    "relevance": 2,
+    "abstract": "Normalization is widely viewed as essential for stabilizing Transformer training. We revisit this assumption for pre-norm Transformers and ask to what extent sample-dependent normalization is needed inside Transformer blocks. We introduce TaperNorm, a drop-in replacement for RMSNorm/LayerNorm that behaves exactly like the standard normalizer early in training and then smoothly tapers to a learned sample-independent linear/affine map. A single global gate is held at $g{=}1$ during gate warmup, used to calibrate the scaling branch via EMAs, and then cosine-decayed to $g{=}0$, at which point per-token statistics vanish and the resulting fixed scalings can be folded into adjacent linear projections. Our theoretical and empirical results isolate scale anchoring as the key role played by output normalization: as a (near) $0$-homogeneous map it removes radial gradients at the output, whereas without such an anchor cross-entropy encourages unbounded logit growth (``logit chasing''). We further show that a simple fixed-target auxiliary loss on the pre-logit residual-stream scale provides an explicit alternative anchor and can aid removal of the final normalization layer. Empirically, TaperNorm matches normalized baselines under identical setups while eliminating per-token statistics and enabling these layers to be folded into adjacent linear projections at inference. On an efficiency microbenchmark, folding internal scalings yields up to $1.22\\times$ higher throughput in last-token logits mode. These results take a step towards norm-free Transformers while identifying the special role output normalization plays.",
+    "citations": 0,
+    "_source": "search2.json",
+    "_tier": "T1",
+    "external_ids": {
+      "DBLP": "journals/corr/abs-2602-10408",
+      "ArXiv": "2602.10408",
+      "DOI": "10.48550/arXiv.2602.10408",
+      "CorpusId": 285470883
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "On the impact of activation and normalization in obtaining isometric embeddings at initialization",
+    "year": 2023,
+    "authors": "Amir Joudaki, Hadi Daneshmand, F. Bach",
+    "url": "https://api.semanticscholar.org/CorpusId:258967948",
+    "relevance": 2,
+    "abstract": "In this paper, we explore the structure of the penultimate Gram matrix in deep neural networks, which contains the pairwise inner products of outputs corresponding to a batch of inputs. In several architectures it has been observed that this Gram matrix becomes degenerate with depth at initialization, which dramatically slows training. Normalization layers, such as batch or layer normalization, play a pivotal role in preventing the rank collapse issue. Despite promising advances, the existing theoretical results do not extend to layer normalization, which is widely used in transformers, and can not quantitatively characterize the role of non-linear activations. To bridge this gap, we prove that layer normalization, in conjunction with activation layers, biases the Gram matrix of a multilayer perceptron towards the identity matrix at an exponential rate with depth at initialization. We quantify this rate using the Hermite expansion of the activation function.",
+    "citations": 13,
+    "_source": "search2.json",
+    "_tier": "T1",
+    "external_ids": {
+      "DBLP": "conf/nips/JoudakiDB23",
+      "ArXiv": "2305.18399",
+      "DOI": "10.48550/arXiv.2305.18399",
+      "CorpusId": 258967948
+    },
+    "open_access_pdf": {
+      "url": "http://arxiv.org/pdf/2305.18399",
+      "status": "CLOSED",
+      "license": null
+    }
+  },
+  {
+    "title": "Geometry and Dynamics of LayerNorm",
+    "year": 2024,
+    "authors": "P. Riechers",
+    "url": "https://www.semanticscholar.org/paper/9b5d98880d73c9895cb3e33f18e26a11e64d0be2",
+    "relevance": 2,
+    "abstract": "A technical note aiming to offer deeper intuition for the LayerNorm function common in deep neural networks. LayerNorm is defined relative to a distinguished 'neural' basis, but it does more than just normalize the corresponding vector elements. Rather, it implements a composition -- of linear projection, nonlinear scaling, and then affine transformation -- on input activation vectors. We develop both a new mathematical expression and geometric intuition, to make the net effect more transparent. We emphasize that, when LayerNorm acts on an N-dimensional vector space, all outcomes of LayerNorm lie within the intersection of an (N-1)-dimensional hyperplane and the interior of an N-dimensional hyperellipsoid. This intersection is the interior of an (N-1)-dimensional hyperellipsoid, and typical inputs are mapped near its surface. We find the direction and length of the principal axes of this (N-1)-dimensional hyperellipsoid via the eigen-decomposition of a simply constructed matrix.",
+    "citations": 1,
+    "_source": "search2.json",
+    "_tier": "T1",
+    "external_ids": {
+      "DBLP": "journals/corr/abs-2405-04134",
+      "ArXiv": "2405.04134",
+      "DOI": "10.48550/arXiv.2405.04134",
+      "CorpusId": 269613786
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "Pre-RMSNorm and Pre-CRMSNorm Transformers: Equivalent and Efficient Pre-LN Transformers",
+    "year": 2023,
+    "authors": "Zixuan Jiang, Jiaqi Gu, Hanqing Zhu, D. Pan",
+    "url": "https://api.semanticscholar.org/CorpusId:258865592",
+    "relevance": 2,
+    "abstract": "Transformers have achieved great success in machine learning applications. Normalization techniques, such as Layer Normalization (LayerNorm, LN) and Root Mean Square Normalization (RMSNorm), play a critical role in accelerating and stabilizing the training of Transformers. While LayerNorm recenters and rescales input vectors, RMSNorm only rescales the vectors by their RMS value. Despite being more computationally efficient, RMSNorm may compromise the representation ability of Transformers. There is currently no consensus regarding the preferred normalization technique, as some models employ LayerNorm while others utilize RMSNorm, especially in recent large language models. It is challenging to convert Transformers with one normalization to the other type. While there is an ongoing disagreement between the two normalization types, we propose a solution to unify two mainstream Transformer architectures, Pre-LN and Pre-RMSNorm Transformers. By removing the inherent redundant mean information in the main branch of Pre-LN Transformers, we can reduce LayerNorm to RMSNorm, achieving higher efficiency. We further propose the Compressed RMSNorm (CRMSNorm) and Pre-CRMSNorm Transformer based on a lossless compression of the zero-mean vectors. We formally establish the equivalence of Pre-LN, Pre-RMSNorm, and Pre-CRMSNorm Transformer variants in both training and inference. It implies that Pre-LN Transformers can be substituted with Pre-(C)RMSNorm counterparts at almost no cost, offering the same arithmetic functionality along with free efficiency improvement. Experiments demonstrate that we can reduce the training and inference time of Pre-LN Transformers by 1% - 10%.",
+    "citations": 33,
+    "_source": "search5.json",
+    "_tier": "T1",
+    "external_ids": {
+      "DBLP": "journals/corr/abs-2305-14858",
+      "ArXiv": "2305.14858",
+      "DOI": "10.48550/arXiv.2305.14858",
+      "CorpusId": 258865592
+    },
+    "open_access_pdf": {
+      "url": "http://arxiv.org/pdf/2305.14858",
+      "status": "CLOSED",
+      "license": null
+    }
+  },
+  {
+    "title": "Turning Up the Heat: Min-p Sampling for Creative and Coherent LLM Outputs",
+    "year": 2024,
+    "authors": "Nguyen Huu Nhat Minh, A. Baker, Clement Neo, Allen G. Roush, Andreas Kirsch, Ravid Shwartz-Ziv",
+    "url": "https://api.semanticscholar.org/CorpusId:270870613",
+    "relevance": 3,
+    "abstract": "Large Language Models (LLMs) generate text by sampling the next token from a probability distribution over the vocabulary at each decoding step. Popular sampling methods like top-p (nucleus sampling) often struggle to balance quality and diversity, especially at higher temperatures which lead to incoherent or repetitive outputs. We propose min-p sampling, a dynamic truncation method that adjusts the sampling threshold based on the model's confidence by using the top token's probability as a scaling factor. Our experiments on benchmarks including GPQA, GSM8K, and AlpacaEval Creative Writing show that min-p sampling improves both the quality and diversity of generated text across different model families (Mistral and Llama 3) and model sizes (1B to 123B parameters), especially at higher temperatures. Human evaluations further show a clear preference for min-p sampling, in both text quality and creativity. Min-p sampling has been adopted by popular open-source LLM frameworks, including Hugging Face Transformers, VLLM, and many others, highlighting its considerable impact on improving text generation quality.",
+    "citations": 115,
+    "_source": "search3.json",
+    "_tier": "T2",
+    "external_ids": {
+      "DBLP": "conf/iclr/MinhBNR0S25",
+      "ArXiv": "2407.01082",
+      "CorpusId": 270870613
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "Roll the dice & look before you leap: Going beyond the creative limits of next-token prediction",
+    "year": 2025,
+    "authors": "Vaishnavh Nagarajan, Chen Henry Wu, Charles Ding, Aditi Raghunathan",
+    "url": "https://api.semanticscholar.org/CorpusId:277955410",
+    "relevance": 3,
+    "abstract": "We design a suite of minimal algorithmic tasks that are a loose abstraction of open-ended real-world tasks. This allows us to cleanly and controllably quantify the creative limits of the present-day language model. Much like real-world tasks that require a creative, far-sighted leap of thought, our tasks require an implicit, open-ended stochastic planning step that either (a) discovers new connections in an abstract knowledge graph (like in wordplay, drawing analogies, or research) or (b) constructs new patterns (like in designing math problems or new proteins). In these tasks, we empirically and conceptually argue how next-token learning is myopic; multi-token approaches, namely teacherless training and diffusion models, comparatively excel in producing diverse and original output. Secondly, to elicit randomness without hurting coherence, we find that injecting noise at the input layer (dubbed seed-conditioning) works surprisingly as well as (and in some conditions, better than) temperature sampling from the output layer. Thus, our work offers a principled, minimal test-bed for analyzing open-ended creative skills, and offers new arguments for going beyond next-token learning and temperature sampling. We make part of the code available under https://github.com/chenwu98/algorithmic-creativity",
+    "citations": 25,
+    "_source": "search3.json",
+    "_tier": "T2",
+    "external_ids": {
+      "DBLP": "journals/corr/abs-2504-15266",
+      "ArXiv": "2504.15266",
+      "DOI": "10.48550/arXiv.2504.15266",
+      "CorpusId": 277955410
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "Top-H Decoding: Adapting the Creativity and Coherence with Bounded Entropy in Text Generation",
+    "year": 2025,
+    "authors": "Erfan Baghaei Potraghloo, Seyedarmin Azizi, Souvik Kundu, M. Pedram",
+    "url": "https://api.semanticscholar.org/CorpusId:281081381",
+    "relevance": 3,
+    "abstract": "Large language models (LLMs), despite their impressive performance across a wide range of tasks, often struggle to balance two competing objectives in open-ended text generation: fostering diversity and creativity while preserving logical coherence. Existing truncated sampling techniques, including temperature scaling, top-\\$p\\$ (nucleus) sampling, and min-\\$p\\$ sampling, aim to manage this trade-off. However, they exhibit limitations, particularly in the effective incorporation of the confidence of the model into the corresponding sampling strategy. For example, min-\\$p\\$ sampling relies on a single top token as a heuristic for confidence, eventually underutilizing the information of the probability distribution. Toward effective incorporation of the confidence of the model, in this paper, we present **top-H** decoding. We first establish the theoretical foundation of the interplay between creativity and coherence in truncated sampling by formulating an **entropy-constrained minimum divergence** problem. We then prove this minimization problem to be equivalent to an **entropy-constrained mass maximization** (ECMM) problem, which is NP-hard. Finally, we present top-H decoding, a computationally efficient greedy algorithm to solve the ECMM problem. Extensive empirical evaluations demonstrate that top-H outperforms the state-of-the-art (SoTA) alternative of min-\\$p\\$ sampling by up to **25.63%** on creative writing benchmarks, while maintaining robustness on question-answering datasets such as GPQA, GSM8K, and MT-Bench. Additionally, an *LLM-as-judge* evaluation confirms that top-H indeed produces coherent outputs even at higher temperatures, where creativity is especially critical. In summary, top-H advances SoTA in open-ended text generation and can be *easily integrated* into creative writing applications. The code is available at https://github.com/ErfanBaghaei/Top-H-Decoding.",
+    "citations": 6,
+    "_source": "search3.json",
+    "_tier": "T2",
+    "external_ids": {
+      "ArXiv": "2509.02510",
+      "DBLP": "journals/corr/abs-2509-02510",
+      "DOI": "10.48550/arXiv.2509.02510",
+      "CorpusId": 281081381
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "BILLY: Steering Large Language Models via Merging Persona Vectors for Creative Generation",
+    "year": 2025,
+    "authors": "Tsung-Min Pai, Jui-I Wang, Li-Chun Lu, Shao-Hua Sun, Hung-yi Lee, Kai-Wei Chang",
+    "url": "https://api.semanticscholar.org/CorpusId:282057151",
+    "relevance": 3,
+    "abstract": "Multi-LLM systems enhance the creativity of large language models by simulating human collective intelligence but suffer from significant drawbacks, such as high computational costs and inference latency. To address these limitations, we propose BILLY (BlendIng persona vectors for Large Language model creativitY), a training-free framework that captures the benefits of multi-LLM collaboration, i.e. inducing diverse perspectives and specialized expertise, within a single model. BILLY operates by extracting and blending multiple distinct persona vectors directly in the model's activation space. We steer the model's generation process with this merged vector while inference, enabling multi-perspective output without explicit multi-LLM communication. Our experiments across creativity-oriented benchmarks demonstrate that BILLY surpasses single model prompting and traditional multi-LLM approaches, while substantially reducing inference time and computational costs. Our analyses further reveal that distinct persona vectors can be blended to achieve both effective control over complementary aspects of generation and greater interpretability.",
+    "citations": 4,
+    "_source": "search3.json",
+    "_tier": "T2",
+    "external_ids": {
+      "DBLP": "journals/corr/abs-2510-10157",
+      "ArXiv": "2510.10157",
+      "DOI": "10.48550/arXiv.2510.10157",
+      "CorpusId": 282057151
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "Pushing GPT's Creativity to Its Limits: Alternative Uses and Torrance Tests",
+    "year": 2023,
+    "authors": "Fabr\u00edcio G\u00f3es, Piotr Sawicki, Marek Grzes, Marco Volpe, Jacob Watson",
+    "url": "https://www.semanticscholar.org/paper/5a69cf4f680b7cba648ee5860339ef70e548ed05",
+    "relevance": 3,
+    "abstract": "",
+    "citations": 22,
+    "_source": "search3.json",
+    "_tier": "T2",
+    "external_ids": {
+      "DBLP": "conf/icccrea/GoesSGVW23",
+      "CorpusId": 260844252
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "Creative Preference Optimization",
+    "year": 2025,
+    "authors": "Mete Ismayilzada, Antonio Laverghetta, Simone A. Luchini, Reet Patel, Antoine Bosselut, Lonneke van der Plas, Roger E. Beaty",
+    "url": "https://api.semanticscholar.org/CorpusId:278769680",
+    "relevance": 2,
+    "abstract": "While Large Language Models (LLMs) have demonstrated impressive performance across natural language generation tasks, their ability to generate truly creative content-characterized by novelty, diversity, surprise, and quality-remains limited. Existing methods for enhancing LLM creativity often focus narrowly on diversity or specific tasks, failing to address creativity's multifaceted nature in a generalizable way. In this work, we propose Creative Preference Optimization (CrPO), a novel alignment method that injects signals from multiple creativity dimensions into the preference optimization objective in a modular fashion. We train and evaluate creativity-augmented versions of several models using CrPO and MuCE, a new large-scale human preference dataset spanning over 200,000 human-generated responses and ratings from more than 30 psychological creativity assessments. Our models outperform strong baselines, including GPT-4o, on both automated and human evaluations, producing more novel, diverse, and surprising generations while maintaining high output quality. Additional evaluations on NoveltyBench further confirm the generalizability of our approach. Together, our results demonstrate that directly optimizing for creativity within preference frameworks is a promising direction for advancing the creative capabilities of LLMs without compromising output quality.",
+    "citations": 14,
+    "_source": "search3.json",
+    "_tier": "T2",
+    "external_ids": {
+      "ArXiv": "2505.14442",
+      "DBLP": "conf/emnlp/IsmayilzadaLLPBPB25",
+      "DOI": "10.48550/arXiv.2505.14442",
+      "CorpusId": 278769680
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "Shakespearean Sparks: The Dance of Hallucination and Creativity in LLMs' Decoding Layers",
+    "year": 2025,
+    "authors": "Zicong He, Boxuan Zhang, Lu Cheng",
+    "url": "https://api.semanticscholar.org/CorpusId:276776362",
+    "relevance": 2,
+    "abstract": "Large language models (LLMs) are known to hallucinate, a phenomenon often linked to creativity. While previous research has primarily explored this connection through theoretical or qualitative lenses, our work takes a quantitative approach to systematically examine the relationship between hallucination and creativity in LLMs. Given the complex nature of creativity, we propose a narrow definition tailored to LLMs and introduce an evaluation framework, HCL, which quantifies Hallucination and Creativity across different Layers of LLMs during decoding. Our empirical analysis reveals a tradeoff between hallucination and creativity that is consistent across layer depth, model type, and model size. Notably, across different model architectures, we identify a specific layer at each model size that optimally balances this tradeoff. Additionally, the optimal layer tends to appear in the early layers of larger models, and the confidence of the model is also significantly higher at this layer. These findings provide a quantitative perspective that offers new insights into the interplay between LLM creativity and hallucination. The code and data for our experiments are available at https://github.com/ZicongHe2002/HCL-Spark.",
+    "citations": 6,
+    "_source": "search3.json",
+    "_tier": "T2",
+    "external_ids": {
+      "ArXiv": "2503.02851",
+      "DBLP": "journals/corr/abs-2503-02851",
+      "DOI": "10.48550/arXiv.2503.02851",
+      "CorpusId": 276776362
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "The Paradox of Stochasticity: Limited Creativity and Computational Decoupling in Temperature-Varied LLM Outputs of Structured Fictional Data",
+    "year": 2025,
+    "authors": "Evgenii Evstafev",
+    "url": "https://www.semanticscholar.org/paper/a4bb46c3d95981094385df0f8178e3f2d0ba8a74",
+    "relevance": 2,
+    "abstract": "This study examines how temperature settings and model architectures affect the generation of structured fictional data (names, birthdates) across three large language models (LLMs): llama3.1:8b, deepseek-r1:8b, and mistral:latest. By systematically testing temperature values from 0.0 to 1.0 in increments of 0.1, we conducted 330 trials yielding 889 structured entities, validated for syntactic consistency. Key findings reveal that model architecture significantly influences computational efficiency, with mistral:latest and llama3.1:8b processing data 8x faster than deepseek-r1:8b. Contrary to expectations, temperature showed no correlation with processing time, challenging assumptions about stochastic sampling costs. Output diversity remained limited, as models consistently defaulted to common name archetypes (e.g., 'John Doe' and 'Jane Smith') across all temperatures, though rare names clustered at intermediate values (0.3-0.7). These results demonstrate that architectural optimizations, rather than temperature adjustments, dominate performance in structured generation tasks. The findings emphasize prioritizing model selection over hyperparameter tuning for efficiency and suggest explicit diversity constraints are necessary to mitigate default output biases in synthetic data pipelines.",
+    "citations": 9,
+    "_source": "search3.json",
+    "_tier": "T2",
+    "external_ids": {
+      "DBLP": "journals/corr/abs-2502-08515",
+      "ArXiv": "2502.08515",
+      "DOI": "10.48550/arXiv.2502.08515",
+      "CorpusId": 276287247
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "Within-Model vs Between-Prompt Variability in Large Language Models for Creative Tasks",
+    "year": 2026,
+    "authors": "Jennifer Haase, Jana Gonnermann-M\u00fcller, Paul H. P. Hanel, Nicolas Leins, Thomas Kosch, Jan Mendling, S. Pokutta",
+    "url": "https://api.semanticscholar.org/CorpusId:285140182",
+    "relevance": 2,
+    "abstract": "How much of LLM output variance is explained by prompts versus model choice versus stochasticity through sampling? We answer this by evaluating 12 LLMs on 10 creativity prompts with 100 samples each (N = 12,000). For output quality (originality), prompts explain 36.43% of variance, comparable to model choice (40.94%). But for output quantity (fluency), model choice (51.25%) and within-LLM variance (33.70%) dominate, with prompts explaining only 4.22%. Prompts are powerful levers for steering output quality, but given the substantial within-LLM variance (10-34%), single-sample evaluations risk conflating sampling noise with genuine prompt or model effects.",
+    "citations": 1,
+    "_source": "search3.json",
+    "_tier": "T2",
+    "external_ids": {
+      "ArXiv": "2601.21339",
+      "DBLP": "journals/corr/abs-2601-21339",
+      "DOI": "10.48550/arXiv.2601.21339",
+      "CorpusId": 285140182
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "Modifying Large Language Model Post-Training for Diverse Creative Writing",
+    "year": 2025,
+    "authors": "John Joon Young Chung, Vishakh Padmakumar, Melissa Roemmele, Yuqian Sun, Max Kreminski",
+    "url": "https://api.semanticscholar.org/CorpusId:277244383",
+    "relevance": 2,
+    "abstract": "As creative writing tasks do not have singular correct answers, large language models (LLMs) trained to perform these tasks should be able to generate diverse valid outputs. However, LLM post-training often focuses on improving generation quality but neglects to facilitate output diversity. Hence, in creative writing generation, we investigate post-training approaches to promote both output diversity and quality. Our core idea is to include deviation -- the degree of difference between a training sample and all other samples with the same prompt -- in the training objective to facilitate learning from rare high-quality instances. By adopting our approach to direct preference optimization (DPO) and odds ratio preference optimization (ORPO), we demonstrate that we can promote the output diversity of trained models while minimally decreasing quality. Our best model with 8B parameters could achieve on-par diversity as a human-created dataset while having output quality similar to the best instruction-tuned models we examined, GPT-4o and DeepSeek-R1. We further validate our approaches with a human evaluation, an ablation, and a comparison to an existing diversification approach, DivPO.",
+    "citations": 26,
+    "_source": "search3.json",
+    "_tier": "T2",
+    "external_ids": {},
+    "open_access_pdf": null
+  },
+  {
+    "title": "Mechanistic Interpretability for AI Safety - A Review",
+    "year": 2024,
+    "authors": "Leonard Bereska, E. Gavves",
+    "url": "https://www.semanticscholar.org/paper/8b750488d139f9beba0815ff8f46ebe15ebb3e58",
+    "relevance": 2,
+    "abstract": "Understanding AI systems' inner workings is critical for ensuring value alignment and safety. This review explores mechanistic interpretability: reverse engineering the computational mechanisms and representations learned by neural networks into human-understandable algorithms and concepts to provide a granular, causal understanding. We establish foundational concepts such as features encoding knowledge within neural activations and hypotheses about their representation and computation. We survey methodologies for causally dissecting model behaviors and assess the relevance of mechanistic interpretability to AI safety. We examine benefits in understanding, control, alignment, and risks such as capability gains and dual-use concerns. We investigate challenges surrounding scalability, automation, and comprehensive interpretation. We advocate for clarifying concepts, setting standards, and scaling techniques to handle complex models and behaviors and expand to domains such as vision and reinforcement learning. Mechanistic interpretability could help prevent catastrophic outcomes as AI systems become more powerful and inscrutable.",
+    "citations": 380,
+    "_source": "search4.json",
+    "_tier": "T4",
+    "external_ids": {
+      "ArXiv": "2404.14082",
+      "DBLP": "journals/corr/abs-2404-14082",
+      "DOI": "10.48550/arXiv.2404.14082",
+      "CorpusId": 269293418
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "Identifying Linear Relational Concepts in Large Language Models",
+    "year": 2023,
+    "authors": "David Chanin, Anthony Hunter, Oana-Maria Camburu",
+    "url": "https://www.semanticscholar.org/paper/be431d20e27bafc584858bb76ba41b483cfd514b",
+    "relevance": 2,
+    "abstract": "Transformer language models (LMs) have been shown to represent concepts as directions in the latent space of hidden activations. However, for any human-interpretable concept, how can we find its direction in the latent space? We present a technique called linear relational concepts (LRC) for finding concept directions corresponding to human-interpretable concepts by first modeling the relation between subject and object as a linear relational embedding (LRE). We find that inverting the LRE and using earlier object layers results in a powerful technique for finding concept directions that outperforms standard black-box probing classifiers. We evaluate LRCs on their performance as concept classifiers as well as their ability to causally change model output.",
+    "citations": 9,
+    "_source": "search4.json",
+    "_tier": "T3",
+    "external_ids": {
+      "ACL": "2024.naacl-long.85",
+      "DBLP": "conf/naacl/ChaninHC24",
+      "ArXiv": "2311.08968",
+      "DOI": "10.48550/arXiv.2311.08968",
+      "CorpusId": 265212775
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "The Geometry of Truth: Emergent Linear Structure in Large Language Model Representations of True/False Datasets",
+    "year": 2023,
+    "authors": "Samuel Marks, Max Tegmark",
+    "url": "https://www.semanticscholar.org/paper/d59523889679aee15992c4bf6e52b134186d07d3",
+    "relevance": 2,
+    "abstract": "Large Language Models (LLMs) have impressive capabilities, but are prone to outputting falsehoods. Recent work has developed techniques for inferring whether a LLM is telling the truth by training probes on the LLM's internal activations. However, this line of work is controversial, with some authors pointing out failures of these probes to generalize in basic ways, among other conceptual issues. In this work, we use high-quality datasets of simple true/false statements to study in detail the structure of LLM representations of truth, drawing on three lines of evidence: 1. Visualizations of LLM true/false statement representations, which reveal clear linear structure. 2. Transfer experiments in which probes trained on one dataset generalize to different datasets. 3. Causal evidence obtained by surgically intervening in a LLM's forward pass, causing it to treat false statements as true and vice versa. Overall, we present evidence that at sufficient scale, LLMs linearly represent the truth or falsehood of factual statements. We also show that simple difference-in-mean probes generalize as well as other probing techniques while identifying directions which are more causally implicated in model outputs.",
+    "citations": 476,
+    "_source": "search4.json",
+    "_tier": "T3",
+    "external_ids": {
+      "ArXiv": "2310.06824",
+      "DBLP": "journals/corr/abs-2310-06824",
+      "DOI": "10.48550/arXiv.2310.06824",
+      "CorpusId": 263831277
+    },
+    "open_access_pdf": {
+      "url": "https://arxiv.org/pdf/2310.06824",
+      "status": "CLOSED",
+      "license": null
+    }
+  },
+  {
+    "title": "Transformer Feed-Forward Layers Build Predictions by Promoting Concepts in the Vocabulary Space",
+    "year": 2022,
+    "authors": "Mor Geva, Avi Caciularu, Ke Wang, Yoav Goldberg",
+    "url": "https://www.semanticscholar.org/paper/cf36236015c9f93f15bfafbf282f69e08bdc9c16",
+    "relevance": 2,
+    "abstract": "Transformer-based language models (LMs) are at the core of modern NLP, but their internal prediction construction process is opaque and largely not understood. In this work, we make a substantial step towards unveiling this underlying prediction process, by reverse-engineering the operation of the feed-forward network (FFN) layers, one of the building blocks of transformer models. We view the token representation as a changing distribution over the vocabulary, and the output from each FFN layer as an additive update to that distribution. Then, we analyze the FFN updates in the vocabulary space, showing that each update can be decomposed to sub-updates corresponding to single FFN parameter vectors, each promoting concepts that are often human-interpretable. We then leverage these findings for controlling LM predictions, where we reduce the toxicity of GPT2 by almost 50%, and for improving computation efficiency with a simple early exit rule, saving 20% of computation on average.",
+    "citations": 515,
+    "_source": "search4.json",
+    "_tier": "T3",
+    "external_ids": {
+      "DBLP": "conf/emnlp/GevaCWG22",
+      "ArXiv": "2203.14680",
+      "ACL": "2022.emnlp-main.3",
+      "DOI": "10.48550/arXiv.2203.14680",
+      "CorpusId": 247762385
+    },
+    "open_access_pdf": {
+      "url": "http://arxiv.org/pdf/2203.14680",
+      "status": "GREEN",
+      "license": null
+    }
+  },
+  {
+    "title": "Linear Representations of Hierarchical Concepts in Language Models",
+    "year": 2026,
+    "authors": "Masaki Sakata, Benjamin Heinzerling, Takumi Ito, Sho Yokoi, Kentaro Inui",
+    "url": "https://www.semanticscholar.org/paper/7e423188e2f9b7cb4729941063b10f5ad31c13cb",
+    "relevance": 2,
+    "abstract": "We investigate how and to what extent hierarchical relations (e.g., Japan $\\subset$ Eastern Asia $\\subset$ Asia) are encoded in the internal representations of language models. Building on Linear Relational Concepts, we train linear transformations specific to each hierarchical depth and semantic domain, and characterize representational differences associated with hierarchical relations by comparing these transformations. Going beyond prior work on the representational geometry of hierarchies in LMs, our analysis covers multi-token entities and cross-layer representations. Across multiple domains we learn such transformations and evaluate in-domain generalization to unseen data and cross-domain transfer. Experiments show that, within a domain, hierarchical relations can be linearly recovered from model representations. We then analyze how hierarchical information is encoded in representation space. We find that it is encoded in a relatively low-dimensional subspace and that this subspace tends to be domain-specific. Our main result is that hierarchy representation is highly similar across these domain-specific subspaces. Overall, we find that all models considered in our experiments encode concept hierarchies in the form of highly interpretable linear representations.",
+    "citations": 0,
+    "_source": "search4.json",
+    "_tier": "T3",
+    "external_ids": {
+      "ArXiv": "2604.07886",
+      "CorpusId": 287255958
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  },
+  {
+    "title": "Eliciting Latent Predictions from Transformers with the Tuned Lens",
+    "year": 2023,
+    "authors": "Nora Belrose, Zach Furman, Logan Smith, Danny Halawi, Igor V. Ostrovsky, Lev McKinney, Stella Biderman, J. Steinhardt",
+    "url": "https://www.semanticscholar.org/paper/762ca2711eb167f19b79e39c175708ca15e1f5d7",
+    "relevance": 2,
+    "abstract": "We analyze transformers from the perspective of iterative inference, seeking to understand how model predictions are refined layer by layer. To do so, we train an affine probe for each block in a frozen pretrained model, making it possible to decode every hidden state into a distribution over the vocabulary. Our method, the tuned lens, is a refinement of the earlier\"logit lens\"technique, which yielded useful insights but is often brittle. We test our method on various autoregressive language models with up to 20B parameters, showing it to be more predictive, reliable and unbiased than the logit lens. With causal experiments, we show the tuned lens uses similar features to the model itself. We also find the trajectory of latent predictions can be used to detect malicious inputs with high accuracy. All code needed to reproduce our results can be found at https://github.com/AlignmentResearch/tuned-lens.",
+    "citations": 387,
+    "_source": "search4.json",
+    "_tier": "T3",
+    "external_ids": {
+      "ArXiv": "2303.08112",
+      "DBLP": "journals/corr/abs-2303-08112",
+      "DOI": "10.48550/arXiv.2303.08112",
+      "CorpusId": 257504984
+    },
+    "open_access_pdf": {
+      "url": "https://arxiv.org/pdf/2303.08112",
+      "status": "GREEN",
+      "license": null
+    }
+  },
+  {
+    "title": "Impact of Layer Norm on Memorization and Generalization in Transformers",
+    "year": 2025,
+    "authors": "Rishi Singhal, Jung-Eun Kim",
+    "url": "https://www.semanticscholar.org/paper/8a64e728cb87dc59f798e322d83ad1447f41b834",
+    "relevance": 3,
+    "abstract": "Layer Normalization (LayerNorm) is one of the fundamental components in transformers that stabilizes training and improves optimization. In recent times, Pre-LayerNorm transformers have become the preferred choice over Post-LayerNorm transformers due to their stable gradient flow. However, the impact of LayerNorm on learning and memorization across these architectures remains unclear. In this work, we investigate how LayerNorm influences memorization and learning for Pre- and Post-LayerNorm transformers. We identify that LayerNorm serves as a key factor for stable learning in Pre-LayerNorm transformers, while in Post-LayerNorm transformers, it impacts memorization. Our analysis reveals that eliminating LayerNorm parameters in Pre-LayerNorm models exacerbates memorization and destabilizes learning, while in Post-LayerNorm models, it effectively mitigates memorization by restoring genuine labels. We further precisely identify that early layers LayerNorm are the most critical over middle/later layers and their influence varies across Pre and Post LayerNorm models. We have validated it through 13 models across 6 Vision and Language datasets. These insights shed new light on the role of LayerNorm in shaping memorization and learning in transformers.",
+    "citations": 1,
+    "_source": "search5.json",
+    "_tier": "T1",
+    "external_ids": {
+      "ArXiv": "2511.10566",
+      "DBLP": "journals/corr/abs-2511-10566",
+      "DOI": "10.48550/arXiv.2511.10566",
+      "CorpusId": 282991505
+    },
+    "open_access_pdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    }
+  }
+]

@@ -1,0 +1,24 @@
+Generative language models reliably collapse onto common, ``human-intuitive''
+outputs in creative tasks. A widely cited mechanistic suspect is
+\layernorm, which forces hidden states onto a fixed-radius sphere and removes
+magnitude as a representational degree of freedom. We test this hypothesis
+directly: does relaxing \layernorm at inference change concept-association
+geometry and the Divergent Association Task (\dat) score? Across three
+pretrained Pre-LN Transformers (\gptsmall, \gptmedium, \pythia), three
+decoding strategies (greedy, top-$p$, high-temperature), seven \layernorm
+intervention recipes, and four layer-range targets, we measure (i) per-layer
+concept-pair cosine distance, (ii) \dat scores, and (iii) perplexity as a
+fluency check. We find that only \rmsnorm-equivalent ablation
+(``\nomean'') preserves fluency; all stronger ablations break the model.
+Removing mean-subtraction shifts final-layer concept-pair distance by
+$+7\%$ on \pythia, confirming the predicted geometric expansion. The
+behavioural effect on \dat, however, is small and decoder-dependent: under
+greedy and moderate-temperature top-$p$ decoding, \layernorm relaxation does
+not move \dat in any consistent direction. Only at temperature $T{=}1.2$
+does the geometric expansion propagate, raising \dat by $+1.7$ to $+5.1$
+points across all four layer-range targets in \gptsmall (Cohen's $d$ up to
+$+0.69$). We further document an artifactual ``\dat inflation'' failure mode
+in which broken interventions emit out-of-vocabulary tokens that score
+spuriously high. We conclude that \layernorm is one of several gates between
+latent variation and output diversity, but not the dominant one --- the
+LM-head and softmax recompress most of the freed latent variation.

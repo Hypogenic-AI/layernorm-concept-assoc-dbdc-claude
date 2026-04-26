@@ -1,0 +1,73 @@
+\section{Related Work}
+\label{sec:related}
+
+\para{Geometric role of \layernorm.}
+\citet{brody2023expressivity} decompose
+$\layernorm(\vx)=\gamma\odot(\vx-\mu)/\sigma+\beta$ into a projection (onto
+the hyperplane orthogonal to $\bm{1}$) and a scaling onto a fixed-radius
+sphere, and show that both components are needed for attention: the
+projection enables uniform-attention queries (3$\times$ faster majority
+computation), and the scaling fixes the \emph{unselectable-key} problem of
+\citet{demeter2020stolen}. \citet{gupta2024geometric} extend this to seven
+LLMs (including \pythia, \textsc{GPT-J}, and \textsc{Llama}) and show that
+hidden states already have near-zero mean before \layernorm, so the mean
+subtraction is empirically near-redundant --- which makes \rmsnorm
+\citep{zhang2019root} a natural drop-in. \citet{menary2024transformer}
+formalise the cross-coupling of semantic subspaces caused by Pre-Norm's
+shared denominator, and report that O($10\%$) L2-norm perturbations
+collapse $\sim\!1\%$ of attention heads. \citet{singhal2025impact} find
+divergent roles in Pre-LN versus Post-LN: in Pre-LN, removing \layernorm
+both destabilises learning and increases memorisation, with early-layer
+\layernorm most influential. None of these studies measures the consequence
+for creative-divergence metrics.
+
+\para{Norm-removal architectures.}
+A growing literature replaces or removes per-token normalisation:
+\textsc{nGPT} \citep{loshchilov2025ngpt} forces every vector to unit norm;
+\textsc{TaperNorm} \citep{kanavalau2026taper} introduces a gated
+cosine-decay from \rmsnorm to a fixed linear map and identifies the
+\emph{final} normalisation as the critical scale anchor; \textsc{DyT}
+\citep{zhu2025dynamic} replaces \layernorm with dynamic element-wise
+nonlinearities. These works study perplexity and downstream accuracy, not
+divergent association. Our intervention recipes (\nomean, \noaffine,
+\weakened, \identityln) are inference-time analogues of these training-time
+designs.
+
+\para{Creativity in LLMs.}
+\citet{olson2021naming} introduce \dat as an objective measure of
+associative creativity in humans, scoring the mean pairwise cosine distance
+among $7$ of $10$ unrelated nouns via \glove. \citet{chen2023probing}
+adapt \dat to LLMs, finding that \textsc{GPT-4} (greedy) scores $89.1$,
+beating $96\%$ of $8{,}572$ human respondents.
+\citet{bellemare2024divergent} confirm with $100{,}000$ humans across \dat
+and creative writing. \citet{nagarajan2025roll} introduce
+algorithmic-creativity tasks (Sibling/Triangle/Circle/Line) and report that
+\emph{seed-conditioning} (input randomness) beats temperature for diversity
+--- pointing to internal-state, not output-state, mechanisms. Our work asks
+whether \layernorm is one such internal-state mechanism. \citet{he2025shakespearean}
+probe creativity layer-wise via Layer-Skip and find an early-layer optimum
+for the hallucination-creativity tradeoff. Our layer-targeted ablations
+(\tgtearly, \tgtmid, \tgtlate) are the analogous lever at inference time.
+
+\para{Concept geometry in latent space.}
+The linear-representation hypothesis
+\citep{marks2023geometry,park2024linear,geva2022transformer,belrose2023eliciting}
+shows that concepts are encoded as linear directions in hidden states.
+This work studies \emph{single} concepts; concept \emph{association}
+(creative combination) requires interaction geometry. Our per-layer
+pairwise-cosine probe over a noun bank is the natural extension.
+
+\para{Decoding for diversity.}
+\citet{holtzman2020curious} establish nucleus (top-$p$) sampling;
+\citet{nguyen2025minp} introduce min-$p$ sampling. These act on the output
+distribution. Our finding that \layernorm's geometric expansion only
+propagates to \dat at high temperature is consistent with the
+\emph{joint-gating} story: latent room must coexist with a decoder loose
+enough to surface it.
+
+\para{Positioning.}
+Geometric work establishes \emph{what} \layernorm does; behavioural work
+establishes \emph{how to measure} associative creativity. We cross the
+streams: controlled \layernorm interventions on pretrained Pre-LN models,
+with \dat, perplexity, and per-layer geometry measured jointly. To our
+knowledge this is the first such study.

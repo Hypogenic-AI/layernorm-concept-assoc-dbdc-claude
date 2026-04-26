@@ -1,0 +1,1052 @@
+{
+  "success": true,
+  "total": 116,
+  "papers": [
+    {
+      "title": "Language Models are Unsupervised Multitask Learners",
+      "year": 2019,
+      "authors": "Alec Radford, Jeff Wu, R. Child, D. Luan, Dario Amodei, I. Sutskever",
+      "url": "https://www.semanticscholar.org/paper/9405cc0d6169988371b2755e573cc28650d14dfe",
+      "relevance": 1,
+      "abstract": "",
+      "citations": 28220
+    },
+    {
+      "title": "Probing the Creativity of Large Language Models: Can models produce divergent semantic association?",
+      "year": 2023,
+      "authors": "Honghua Chen, Nai Ding",
+      "url": "https://api.semanticscholar.org/CorpusId:264172665",
+      "relevance": 1,
+      "abstract": "Large language models possess remarkable capacity for processing language, but it remains unclear whether these models can further generate creative content. The present study aims to investigate the creative thinking of large language models through a cognitive perspective. We utilize the divergent association task (DAT), an objective measurement of creativity that asks models to generate unrelated words and calculates the semantic distance between them. We compare the results across different models and decoding strategies. Our findings indicate that: (1) When using the greedy search strategy, GPT-4 outperforms 96% of humans, while GPT-3.5-turbo exceeds the average human level. (2) Stochastic sampling and temperature scaling are effective to obtain higher DAT scores for models except GPT-4, but face a trade-off between creativity and stability. These results imply that advanced large language models have divergent semantic associations, which is a fundamental process underlying creativity.",
+      "citations": 47
+    },
+    {
+      "title": "Divergent semantic integration (DSI): Extracting creativity from narratives with distributional semantic modeling",
+      "year": 2022,
+      "authors": "D. Johnson, J. Kaufman, Brendan S. Baker, John D. Patterson, B. Barbot, Adam E. Green, Janet G. van Hell, Evan S. Kennedy, Grace F Sullivan, Christa L. Taylor, T. Ward, R. Beaty",
+      "url": "https://api.semanticscholar.org/CorpusId:252969336",
+      "relevance": 1,
+      "abstract": "We developed a novel conceptualization of one component of creativity in narratives by integrating creativity theory and distributional semantics theory. We termed the new construct divergent semantic integration (DSI), defined as the extent to which a narrative connects divergent ideas. Across nine studies, 27 different narrative prompts, and over 3500 short narratives, we compared six models of DSI that varied in their computational architecture. The best-performing model employed Bidirectional Encoder Representations from Transformers (BERT), which generates context-dependent numerical representations of words (i.e., embeddings). BERT DSI scores demonstrated impressive predictive power, explaining up to 72% of the variance in human creativity ratings, even approaching human inter-rater reliability for some tasks. BERT DSI scores showed equivalently high predictive power for expert and nonexpert human ratings of creativity in narratives. Critically, DSI scores generalized across ethnicity and English language proficiency, including individuals identifying as Hispanic and L2 English speakers. The integration of creativity and distributional semantics theory has substantial potential to generate novel hypotheses about creativity and novel operationalizations of its underlying processes and components. To facilitate new discoveries across diverse disciplines, we provide a tutorial with code (osf.io/ath2s) on how to compute DSI and a web app (osf.io/ath2s) to freely retrieve DSI scores.",
+      "citations": 73
+    },
+    {
+      "title": "Training Emergent Joint Associations: A Reinforcement Learning Approach to Creative Thinking in Language Models",
+      "year": 2025,
+      "authors": "Mukul Singh, Ananya Singha, Aishni Parab, Pronita Mehrotra, Sumit Gulwani",
+      "url": "https://api.semanticscholar.org/CorpusId:283244050",
+      "relevance": 1,
+      "abstract": "Associative thinking--the ability to connect seemingly unrelated ideas--is a foundational element of human creativity and problem-solving. This paper explores whether reinforcement learning (RL) guided by associative thinking principles can enhance a model's performance across diverse generative tasks, including story writing, code generation, and chart creation. We introduce a reinforcement learning framework that uses a prompt-based evaluation mechanism, incorporating established divergent thinking metrics from creativity research. A base language model is fine-tuned using this framework to reward outputs demonstrating higher novelty through higher degrees of conceptual connectivity. Interestingly, the experimental results suggest that RL-based associative thinking-trained models not only generate more original and coherent stories but also exhibit improved abstraction and flexibility in tasks such as programming and data visualization. Our findings provide initial evidence that modeling cognitive creativity principles through reinforcement learning can yield more adaptive and generative AI.",
+      "citations": 0
+    },
+    {
+      "title": "Divergent creativity in humans and large language models",
+      "year": 2024,
+      "authors": "Antoine Bellemare\u2010Pepin, Franccois Lespinasse, Philipp Tholke, Y. Harel, K. Mathewson, Jay A. Olson, Y. Bengio, Karim Jerbi CoCo Lab, Psychology Department, U. Montr'eal, Montreal, Qc, Canada, Music department, C. University, Sociology, Anthropology department, Mila, Department of Social Psychology, University of Toronto Mississauga, Mississauga, On, D. Science, Op\u00e9rations Research, Unique Center",
+      "url": "https://api.semanticscholar.org/CorpusId:269981975",
+      "relevance": 1,
+      "abstract": "The recent surge of Large Language Models (LLMs) has led to claims that they are approaching a level of creativity akin to human capabilities. This idea has sparked a blend of excitement and apprehension. However, a critical piece that has been missing in this discourse is a systematic evaluation of LLMs\u2019 semantic diversity, particularly in comparison to human divergent thinking. To bridge this gap, we leverage recent advances in computational creativity to analyze semantic divergence in both state-of-the-art LLMs and a substantial dataset of 100,000 humans. These divergence-based measures index associative thinking\u2014the ability to access and combine remote concepts in semantic space\u2014an established facet of creative cognition. We benchmark performance on the Divergent Association Task (DAT) and across multiple creative-writing tasks (haiku, story synopses, and flash fiction), using identical, objective scoring. We found evidence that LLMs can surpass average human performance on the DAT, and approach human creative writing abilities, yet they remain below the mean creativity scores observed among the more creative segment of human participants. Notably, even the top performing LLMs are still largely surpassed by the aggregated top half of human participants, underscoring a ceiling that current LLMs still fail to surpass. We also systematically varied linguistic strategy prompts and temperature, observing reliable gains in semantic divergence for several models. Our human-machine benchmarking framework addresses the polemic surrounding the imminent replacement of human creative labor by AI, disentangling the quality of the respective creative linguistic outputs using established objective measures. While prompting deeper exploration of the distinctive elements of human inventive thought compared to those of AI systems, we lay out a series of techniques to improve their outputs with respect to semantic diversity, such as prompt design and hyper-parameter tuning.",
+      "citations": 33
+    },
+    {
+      "title": "PopBlends: Strategies for Conceptual Blending with Large Language Models",
+      "year": 2021,
+      "authors": "Sitong Wang, S. Petridis, Taeahn Kwon, Xiaojuan Ma, Lydia B. Chilton",
+      "url": "https://api.semanticscholar.org/CorpusId:252715389",
+      "relevance": 1,
+      "abstract": "Pop culture is an important aspect of communication. On social media people often post pop culture reference images that connect an event, product or other entity to a pop culture domain. Creating these images is a creative challenge that requires finding a conceptual connection between the users\u2019 topic and a pop culture domain. In cognitive theory, this task is called conceptual blending. We present a system called PopBlends that automatically suggests conceptual blends. The system explores three approaches that involve both traditional knowledge extraction methods and large language models. Our annotation study shows that all three methods provide connections with similar accuracy, but with very different characteristics. Our user study shows that people found twice as many blend suggestions as they did without the system, and with half the mental demand. We discuss the advantages of combining large language models with knowledge bases for supporting divergent and convergent thinking.",
+      "citations": 67
+    },
+    {
+      "title": "Deep Associations, High Creativity: A Simple yet Effective Metric for Evaluating Large Language Models",
+      "year": 2025,
+      "authors": "Ziliang Qiu, Renfen Hu",
+      "url": "https://api.semanticscholar.org/CorpusId:282064856",
+      "relevance": 1,
+      "abstract": "The evaluation of LLMs'creativity represents a crucial research domain, though challenges such as data contamination and costly human assessments often impede progress. Drawing inspiration from human creativity assessment, we propose PACE, asking LLMs to generate Parallel Association Chains to Evaluate their creativity. PACE minimizes the risk of data contamination and offers a straightforward, highly efficient evaluation, as evidenced by its strong correlation with Chatbot Arena Creative Writing rankings (Spearman's $\\rho = 0.739$, $p<0.001$) across various proprietary and open-source models. A comparative analysis of associative creativity between LLMs and humans reveals that while high-performing LLMs achieve scores comparable to average human performance, professional humans consistently outperform LLMs. Furthermore, linguistic analysis reveals that both humans and LLMs exhibit a trend of decreasing concreteness in their associations, and humans demonstrating a greater diversity of associative patterns.",
+      "citations": 3
+    },
+    {
+      "title": "Enhancing Creativity in Large Language Models through Associative Thinking Strategies",
+      "year": 2024,
+      "authors": "Pronita Mehrotra, Aishni Parab, Sumit Gulwani",
+      "url": "https://www.semanticscholar.org/paper/2c46e3c7dd01a099634ad248ddca2b1d855a0ffc",
+      "relevance": 1,
+      "abstract": "This paper explores the enhancement of creativity in Large Language Models (LLMs) like vGPT-4 through associative thinking, a cognitive process where creative ideas emerge from linking seemingly unrelated concepts. Associative thinking strategies have been found to effectively help humans boost creativity. However, whether the same strategies can help LLMs become more creative remains under-explored. In this work, we investigate whether prompting LLMs to connect disparate concepts can augment their creative outputs. Focusing on three domains -- Product Design, Storytelling, and Marketing -- we introduce creativity tasks designed to assess vGPT-4's ability to generate original and useful content. By challenging the models to form novel associations, we evaluate the potential of associative thinking to enhance the creative capabilities of LLMs. Our findings show that leveraging associative thinking techniques can significantly improve the originality of vGPT-4's responses.",
+      "citations": 13
+    },
+    {
+      "title": "Automatic assessment of divergent thinking in Chinese language with TransDis: A transformer-based language model approach",
+      "year": 2023,
+      "authors": "Tianchen Yang, Qifan Zhang, Zhaoyang Sun, Yubo Hou",
+      "url": "https://api.semanticscholar.org/CorpusId:259262354",
+      "relevance": 1,
+      "abstract": "Language models have been increasingly popular for automatic creativity assessment, generating semantic distances to objectively measure the quality of creative ideas. However, there is currently a lack of an automatic assessment system for evaluating creative ideas in the Chinese language. To address this gap, we developed TransDis, a scoring system using transformer-based language models, capable of providing valid originality (novelty) and flexibility (variety) scores for Alternative Uses Task (AUT) responses in Chinese. Study 1 demonstrated that the latent model-rated originality factor, comprised of three transformer-based models, strongly predicted human originality ratings, and the model-rated flexibility strongly correlated with human flexibility ratings as well. Criterion validity analyses indicated that model-rated originality and flexibility positively correlated to other creativity measures, demonstrating similar validity to human ratings. Study 2 and 3 showed that TransDis effectively distinguished participants instructed to provide creative vs. common uses (Study 2) and participants instructed to generate ideas in a flexible vs. persistent way (Study 3). Our findings suggest that TransDis can be a reliable and low-cost tool for measuring idea originality and flexibility in Chinese language, potentially paving the way for automatic creativity assessment in other languages. We offer an open platform to compute originality and flexibility for AUT responses in Chinese and over 50 other languages (https://osf.io/59jv2/).",
+      "citations": 9
+    },
+    {
+      "title": "A foundation model enhanced approach for generative design in combinational creativity",
+      "year": 2024,
+      "authors": "Liuqing Chen, Yuan Zhang, Ji Han, Lingyun Sun, Peter R. N. Childs, Boheng Wang",
+      "url": "https://api.semanticscholar.org/CorpusId:270139712",
+      "relevance": 1,
+      "abstract": "In creativity theory, combining two unrelated concepts into a novel idea is a common means of enhancing creativity. Designers can integrate the Additive concept into the Base concept to inspire and facilitate creative tasks. However, conceiving high-quality combinational ideas poses a challenge that combinational creativity itself demands the consideration of conceptual reasoning and synthesis. We propose an AI foundation model enhanced approach for supporting combinational creativity. This approach derives combinational embodiments, and assists humans in verbalising and externalising combinational ideas. Our experimental study demonstrates that the generated combinational ideas by the approach obtained highest scores compared to those ideas generated without an AI foundation model or combinational strategy. We built a combinational creativity tool called CombinatorX based on this approach to generate ideas. In a study with the comparison of an existing combinational creativity tool and Internet search, we validated that our approach improves the effectiveness of combinational idea generation, enables a reduction in labour force, and facilitates the refinement of combinational ideation.",
+      "citations": 16
+    },
+    {
+      "title": "LatEval: An Interactive LLMs Evaluation Benchmark with Incomplete Information from Lateral Thinking Puzzles",
+      "year": 2023,
+      "authors": "Shulin Huang, Shirong Ma, Yinghui Li, Mengzuo Huang, Wuhe Zou, Weidong Zhang, Haitao Zheng",
+      "url": "https://api.semanticscholar.org/CorpusId:261049428",
+      "relevance": 1,
+      "abstract": "With the evolution of LLMs, they are endowed with impressive logical reasoning, or vertical thinking capabilities. But can they think out of the box? Do they possess proficient lateral thinking abilities? Following the setup of Lateral Thinking Puzzles, we propose a novel evaluation benchmark, LatEval, which assesses the model\u2019s lateral thinking within an interactive framework. In our benchmark, we challenge LLMs with 2 aspects: (1) posing high-quality questions that break out of conventional norms but are beneficial for puzzle-solving. (2) integrating existing information to gradually deduce the truth through reasoning. We observe that it is hard for most LLMs to accomplish lateral thinking during interactions. Even the most powerful LLM, GPT-4, faces challenges in achieving satisfactory performance, and for most open-source models, simply completing this task is quite difficult. This evaluation benchmark provides LLMs with a highly challenging and differentiating task that is crucial to an effective AI assistant. Our dataset and source codes are available at https://github.com/THUKElab/LatEval.",
+      "citations": 48
+    },
+    {
+      "title": "AssoCiAm: A Benchmark for Evaluating Association Thinking while Circumventing Ambiguity",
+      "year": 2025,
+      "authors": "Yifan Liu, Wenkuan Zhao, Shan Zhong, Jinghui Qin, Mingfu Liang, Zhongzhan Huang, Wushao Wen",
+      "url": "https://api.semanticscholar.org/CorpusId:281333300",
+      "relevance": 1,
+      "abstract": "Recent advancements in multimodal large language models (MLLMs) have garnered significant attention, offering a promising pathway toward artificial general intelligence (AGI). Among the essential capabilities required for AGI, creativity has emerged as a critical trait for MLLMs, with association serving as its foundation. Association reflects a model's ability to think creatively, making it vital to evaluate and understand. While several frameworks have been proposed to assess associative ability, they often overlook the inherent ambiguity in association tasks, which arises from the divergent nature of associations and undermines the reliability of evaluations. To address this issue, we decompose ambiguity into two types-internal ambiguity and external ambiguity-and introduce AssoCiAm, a benchmark designed to evaluate associative ability while circumventing the ambiguity through a hybrid computational method. We then conduct extensive experiments on MLLMs, revealing a strong positive correlation between cognition and association. Additionally, we observe that the presence of ambiguity in the evaluation process causes MLLMs'behavior to become more random-like. Finally, we validate the effectiveness of our method in ensuring more accurate and reliable evaluations. See Project Page for the data and codes.",
+      "citations": 1
+    },
+    {
+      "title": "LLMs can realize combinatorial creativity: generating creative ideas via LLMs for scientific research",
+      "year": 2024,
+      "authors": "Tianyang Gu, Jingjing Wang, Zhihao Zhang, Haohong Li",
+      "url": "https://api.semanticscholar.org/CorpusId:274823037",
+      "relevance": 1,
+      "abstract": "Scientific idea generation has been extensively studied in creativity theory and computational creativity research, providing valuable frameworks for understanding and implementing creative processes. However, recent work using Large Language Models (LLMs) for research idea generation often overlooks these theoretical foundations. We present a framework that explicitly implements combinatorial creativity theory using LLMs, featuring a generalization-level retrieval system for cross-domain knowledge discovery and a structured combinatorial process for idea generation. The retrieval system maps concepts across different abstraction levels to enable meaningful connections between disparate domains, while the combinatorial process systematically analyzes and recombines components to generate novel solutions. Experiments on the OAG-Bench dataset demonstrate our framework's effectiveness, consistently outperforming baseline approaches in generating ideas that align with real research developments (improving similarity scores by 7\\%-10\\% across multiple metrics). Our results provide strong evidence that LLMs can effectively realize combinatorial creativity when guided by appropriate theoretical frameworks, contributing both to practical advancement of AI-assisted research and theoretical understanding of machine creativity.",
+      "citations": 14
+    },
+    {
+      "title": "Probing and Inducing Combinational Creativity in Vision-Language Models",
+      "year": 2025,
+      "authors": "Yongqian Peng, Yuxi Ma, Mengmeng Wang, Yuxuan Wang, Yizhou Wang, Chi Zhang, Yixin Zhu, Zilong Zheng",
+      "url": "https://api.semanticscholar.org/CorpusId:277856937",
+      "relevance": 1,
+      "abstract": "The ability to combine existing concepts into novel ideas stands as a fundamental hallmark of human intelligence. Recent advances in Vision-Language Models (VLMs) like GPT-4V and DALLE-3 have sparked debate about whether their outputs reflect combinational creativity--defined by M. A. Boden (1998) as synthesizing novel ideas through combining existing concepts--or sophisticated pattern matching of training data. Drawing inspiration from cognitive science, we investigate the combinational creativity of VLMs from the lens of concept blending. We propose the Identification-Explanation-Implication (IEI) framework, which decomposes creative processes into three levels: identifying input spaces, extracting shared attributes, and deriving novel semantic implications. To validate this framework, we curate CreativeMashup, a high-quality dataset of 666 artist-generated visual mashups annotated according to the IEI framework. Through extensive experiments, we demonstrate that in comprehension tasks, best VLMs have surpassed average human performance while falling short of expert-level understanding; in generation tasks, incorporating our IEI framework into the generation pipeline significantly enhances the creative quality of VLMs' outputs. Our findings establish both a theoretical foundation for evaluating artificial creativity and practical guidelines for improving creative generation in VLMs.",
+      "citations": 5
+    },
+    {
+      "title": "FlexAC: Towards Flexible Control of Associative Reasoning in Multimodal Large Language Models",
+      "year": 2025,
+      "authors": "Shengming Yuan, Xinyu Lyu, Shuai Wang, Beitao Chen, Jingkuan Song, Lianli Gao",
+      "url": "https://api.semanticscholar.org/CorpusId:282057991",
+      "relevance": 1,
+      "abstract": "Multimodal large language models (MLLMs) face an inherent trade-off between faithfulness and creativity, as different tasks require varying degrees of associative reasoning. However, existing methods lack the flexibility to modulate this reasoning strength, limiting MLLMs'adaptability across factual and creative scenarios. To bridge this gap, we propose equipping MLLMs with mechanisms that enable flexible control over associative reasoning. We begin by investigating the internal mechanisms underlying associative behavior in MLLMs and find that: (1) middle layers play a pivotal role in shaping model's associative tendencies, (2) modifying representations in these layers effectively regulates associative reasoning strength, and (3) hallucinations can be exploited to derive steering vectors that guide this modulation. Building on these findings, we introduce Flexible Association Control (FlexAC), a lightweight and training-free framework for modulating associative behavior in MLLMs. FlexAC first induces hallucination-guided intermediate representations to encode associative directions. Then, it selects high-association instances to construct effective associative steering vectors, whose strengths are adaptively calibrated to balance creative guidance with output stability. Finally, recognizing the multi-dimensional nature of associative reasoning, FlexAC incorporates task-specific associative vectors derived from a forward pass on a few target-domain samples, enabling models to follow diverse associative directions and better adapt to creative tasks. Notably, our method achieves up to a 5.8x improvement in creativity on Creation-MMBench and a 29% reduction in hallucination rate on CHAIR, surpassing existing baselines and demonstrating its effectiveness in enabling flexible control over associative reasoning in MLLMs. Our code is available at https://github.com/ylhz/FlexAC.",
+      "citations": 1
+    },
+    {
+      "title": "AI Delivers Creative Output but Struggles with Thinking Processes",
+      "year": 2025,
+      "authors": "Man Zhang, Ying Li, Yang Peng, Yijia Sun, Wenxin Guo, Huiqing Hu, Shi Chen, Qingbai Zhao",
+      "url": "https://api.semanticscholar.org/CorpusId:277452567",
+      "relevance": 1,
+      "abstract": "A key objective in artificial intelligence (AI) development is to create systems that match or surpass human creativity. Although current AI models perform well across diverse creative tasks, it remains unclear whether these achievements reflect genuine creative thinking. This study examined whether AI models (GPT-3.5-turbo, GPT-4, and GPT-4o) engage in creative thinking by comparing their performance with humans across various creative tasks and core cognitive processes. Results showed that AI models outperformed humans in divergent thinking, convergent thinking, and insight problem-solving, but underperformed in creative writing. Compared to humans, AI generated lower forward flow values in both free and chain association tasks and showed lower accuracy in the representational change task. In creative evaluation, AI exhibited no significant correlation between the weights of novelty and appropriateness when predicting creative ratings, suggesting the absence of a human-like trade-off strategy. AI also had higher decision error scores in creative selection, suggesting difficulty identifying the most creative ideas. These findings suggest that while AI can mimic human creativity, its strong performance in creative tasks is likely driven by non-creative mechanisms rather than genuine creative thinking.",
+      "citations": 3
+    },
+    {
+      "title": "The truth is no diaper: Human and AI-generated associations to emotional words",
+      "year": 2025,
+      "authors": "\u0160. Vintar, Jan Jona Javor\u0161ek",
+      "url": "https://api.semanticscholar.org/CorpusId:282812316",
+      "relevance": 1,
+      "abstract": "Human word associations are a well-known method of gaining insight into the internal mental lexicon, but the responses spontaneously offered by human participants to word cues are not always predictable as they may be influenced by personal experience, emotions or individual cognitive styles. The ability to form associative links between seemingly unrelated concepts can be the driving mechanisms of creativity. We perform a comparison of the associative behaviour of humans compared to large language models. More specifically, we explore associations to emotionally loaded words and try to determine whether large language models generate associations in a similar way to humans. We find that the overlap between humans and LLMs is moderate, but also that the associations of LLMs tend to amplify the underlying emotional load of the stimulus, and that they tend to be more predictable and less creative than human ones.",
+      "citations": 1
+    },
+    {
+      "title": "Let's Think Outside the Box: Exploring Leap-of-Thought in Large Language Models with Creative Humor Generation",
+      "year": 2023,
+      "authors": "Shan Zhong, Zhongzhan Huang, Shanghua Gao, Wushao Wen, Liang Lin, M. Zitnik, Pan Zhou",
+      "url": "https://www.semanticscholar.org/paper/0ef006f9900185ac6ede39352d1de1ddee7923b6",
+      "relevance": 1,
+      "abstract": "Chain-of-Thought (CoT) [2], [3] guides large language models (LLMs) to reason step-by-step, and can motivate their logical reasoning ability. While effective for logi-cal tasks, CoT is not conducive to creative problem-solving which often requires out-of-box thoughts and is crucial for innovation advancements. In this paper, we explore the Leap-of-Thought (LoT) abilities within LLMs - a non-sequential, creative paradigm involving strong associations and knowledge leaps. To this end, we study LLMs on the popular Oogiri game which needs participants to have good creativity and strong associative thinking for responding unexpectedly and humorously to the given image, text, or both, and thus is suitable for LoT study. Then to investi-gate LLMs' LoT ability in the Oogiri game, we first build a multimodal and multilingual Oogiri-GO dataset which contains over 130,000 samples from the Oogiri game, and observe the insufficient LoT ability or failures of most existing LLMs on the Oogiri game. Accordingly, we introduce a creative Leap-of-Thought (CLoT) paradigm to improve LLM's LoT ability. CLoT first formulates the Oogiri-GO dataset into LoT-oriented instruction tuning data to train pre-trained LLM for achieving certain LoT humor generation and discrimination abilities. Then CLoT designs an ex-plorative self-refinement that encourages the LLM to gener-ate more creative LoT data via exploring parallels between seemingly unrelated concepts and selects high-quality data to train itself for self-refinement. CLoT not only excels in humor generation in the Oogiri game as shown in Fig. 1 but also boosts creative abilities in various tasks like \u201ccloud guessing game\u201d and \u201cdivergent association task\u201d. These findings advance our understanding and offer a pathway to improve LLMs' creative capacities for innovative applications across domains. The dataset, code, and models have been released online: https://zhongshsh.github.io/CLoT.",
+      "citations": 79
+    },
+    {
+      "title": "S-DAT: A Multilingual, GenAI-Driven Framework for Automated Divergent Thinking Assessment",
+      "year": 2025,
+      "authors": "Jennifer Haase, P. Hanel, S. Pokutta",
+      "url": "https://api.semanticscholar.org/CorpusId:278602993",
+      "relevance": 1,
+      "abstract": "This paper introduces S-DAT (Synthetic-Divergent Association Task), a scalable, multilingual framework for automated assessment of divergent thinking (DT)\u2014a core component of human creativity. Traditional creativity assessments are often labor-intensive, language-specific, and reliant on subjective human ratings, limiting their scalability and cross-cultural applicability. In contrast, S-DAT leverages large language models and advanced multilingual embeddings to compute semantic distance\u2014a language-agnostic proxy for DT. We evaluate S-DAT across eleven diverse languages, including English, Spanish, German, Russian, Hindi, and Japanese (Kanji, Hiragana, Katakana), demonstrating robust and consistent scoring across linguistic contexts. Unlike prior DAT approaches, the S-DAT shows convergent validity with other DT measures and correct discriminant validity with convergent thinking. This cross-linguistic flexibility allows for more inclusive, global-scale creativity research, addressing key limitations of earlier approaches. S-DAT provides a powerful tool for fairer, more comprehensive evaluation of cognitive flexibility in diverse populations.",
+      "citations": 4
+    },
+    {
+      "title": "Foundations of GenIR",
+      "year": 2025,
+      "authors": "Qingyao Ai, Jingtao Zhan, Yiqun Liu",
+      "url": "https://api.semanticscholar.org/CorpusId:275336185",
+      "relevance": 1,
+      "abstract": "The chapter discusses the foundational impact of modern generative AI models on information access (IA) systems. In contrast to traditional AI, the large-scale training and superior data modeling of generative AI models enable them to produce high-quality, human-like responses, which brings brand new opportunities for the development of IA paradigms. In this chapter, we identify and introduce two of them in details, i.e., information generation and information synthesis. Information generation allows AI to create tailored content addressing user needs directly, enhancing user experience with immediate, relevant outputs. Information synthesis leverages the ability of generative AI to integrate and reorganize existing information, providing grounded responses and mitigating issues like model hallucination, which is particularly valuable in scenarios requiring precision and external knowledge. This chapter delves into the foundational aspects of generative models, including architecture, scaling, and training, and discusses their applications in multi-modal scenarios. Additionally, it examines the retrieval-augmented generation paradigm and other methods for corpus modeling and understanding, demonstrating how generative AI can enhance information access systems. It also summarizes potential challenges and fruitful directions for future studies.",
+      "citations": 0
+    },
+    {
+      "title": "Alien Recombination: Exploring Concept Blends Beyond Human Cognitive Availability in Visual Art",
+      "year": 2024,
+      "authors": "Alejandro Hernandez, L. Brinkmann, Ignacio Serna, Nasim Rahaman, Hassan Abu Alhaija, Hiromu Yakura, Mar Canet Sola, Bernhard Sch\u00f6lkopf, Iyad Rahwan",
+      "url": "https://api.semanticscholar.org/CorpusId:274131173",
+      "relevance": 1,
+      "abstract": "While AI models have demonstrated remarkable capabilities in constrained domains like game strategy, their potential for genuine creativity in open-ended domains like art remains debated. We explore this question by examining how AI can transcend human cognitive limitations in visual art creation. Our research hypothesizes that visual art contains a vast unexplored space of conceptual combinations, constrained not by inherent incompatibility, but by cognitive limitations imposed by artists' cultural, temporal, geographical and social contexts. To test this hypothesis, we present the Alien Recombination method, a novel approach utilizing fine-tuned large language models to identify and generate concept combinations that lie beyond human cognitive availability. The system models and deliberately counteracts human availability bias, the tendency to rely on immediately accessible examples, to discover novel artistic combinations. This system not only produces combinations that have never been attempted before within our dataset but also identifies and generates combinations that are cognitively unavailable to all artists in the domain. Furthermore, we translate these combinations into visual representations, enabling the exploration of subjective perceptions of novelty. Our findings suggest that cognitive unavailability is a promising metric for optimizing artistic novelty, outperforming merely temperature scaling without additional evaluation criteria. This approach uses generative models to connect previously unconnected ideas, providing new insight into the potential of framing AI-driven creativity as a combinatorial problem.",
+      "citations": 0
+    },
+    {
+      "title": "The flow of ideas in word embeddings",
+      "year": 2023,
+      "authors": "D. Dasgupta",
+      "url": "https://api.semanticscholar.org/CorpusId:260334416",
+      "relevance": 1,
+      "abstract": "The flow of ideas has been extensively studied by physicists, psychologists, and machine learning engineers. This paper adopts specific tools from microrheology to investigate the similarity-based flow of ideas. We introduce a random walker in word embeddings and study its behavior. Such similarity-mediated random walks through the embedding space show signatures of anomalous diffusion commonly observed in complex structured systems such as biological cells and complex fluids. The paper concludes by proposing the application of popular tools employed in the study of random walks and diffusion of particles under Brownian motion to assess quantitatively the incorporation of diverse ideas in a document. Overall, this paper presents a self-referenced method combining microrheology and machine learning concepts to explore the meandering tendencies of language models and their potential association with creativity.",
+      "citations": 1
+    },
+    {
+      "title": "Explaining Creative Artifacts",
+      "year": 2020,
+      "authors": "L. Varshney, Nazneen Rajani, R. Socher",
+      "url": "https://api.semanticscholar.org/CorpusId:222341632",
+      "relevance": 1,
+      "abstract": "Human creativity is often described as the mental process of combining associative elements into a new form, but emerging computational creativity algorithms may not operate in this manner. Here we develop an inverse problem formulation to deconstruct the products of combinatorial and compositional creativity into associative chains as a form of post-hoc interpretation that matches the human creative process. In particular, our formulation is structured as solving a traveling salesman problem through a knowledge graph of associative elements. We demonstrate our approach using an example in explaining culinary computational creativity where there is an explicit semantic structure, and two examples in language generation where we either extract explicit concepts that map to a knowledge graph or we consider distances in a word embedding space. We close by casting the length of an optimal traveling salesman path as a measure of novelty in creativity.",
+      "citations": 3
+    },
+    {
+      "title": "Creativity Embedding: A Vector to Characterise and Classify Plausible Triples in Deep Learning NLP Models",
+      "year": 2020,
+      "authors": "Isabeau Oliveri, L. Ardito, Giuseppe Rizzo, M. Morisio",
+      "url": "https://api.semanticscholar.org/CorpusId:229293266",
+      "relevance": 1,
+      "abstract": "English. In this paper we define the creativity embedding of a text based on four self-assessment creativity metrics, namely diversity, novelty, serendipity and magnitude, knowledge graphs, and neural networks. We use as basic unit the notion of triple (head, relation, tail). We investigate if additional information about creativity improves natural language processing tasks. In this work, we focus on triple plausibility task, exploiting BERT model and a WordNet11 dataset sample. Contrary to our hypothesis, we do not detect increase in the performance.",
+      "citations": 0
+    },
+    {
+      "title": "Learning to Predict Novel Noun-Noun Compounds",
+      "year": 2019,
+      "authors": "Prajit Dhar, Lonneke van der Plas",
+      "url": "https://api.semanticscholar.org/CorpusId:182953079",
+      "relevance": 1,
+      "abstract": "We introduce temporally and contextually-aware models for the novel task of predicting unseen but plausible concepts, as conveyed by noun-noun compounds in a time-stamped corpus. We train compositional models on observed compounds, more specifically the composed distributed representations of their constituents across a time-stamped corpus, while giving it corrupted instances (where head or modifier are replaced by a random constituent) as negative evidence. The model captures generalisations over this data and learns what combinations give rise to plausible compounds and which ones do not. After training, we query the model for the plausibility of automatically generated novel combinations and verify whether the classifications are accurate. For our best model, we find that in around 85% of the cases, the novel compounds generated are attested in previously unseen data. An additional estimated 5% are plausible despite not being attested in the recent corpus, based on judgments from independent human raters.",
+      "citations": 11
+    },
+    {
+      "title": "Embrace LLM-Based Cognitive Architecture to Boost Team Problem-Solving in Open-Ended Tasks",
+      "year": 2026,
+      "authors": "Hashmath Shaik, Gnaneswar Villuri, Alex Doboli",
+      "url": "https://www.semanticscholar.org/paper/8ffe9b854de7a5167e44aa7a5d38d8ada20d9550",
+      "relevance": 1,
+      "abstract": "Open-ended, team-based problem solving demands (i) a bridge between stochastic language models and symbolic control, (ii) mechanisms for idea elaboration, (iii) feature-level concept combination, and (iv) internal representations that support understanding beyond mere association. We present a cognitive architecture (CA) that couples an LLM with an editable knowledge-graph (KG) scaffold and a controller that adaptively schedules five reasoning strategies. Elaborations are cast as graph updates validated against coverage and consistency checks; combinations produce property- and relation-level recompositions. On 30 collaborative programming dialogs (nine representative scenarios), adaptive prompting improves solution completeness by 19.1% and reduces required turns by 18.5% over a CoT baseline; explicit concept combinations increase Distinct-3 by 12.4 points with a +0.7 gain in human-rated creativity. Ablations show that Soft\u2192Pruning scaffolds best support early elaboration, while Hard partitioning helps under ambiguity. The CA demonstrates a practical route to aligning LLMs with team intent in open-ended tasks.",
+      "citations": 0
+    },
+    {
+      "title": "A Model of Computational Creativity based on Engram Cell Theory",
+      "year": 2023,
+      "authors": "Qinhan Li, Bin Li",
+      "url": "https://www.semanticscholar.org/paper/6b6f091a8cd96fb60d14014aaa8ca882d3b00882",
+      "relevance": 1,
+      "abstract": "Artificial Intelligence technology has made remarkable progress in machine learning, but it is still in its infancy in creative thinking or computational creativity. In 2018, Yang and Li proposed that the physiological basis for the formation of memories and concepts in the human brain is engram cells (interneuron), and creative thinking is the process of forming new engram cells to connect previously seemingly unrelated concepts. During this process, association and prediction play a key role. In this study, a computational model based on engram cell theory was coded in Python to mimic the process of creative thinking. The validity of the model was tested by simulating the phenomenon of language generation and summarizing the artificial food-set regularity in the plus maze. The results show that, given 29 initial words and certain grammatical rules, the language generation program generates 25,405 sentences after 130,000 calculations, and these generated sentences can be combined into various short paragraphs. After 50 times of training in the cross maze puzzle solving program, the model can master 100% of the rules of artificial food settings. In conclusion, a computational model of creative thinking based on engram cell theory can creatively and automatically generate sentences and paragraphs, and can learn and summarize laws to solve simple puzzles. We plan to further use this model to address complex real-world problems, such as the study of cancer therapeutic targets",
+      "citations": 0
+    },
+    {
+      "title": "A Survey on Latent Reasoning",
+      "year": 2025,
+      "authors": "Ruiming Zhu, Tianhao Peng, Tianhao Cheng, Xingwei Qu, Jinfa Huang, Dawei Zhu, Hao Wang, Kaiwen Xue, Xuanliang Zhang, Yong Shan, Tianle Cai, Taylor Kergan, Assel Kembay, Andrew K Smith, Chenghua Lin, Binh Nguyen, Yuqi Pan, Yuhong Chou, Zefan Cai, Zhenhe Wu, Yongchi Zhao, Tianyu Liu, Jian Yang, Wangchunshu Zhou, Chujie Zheng, Chongxuan Li, Yuyin Zhou, Zhoujun Li, Zhaoxiang Zhang, Jiaheng Liu, Ge Zhang, Wenhao Huang, Jason K. Eshraghian",
+      "url": "https://api.semanticscholar.org/CorpusId:280148411",
+      "relevance": 1,
+      "abstract": "Large Language Models (LLMs) have demonstrated impressive reasoning capabilities, especially when guided by explicit chain-of-thought (CoT) reasoning that verbalizes intermediate steps. While CoT improves both interpretability and accuracy, its dependence on natural language reasoning limits the model's expressive bandwidth. Latent reasoning tackles this bottleneck by performing multi-step inference entirely in the model's continuous hidden state, eliminating token-level supervision. To advance latent reasoning research, this survey provides a comprehensive overview of the emerging field of latent reasoning. We begin by examining the foundational role of neural network layers as the computational substrate for reasoning, highlighting how hierarchical representations support complex transformations. Next, we explore diverse latent reasoning methodologies, including activation-based recurrence, hidden state propagation, and fine-tuning strategies that compress or internalize explicit reasoning traces. Finally, we discuss advanced paradigms such as infinite-depth latent reasoning via masked diffusion models, which enable globally consistent and reversible reasoning processes. By unifying these perspectives, we aim to clarify the conceptual landscape of latent reasoning and chart future directions for research at the frontier of LLM cognition. An associated GitHub repository collecting the latest papers and repos is available at: https://github.com/multimodal-art-projection/LatentCoT-Horizon/.",
+      "citations": 34
+    },
+    {
+      "title": "Traveling Words: A Geometric Interpretation of Transformers",
+      "year": 2023,
+      "authors": "Raul Molina",
+      "url": "https://api.semanticscholar.org/CorpusId:261822108",
+      "relevance": 1,
+      "abstract": "Transformers have significantly advanced the field of natural language processing, but comprehending their internal mechanisms remains a challenge. In this paper, we introduce a novel geometric perspective that elucidates the inner mechanisms of transformer operations. Our primary contribution is illustrating how layer normalization confines the latent features to a hyper-sphere, subsequently enabling attention to mold the semantic representation of words on this surface. This geometric viewpoint seamlessly connects established properties such as iterative refinement and contextual embeddings. We validate our insights by probing a pre-trained 124M parameter GPT-2 model. Our findings reveal clear query-key attention patterns in early layers and build upon prior observations regarding the subject-specific nature of attention heads at deeper layers. Harnessing these geometric insights, we present an intuitive understanding of transformers, depicting them as processes that model the trajectory of word particles along the hyper-sphere.",
+      "citations": 5
+    },
+    {
+      "title": "The Unseen Bias: How Norm Discrepancy in Pre-Norm MLLMs Leads to Visual Information Loss",
+      "year": 2025,
+      "authors": "Bozhou Li, Xinda Xue, Sihan Yang, Yang Shi, Xinlong Chen, Yushuo Guan, Yuanxing Zhang, Wentao Zhang",
+      "url": "https://api.semanticscholar.org/CorpusId:283712146",
+      "relevance": 1,
+      "abstract": "Multimodal Large Language Models (MLLMs), which couple pre-trained vision encoders and language models, have shown remarkable capabilities. However, their reliance on the ubiquitous Pre-Norm architecture introduces a subtle yet critical flaw: a severe norm disparity between the high-norm visual tokens and the low-norm text tokens. In this work, we present a formal theoretical analysis demonstrating that this imbalance is not a static issue. Instead, it induces an ``asymmetric update dynamic,''where high-norm visual tokens exhibit a ``representational inertia,''causing them to transform semantically much slower than their textual counterparts. This fundamentally impairs effective cross-modal feature fusion. Our empirical validation across a range of mainstream MLLMs confirms that this theoretical dynamic -- the persistence of norm disparity and the resulting asymmetric update rates -- is a prevalent phenomenon. Based on this insight, we propose a remarkably simple yet effective solution: inserting a single, carefully initialized LayerNorm layer after the visual projector to enforce norm alignment. Experiments conducted on the LLaVA-1.5 architecture show that this intervention yields significant performance gains not only on a wide suite of multimodal benchmarks but also, notably, on text-only evaluations such as MMLU, suggesting that resolving the architectural imbalance leads to a more holistically capable model.",
+      "citations": 2
+    },
+    {
+      "title": "Void in Language Models",
+      "year": 2025,
+      "authors": "Mani Shemiranifar",
+      "url": "https://api.semanticscholar.org/CorpusId:278769156",
+      "relevance": 1,
+      "abstract": "Despite advances in transformer-based language models (LMs), a fundamental question remains largely unanswered: Are all layers activated during inference? We investigate this question by detecting unactivated layers (which we refer to as Voids) using a non-trainable and parameter-free adaptive computation method called L2 Adaptive Computation (LAC). We adapt LAC from its original efficiency-focused application to trace activated layers during inference. This method monitors changes in the L2-norm of activations to identify voids. We analyze layer activation in instruction-tuned LMs across two phases: Prompt Processing (PP), where we trace activated layers for each token in the input prompts, and Response Generation (RG), where we trace activated layers for each generated token. We further demonstrate that distinct layers are activated during these two phases. To show the effectiveness of our method, we evaluated three distinct instruction-tuned LMs from the Llama, Mistral, and Qwen families on three benchmarks: MMLU, GPQA Diamond, and BoolQ. For example, on MMLU with a zero-shot setting, skipping voids in Qwen2.5-7B-Instruct resulted in an improvement from 69.24 to 71.29 while the model uses only 30% of the layers. Similarly, Mistral-7B-Instruct-v0.3 on GPQA Diamond improved from 13.88 to 18.36 when using 70% of the layers during both the PP and RG phases. These results show that not all layers contribute equally during inference, and that selectively skipping most of them can improve the performance of models on certain tasks.",
+      "citations": 1
+    },
+    {
+      "title": "Query-Key Normalization for Transformers",
+      "year": 2020,
+      "authors": "Alex Henry, Prudhvi Raj Dachapally, S. Pawar, Yuxuan Chen",
+      "url": "https://api.semanticscholar.org/CorpusId:222272447",
+      "relevance": 1,
+      "abstract": "Low-resource language translation is a challenging but socially valuable NLP task. Building on recent work adapting the Transformer\u2019s normalization to this setting, we propose QKNorm, a normalization technique that modifies the attention mechanism to make the softmax function less prone to arbitrary saturation without sacrificing expressivity. Specifically, we apply l2-normalization along the head dimension of each query and key matrix prior to multiplying them and then scale up by a learnable parameter instead of dividing by the square root of the embedding dimension. We show improvements averaging 0.928 BLEU over state-of-the-art bilingual benchmarks for 5 low-resource translation pairs from the TED Talks corpus and IWSLT\u201915.",
+      "citations": 215
+    },
+    {
+      "title": "Homogenization Effects of Large Language Models on Human Creative Ideation",
+      "year": 2024,
+      "authors": "Barrett R Anderson, Jash Hemant Shah, Max Kreminski",
+      "url": "https://api.semanticscholar.org/CorpusId:267406608",
+      "relevance": 1,
+      "abstract": "Large language models (LLMs) are now being used in a wide variety of contexts, including as creativity support tools (CSTs) intended to help their users come up with new ideas. But do LLMs actually support user creativity? We hypothesized that the use of an LLM as a CST might make the LLM\u2019s users feel more creative, and even broaden the range of ideas suggested by each individual user, but also homogenize the ideas suggested by different users. We conducted a 36-participant comparative user study and found, in accordance with the homogenization hypothesis, that different users tended to produce less semantically distinct ideas with ChatGPT than with an alternative CST. Additionally, ChatGPT users generated a greater number of more detailed ideas, but felt less responsible for the ideas they generated. We discuss potential implications of these findings for users, designers, and developers of LLM-based CSTs.",
+      "citations": 215
+    },
+    {
+      "title": "The Curious Decline of Linguistic Diversity: Training Language Models on Synthetic Text",
+      "year": 2023,
+      "authors": "Yanzhu Guo, Guokan Shang, M. Vazirgiannis, Chlo\u00e9 Clavel",
+      "url": "https://api.semanticscholar.org/CorpusId:265221240",
+      "relevance": 1,
+      "abstract": "This study investigates the consequences of training language models on synthetic data generated by their predecessors, an increasingly prevalent practice given the prominence of powerful generative models. Diverging from the usual emphasis on performance metrics, we focus on the impact of this training methodology on linguistic diversity, especially when conducted recursively over time. To assess this, we adapt and develop a set of novel metrics targeting lexical, syntactic, and semantic diversity, applying them in recursive finetuning experiments across various natural language generation tasks in English. Our findings reveal a consistent decrease in the diversity of the model outputs through successive iterations, especially remarkable for tasks demanding high levels of creativity. This trend underscores the potential risks of training language models on synthetic text, particularly concerning the preservation of linguistic richness. Our study highlights the need for careful consideration of the long-term effects of such training approaches on the linguistic capabilities of language models.",
+      "citations": 116
+    },
+    {
+      "title": "Word meaning in minds and machines",
+      "year": 2020,
+      "authors": "B. Lake, Gregory L. Murphy",
+      "url": "https://api.semanticscholar.org/CorpusId:221043556",
+      "relevance": 1,
+      "abstract": "Machines have achieved a broad and growing set of linguistic competencies, thanks to recent progress in Natural Language Processing (NLP). Psychologists have shown increasing interest in such models, comparing their output to psychological judgments such as similarity, association, priming, and comprehension, raising the question of whether the models could serve as psychological theories. In this article, we compare how humans and machines represent the meaning of words. We argue that contemporary NLP systems are fairly successful models of human word similarity, but they fall short in many other respects. Current models are too strongly linked to the text-based patterns in large corpora, and too weakly linked to the desires, goals, and beliefs that people express through words. Word meanings must also be grounded in perception and action and be capable of flexible combinations in ways that current systems are not. We discuss promising approaches to grounding NLP systems and argue that they will be more successful, with a more human-like, conceptual basis for word meaning. (PsycInfo Database Record (c) 2021 APA, all rights reserved).",
+      "citations": 143
+    },
+    {
+      "title": "Is Temperature the Creativity Parameter of Large Language Models?",
+      "year": 2024,
+      "authors": "Max Peeperkorn, Tom Kouwenhoven, Daniel G. Brown, Anna K. Jordanous",
+      "url": "https://api.semanticscholar.org/CorpusId:269484653",
+      "relevance": 1,
+      "abstract": "Large language models (LLMs) are applied to all sorts of creative tasks, and their outputs vary from beautiful, to peculiar, to pastiche, into plain plagiarism. The temperature parameter of an LLM regulates the amount of randomness, leading to more diverse outputs; therefore, it is often claimed to be the creativity parameter. Here, we investigate this claim using a narrative generation task with a predetermined fixed context, model and prompt. Specifically, we present an empirical analysis of the LLM output for different temperature values using four necessary conditions for creativity in narrative generation: novelty, typicality, cohesion, and coherence. We find that temperature is weakly correlated with novelty, and unsurprisingly, moderately correlated with incoherence, but there is no relationship with either cohesion or typicality. However, the influence of temperature on creativity is far more nuanced and weak than suggested by the\"creativity parameter\"claim; overall results suggest that the LLM generates slightly more novel outputs as temperatures get higher. Finally, we discuss ideas to allow more controlled LLM creativity, rather than relying on chance via changing the temperature parameter.",
+      "citations": 137
+    },
+    {
+      "title": "Automatic Scoring of Metaphor Creativity with Large Language Models",
+      "year": 2024,
+      "authors": "Paul V. DiStefano, John D. Patterson, R. Beaty",
+      "url": "https://api.semanticscholar.org/CorpusId:268674764",
+      "relevance": 1,
+      "abstract": "ABSTRACT Metaphor is crucial in human cognition and creativity, facilitating abstract thinking, analogical reasoning, and idea generation. Typically, human raters manually score the originality of responses to creative thinking tasks \u2013 a laborious and error-prone process. Previous research sought to remedy these risks by scoring creativity tasks automatically using semantic distance and large language models (LLMs). Here, we extend research on automatic creativity scoring to metaphor generation \u2013 the ability to creatively describe episodes and concepts using nonliteral language. Metaphor is arguably more abstract and naturalistic than prior targets of automated creativity assessment. We collected 4,589 responses from 1,546 participants to various metaphor prompts and corresponding human creativity ratings. We fine-tuned two open-source LLMs (RoBERTa and GPT-2) \u2013 effectively \u201cteaching\u201d them to score metaphors like humans \u2013 before testing their ability to accurately assess the creativity of new metaphors. Results showed both models reliably predicted new human creativity ratings (RoBERTa r\u2009=\u2009.72, GPT-2\u2009r\u2009=\u2009.70), significantly more strongly than semantic distance (r\u2009=\u2009.42). Importantly, the fine-tuned models generalized accurately to metaphor prompts they had not been trained on (RoBERTa r\u2009=\u2009.68, GPT-2\u2009r\u2009=\u2009.63). We provide open access to the fine-tuned models, allowing researchers to assess metaphor creativity in a reproducible and timely manner.",
+      "citations": 49
+    },
+    {
+      "title": "Putting GPT-3's Creativity to the (Alternative Uses) Test",
+      "year": 2022,
+      "authors": "C. Stevenson, I. Smal, M. Baas, R. Grasman, H. Maas",
+      "url": "https://api.semanticscholar.org/CorpusId:249890230",
+      "relevance": 1,
+      "abstract": "AI large language models have (co-)produced amazing written works from newspaper articles to novels and poetry. These works meet the standards of the standard definition of creativity: being original and useful, and sometimes even the additional element of surprise. But can a large language model designed to predict the next text fragment provide creative, out-of-the-box, responses that still solve the problem at hand? We put Open AI's generative natural language model, GPT-3, to the test. Can it provide creative solutions to one of the most commonly used tests in creativity research? We assessed GPT-3's creativity on Guilford's Alternative Uses Test and compared its performance to previously collected human responses on expert ratings of originality, usefulness and surprise of responses, flexibility of each set of ideas as well as an automated method to measure creativity based on the semantic distance between a response and the AUT object in question. Our results show that -- on the whole -- humans currently outperform GPT-3 when it comes to creative output. But, we believe it is only a matter of time before GPT-3 catches up on this particular task. We discuss what this work reveals about human and AI creativity, creativity testing and our definition of creativity.",
+      "citations": 123
+    },
+    {
+      "title": "No \"Zero-Shot\" Without Exponential Data: Pretraining Concept Frequency Determines Multimodal Model Performance",
+      "year": 2024,
+      "authors": "Vishaal Udandarao, Ameya Prabhu, Adhiraj Ghosh, Yash Sharma, Philip H. S. Torr, Adel Bibi, Samuel Albanie, Matthias Bethge",
+      "url": "https://api.semanticscholar.org/CorpusId:268987507",
+      "relevance": 1,
+      "abstract": "Web-crawled pretraining datasets underlie the impressive\"zero-shot\"evaluation performance of multimodal models, such as CLIP for classification/retrieval and Stable-Diffusion for image generation. However, it is unclear how meaningful the notion of\"zero-shot\"generalization is for such multimodal models, as it is not known to what extent their pretraining datasets encompass the downstream concepts targeted for during\"zero-shot\"evaluation. In this work, we ask: How is the performance of multimodal models on downstream concepts influenced by the frequency of these concepts in their pretraining datasets? We comprehensively investigate this question across 34 models and five standard pretraining datasets (CC-3M, CC-12M, YFCC-15M, LAION-400M, LAION-Aesthetics), generating over 300GB of data artifacts. We consistently find that, far from exhibiting\"zero-shot\"generalization, multimodal models require exponentially more data to achieve linear improvements in downstream\"zero-shot\"performance, following a sample inefficient log-linear scaling trend. This trend persists even when controlling for sample-level similarity between pretraining and downstream datasets, and testing on purely synthetic data distributions. Furthermore, upon benchmarking models on long-tailed data sampled based on our analysis, we demonstrate that multimodal models across the board perform poorly. We contribute this long-tail test set as the\"Let it Wag!\"benchmark to further research in this direction. Taken together, our study reveals an exponential need for training data which implies that the key to\"zero-shot\"generalization capabilities under large-scale training paradigms remains to be found.",
+      "citations": 93
+    },
+    {
+      "title": "Large Language Models estimate fine-grained human color-concept associations",
+      "year": 2024,
+      "authors": "Kushin Mukherjee, Timothy T. Rogers, Karen B. Schloss",
+      "url": "https://api.semanticscholar.org/CorpusId:270738161",
+      "relevance": 1,
+      "abstract": "Concepts, both abstract and concrete, elicit a distribution of association strengths across perceptual color space, which influence aspects of visual cognition ranging from object recognition to interpretation of information visualizations. While prior work has hypothesized that color-concept associations may be learned from the cross-modal statistical structure of experience, it has been unclear whether natural environments possess such structure or, if so, whether learning systems are capable of discovering and exploiting it without strong prior constraints. We addressed these questions by investigating the ability of GPT-4, a multimodal large language model, to estimate human-like color-concept associations without any additional training. Starting with human color-concept association ratings for 71 color set spanning perceptual color space (\\texttt{UW-71}) and concepts that varied in abstractness, we assessed how well association ratings generated by GPT-4 could predict human ratings. GPT-4 ratings were correlated with human ratings, with performance comparable to state-of-the-art methods for automatically estimating color-concept associations from images. Variability in GPT-4's performance across concepts could be explained by specificity of the concept's color-concept association distribution. This study suggests that high-order covariances between language and perception, as expressed in the natural environment of the internet, contain sufficient information to support learning of human-like color-concept associations, and provides an existence proof that a learning system can encode such associations without initial constraints. The work further shows that GPT-4 can be used to efficiently estimate distributions of color associations for a broad range of concepts, potentially serving as a critical tool for designing effective and intuitive information visualizations.",
+      "citations": 9
+    },
+    {
+      "title": "We're Different, We're the Same: Creative Homogeneity Across LLMs",
+      "year": 2025,
+      "authors": "Emily Wenger, Yoed N. Kenett",
+      "url": "https://api.semanticscholar.org/CorpusId:276079902",
+      "relevance": 1,
+      "abstract": "Numerous powerful large language models (LLMs) are now available for use as writing support tools, idea generators, and beyond. Although these LLMs are marketed as helpful creative assistants, several works have shown that using an LLM as a creative partner results in a narrower set of creative outputs. However, these studies only consider the effects of interacting with a single LLM, begging the question of whether such narrowed creativity stems from using a particular LLM -- which arguably has a limited range of outputs -- or from using LLMs in general as creative assistants. To study this question, we elicit creative responses from humans and a broad set of LLMs using standardized creativity tests and compare the population-level diversity of responses. We find that LLM responses are much more similar to other LLM responses than human responses are to each other, even after controlling for response structure and other key variables. This finding of significant homogeneity in creative outputs across the LLMs we evaluate adds a new dimension to the ongoing conversation about creativity and LLMs. If today's LLMs behave similarly, using them as a creative partners -- regardless of the model used -- may drive all users towards a limited set of\"creative\"outputs.",
+      "citations": 35
+    },
+    {
+      "title": "Human Creativity in the Age of LLMs: Randomized Experiments on Divergent and Convergent Thinking",
+      "year": 2024,
+      "authors": "H. Kumar, Jonathan Vincentius, Ewan Jordan, Ashton Anderson",
+      "url": "https://api.semanticscholar.org/CorpusId:273186490",
+      "relevance": 1,
+      "abstract": "Large language models are transforming the creative process by offering unprecedented capabilities to algorithmically generate ideas. While these tools can enhance human creativity when people co-create with them, it\u2019s unclear how this will impact unassisted human creativity. We conducted two large pre-registered parallel experiments involving 1,100 participants attempting tasks targeting the two core components of creativity, divergent and convergent thinking. We compare the effects of two forms of large language model (LLM) assistance\u2014a standard LLM providing direct answers and a coach-like LLM offering guidance\u2014with a control group receiving no AI assistance, and focus particularly on how all groups perform in a final, unassisted stage. Our findings reveal that while LLM assistance can provide short-term boosts in creativity during assisted tasks, it may inadvertently hinder independent creative performance when users work without assistance, raising concerns about the long-term impact on human creativity and cognition.",
+      "citations": 64
+    },
+    {
+      "title": "From Tokens to Thoughts: How LLMs and Humans Trade Compression for Meaning",
+      "year": 2025,
+      "authors": "C. Shani, Dan Jurafsky, Yann LeCun, Ravid Shwartz-Ziv",
+      "url": "https://api.semanticscholar.org/CorpusId:278886651",
+      "relevance": 1,
+      "abstract": "Humans organize knowledge into compact conceptual categories that balance compression with semantic richness. Large Language Models (LLMs) exhibit impressive linguistic abilities, but whether they navigate this same compression-meaning trade-off remains unclear. We apply an Information Bottleneck framework to compare human conceptual structure with embeddings from 40+ LLMs using classic categorization benchmarks. We find that LLMs broadly align with human category boundaries, yet fall short on fine-grained semantic distinctions. Unlike humans, who maintain ``inefficient''representations that preserve contextual nuance, LLMs aggressively compress, achieving more optimal information-theoretic compression at the cost of semantic richness. Surprisingly, encoder models outperform much larger decoder models in human alignment, suggesting that understanding and generation rely on distinct representational mechanisms. Training-dynamics analysis reveals a two-phase trajectory: rapid initial concept formation followed by architectural reorganization, during which semantic processing migrates from deep to mid-network layers as the model discovers increasingly efficient, sparser encodings. These divergent strategies, where LLMs optimize for compression and humans for adaptive utility, reveal fundamental differences between artificial and natural intelligence. This highlights the need for models that preserve the conceptual ``inefficiencies''essential for human-like understanding.",
+      "citations": 21
+    },
+    {
+      "title": "Do not let the beginning trap you! On inhibition, associative creative chains, and Hopfield neural networks",
+      "year": 2023,
+      "authors": "Ronald Mtenga, M. Bode, Radwa Khalil",
+      "url": "https://api.semanticscholar.org/CorpusId:262840377",
+      "relevance": 1,
+      "abstract": "Creative thinking stems from the cognitive process that fosters new ideas and problem-solving solutions. Creative cognition in emerging artificial intelligence systems and neural models may reduce complexity in understanding creative cognition. Hopfield Neural Networks (HNN) is a simple neural model known for its biological plausibility to store and retrieve neuron patterns. The primary objective is to demonstrate that ideas, symbolized as patterns of ones and zeros representing clusters of neurons that synchronize their firing, can be stored within HNN and establish connections through correlation. The network can converge towards these ideas by manually adjusting specific state parameters, effectively controlling the overall network activity. When the second closest stored pattern deviated significantly from the input pattern, the network\u2019s ability to converge decreased, enabling it to connect the input and patterns. Thus, we suggest employing HNN for the first time to create a model that emulates creative thinking processes, including making meaningful links between seemingly unrelated ideas. We implemented certain modifications to the original HNN, including introducing pattern weight control, which provides a robust representation for content addressable memory and illustrates conceptual links in stored data, a step towards the larger framework of creativity. We have made progress in identifying two mechanisms that could assist in managing the dynamics of the network and the formation of associative links. These mechanisms are related to the activation threshold of the neurons and the inhibitory stimulus on the stored patterns.",
+      "citations": 2
+    },
+    {
+      "title": "Creativity Has Left the Chat: The Price of Debiasing Language Models",
+      "year": 2024,
+      "authors": "Behnam Mohammadi",
+      "url": "https://api.semanticscholar.org/CorpusId:270371059",
+      "relevance": 1,
+      "abstract": "Large Language Models (LLMs) have revolutionized natural language processing but can exhibit biases and may generate toxic content. While alignment techniques like Reinforcement Learning from Human Feedback (RLHF) reduce these issues, their impact on creativity, defined as syntactic and semantic diversity, remains unexplored. We investigate the unintended consequences of RLHF on the creativity of LLMs through three experiments focusing on the Llama-2 series. Our findings reveal that aligned models exhibit lower entropy in token predictions, form distinct clusters in the embedding space, and gravitate towards\"attractor states\", indicating limited output diversity. Our findings have significant implications for marketers who rely on LLMs for creative tasks such as copywriting, ad creation, and customer persona generation. The trade-off between consistency and creativity in aligned models should be carefully considered when selecting the appropriate model for a given application. We also discuss the importance of prompt engineering in harnessing the creative potential of base models.",
+      "citations": 24
+    },
+    {
+      "title": "Breaking Thought Patterns: A Multi-Dimensional Reasoning Framework for LLMs",
+      "year": 2025,
+      "authors": "Xin Tang, Meiru Zhang, S. Xiao, Jun Jin, Zihan Zhao, Liwei Li, Yan Zheng, Bangyi Wu",
+      "url": "https://api.semanticscholar.org/CorpusId:279402305",
+      "relevance": 1,
+      "abstract": "Large language models (LLMs) are often constrained by rigid reasoning processes, limiting their ability to generate creative and diverse responses. To address this, a novel framework called LADDER is proposed, combining Chain-of-Thought (CoT) reasoning, Mixture of Experts (MoE) models, and multi-dimensional up/down-sampling strategies which breaks the limitations of traditional LLMs. First, CoT reasoning guides the model through multi-step logical reasoning, expanding the semantic space and breaking the rigidity of thought. Next, MoE distributes the reasoning tasks across multiple expert modules, each focusing on specific sub-tasks. Finally, dimensionality reduction maps the reasoning outputs back to a lower-dimensional semantic space, yielding more precise and creative responses. Extensive experiments across multiple tasks demonstrate that LADDER significantly improves task completion, creativity, and fluency, generating innovative and coherent responses that outperform traditional models. Ablation studies reveal the critical roles of CoT and MoE in enhancing reasoning abilities and creative output. This work contributes to the development of more flexible and creative LLMs, capable of addressing complex and novel tasks.",
+      "citations": 1
+    },
+    {
+      "title": "Evidence from fMRI Supports a Two-Phase Abstraction Process in Language Models",
+      "year": 2024,
+      "authors": "Emily Cheng, Richard J. Antonello",
+      "url": "https://api.semanticscholar.org/CorpusId:272524832",
+      "relevance": 1,
+      "abstract": "Research has repeatedly demonstrated that intermediate hidden states extracted from large language models are able to predict measured brain response to natural language stimuli. Yet, very little is known about the representation properties that enable this high prediction performance. Why is it the intermediate layers, and not the output layers, that are most capable for this unique and highly general transfer task? In this work, we show that evidence from language encoding models in fMRI supports the existence of a two-phase abstraction process within LLMs. We use manifold learning methods to show that this abstraction process naturally arises over the course of training a language model and that the first\"composition\"phase of this abstraction process is compressed into fewer layers as training continues. Finally, we demonstrate a strong correspondence between layerwise encoding performance and the intrinsic dimensionality of representations from LLMs. We give initial evidence that this correspondence primarily derives from the inherent compositionality of LLMs and not their next-word prediction properties.",
+      "citations": 11
+    },
+    {
+      "title": "Galton's Law of Mediocrity: Why Large Language Models Regress to the Mean and Fail at Creativity in Advertising",
+      "year": 2025,
+      "authors": "Matt Keon, Aabid Karim, Bhoomika Lohana, A. Karim, Thai Nguyen, Tara Hamilton, A. Abbas",
+      "url": "https://api.semanticscholar.org/CorpusId:281682318",
+      "relevance": 1,
+      "abstract": "Large language models (LLMs) generate fluent text yet often default to safe, generic phrasing, raising doubts about their ability to handle creativity. We formalize this tendency as a Galton-style regression to the mean in language and evaluate it using a creativity stress test in advertising concepts. When ad ideas were simplified step by step, creative features such as metaphors, emotions, and visual cues disappeared early, while factual content remained, showing that models favor high-probability information. When asked to regenerate from simplified inputs, models produced longer outputs with lexical variety but failed to recover the depth and distinctiveness of the originals. We combined quantitative comparisons with qualitative analysis, which revealed that the regenerated texts often appeared novel but lacked true originality. Providing ad-specific cues such as metaphors, emotional hooks and visual markers improved alignment and stylistic balance, though outputs still relied on familiar tropes. Taken together, the findings show that without targeted guidance, LLMs drift towards mediocrity in creative tasks; structured signals can partially counter this tendency and point towards pathways for developing creativity-sensitive models.",
+      "citations": 0
+    },
+    {
+      "title": "Does Less Hallucination Mean Less Creativity? An Empirical Investigation in LLMs",
+      "year": 2025,
+      "authors": "Mohor Banerjee, Nadya Yuki Wangsajaya, Syed Ali Redha Alsagoff, Minghuan Tan, Zachary Choy Kit Chun, A. Wei",
+      "url": "https://api.semanticscholar.org/CorpusId:283883802",
+      "relevance": 1,
+      "abstract": "Large Language Models (LLMs) exhibit remarkable capabilities in natural language understanding and reasoning, but suffer from hallucination: the generation of factually incorrect content. While numerous methods have been developed to reduce hallucinations, their impact on creative generations remains unexplored. This gap is particularly critical for AI-assisted scientific discovery, which requires both factual accuracy and creative hypothesis generation. We investigate how three hallucination-reduction techniques: Chain of Verification (CoVe), Decoding by Contrasting Layers (DoLa), and Retrieval-Augmented Generation (RAG), affect creativity in LLMs. Evaluating multiple model families (LLaMA, Qwen, Mistral) at varying scales (1B - 70B parameters) on two creativity benchmarks (NeoCoder and CS4), we find that these methods have opposing effects on divergent creativity. CoVe enhances divergent thinking, DoLa suppresses it, and RAG shows minimal impact. Our findings provide guidance for selecting appropriate hallucination-reduction methods in scientific applications, where the balance between factual accuracy and creative exploration is crucial.",
+      "citations": 1
+    },
+    {
+      "title": "Generalizable and scalable multistage biomedical concept normalization leveraging large language models",
+      "year": 2024,
+      "authors": "Nicholas J. Dobbins",
+      "url": "https://api.semanticscholar.org/CorpusId:270045271",
+      "relevance": 1,
+      "abstract": "Background Biomedical entity normalization is critical to biomedical research because the richness of free-text clinical data, such as progress notes, can often be fully leveraged only after translating words and phrases into structured and coded representations suitable for analysis. Large Language Models (LLMs), in turn, have shown great potential and high performance in a variety of natural language processing (NLP) tasks, but their application for normalization remains understudied. Methods We applied both proprietary and open-source LLMs in combination with several rule-based normalization systems commonly used in biomedical research. We used a two-step LLM integration approach, (1) using an LLM to generate alternative phrasings of a source utterance, and (2) to prune candidate UMLS concepts, using a variety of prompting methods. We measure results by , where we favor recall over precision, and F1. Results We evaluated a total of 5,523 concept terms and text contexts from a publicly available dataset of human-annotated biomedical abstracts. Incorporating GPT-3.5-turbo increased overall and F1 in normalization systems +16.5 and +16.2 (OpenAI embeddings), +9.5 and +7.3 (MetaMapLite), +13.9 and +10.9 (QuickUMLS), and +10.5 and +10.3 (BM25), while the open-source Vicuna model achieved +20.2 and +21.7 (OpenAI embeddings), +10.8 and +12.2 (MetaMapLite), +14.7 and +15 (QuickUMLS), and +15.6 and +18.7 (BM25). Conclusions Existing general-purpose LLMs, both propriety and open-source, can be leveraged to greatly improve normalization performance using existing tools, with no fine-tuning.",
+      "citations": 12
+    },
+    {
+      "title": "Unraveling Text Generation in LLMs: A Stochastic Differential Equation Approach",
+      "year": 2024,
+      "authors": "Yukun Zhang",
+      "url": "https://api.semanticscholar.org/CorpusId:271924204",
+      "relevance": 1,
+      "abstract": "This paper explores the application of Stochastic Differential Equations (SDE) to interpret the text generation process of Large Language Models (LLMs) such as GPT-4. Text generation in LLMs is modeled as a stochastic process where each step depends on previously generated content and model parameters, sampling the next word from a vocabulary distribution. We represent this generation process using SDE to capture both deterministic trends and stochastic perturbations. The drift term describes the deterministic trends in the generation process, while the diffusion term captures the stochastic variations. We fit these functions using neural networks and validate the model on real-world text corpora. Through numerical simulations and comprehensive analyses, including drift and diffusion analysis, stochastic process property evaluation, and phase space exploration, we provide deep insights into the dynamics of text generation. This approach not only enhances the understanding of the inner workings of LLMs but also offers a novel mathematical perspective on language generation, which is crucial for diagnosing, optimizing, and controlling the quality of generated text.",
+      "citations": 0
+    },
+    {
+      "title": "Has the Creativity of Large-Language Models peaked? An analysis of inter- and intra-LLM variability",
+      "year": 2025,
+      "authors": "Jennifer Haase, P. Hanel, S. Pokutta",
+      "url": "https://api.semanticscholar.org/CorpusId:277857547",
+      "relevance": 1,
+      "abstract": "Following the widespread adoption of ChatGPT in early 2023, numerous studies reported that large language models (LLMs) can match or even surpass human performance in creative tasks. However, it remains unclear whether LLMs have become more creative over time, and how consistent their creative output is. In this study, we evaluated 14 widely used LLMs -- including GPT-4, Claude, Llama, Grok, Mistral, and DeepSeek -- across two validated creativity assessments: the Divergent Association Task (DAT) and the Alternative Uses Task (AUT). Contrary to expectations, we found no evidence of increased creative performance over the past 18-24 months, with GPT-4 performing worse than in previous studies. For the more widely used AUT, all models performed on average better than the average human, with GPT-4o and o3-mini performing best. However, only 0.28% of LLM-generated responses reached the top 10% of human creativity benchmarks. Beyond inter-model differences, we document substantial intra-model variability: the same LLM, given the same prompt, can produce outputs ranging from below-average to original. This variability has important implications for both creativity research and practical applications. Ignoring such variability risks misjudging the creative potential of LLMs, either inflating or underestimating their capabilities. The choice of prompts affected LLMs differently. Our findings underscore the need for more nuanced evaluation frameworks and highlight the importance of model selection, prompt design, and repeated assessment when using Generative AI (GenAI) tools in creative contexts.",
+      "citations": 11
+    },
+    {
+      "title": "The \u201cLLM World of Words\u201d English free association norms generated by large language models",
+      "year": 2024,
+      "authors": "Katherine Abramski, Riccardo Improta, Giulio Rossetti, Massimo Stella",
+      "url": "https://api.semanticscholar.org/CorpusId:278710118",
+      "relevance": 1,
+      "abstract": "Free associations have been extensively used in psychology and linguistics for studying how conceptual knowledge is organized. Recently, the potential of applying a similar approach for investigating the knowledge encoded in LLMs has emerged, specifically as a method for investigating LLM biases. However, the absence of large-scale LLM-generated free association norms that are comparable with human-generated norms is an obstacle to this research direction. To address this, we create a new dataset of LLM-generated free association norms modeled after the \u201cSmall World of Words\u201d(SWOW) human-generated norms with nearly 12,000 cue words. We prompt three LLMs (Mistral, Llama3, and Haiku) with the same cues as those in SWOW to generate three novel comparable datasets, the \u201cLLM World of Words\u201d (LWOW). From the datasets, we construct network models of semantic memory that represent the conceptual knowledge possessed by humans and LLMs. We validate the datasets by simulating semantic priming within the network models, and we briefly discuss how the datasets can be used for investigating implicit biases in humans and LLMs.",
+      "citations": 8
+    },
+    {
+      "title": "Diverse, not Short: A Length-Controlled Data Selection Strategy for Improving Response Diversity of Language Models",
+      "year": 2025,
+      "authors": "Vijeta Deshpande, Debasmita Ghose, John D. Patterson, Roger E. Beaty, Anna Rumshisky",
+      "url": "https://api.semanticscholar.org/CorpusId:281394142",
+      "relevance": 1,
+      "abstract": "Diverse language model responses are crucial for creative generation, open-ended tasks, and self-improvement training. We show that common diversity metrics, and even reward models used for preference optimization, systematically bias models toward shorter outputs, limiting expressiveness. To address this, we introduce Diverse, not Short (Diverse-NS), a length-controlled data selection strategy that improves response diversity while maintaining length parity. By generating and filtering preference data that balances diversity, quality, and length, Diverse-NS enables effective training using only 3,000 preference pairs. Applied to LLaMA-3.1-8B and the Olmo-2 family, Diverse-NS substantially enhances lexical and semantic diversity. We show consistent improvement in diversity with minor reduction or gains in response quality on four creative generation tasks: Divergent Associations, Persona Generation, Alternate Uses, and Creative Writing. Surprisingly, experiments with the Olmo-2 model family (7B, and 13B) show that smaller models like Olmo-2-7B can serve as effective\"diversity teachers\"for larger models. By explicitly addressing length bias, our method efficiently pushes models toward more diverse and expressive outputs.",
+      "citations": 2
+    },
+    {
+      "title": "Is a Peeled Apple Still Red? Evaluating LLMs' Ability for Conceptual Combination with Property Type",
+      "year": 2025,
+      "authors": "Seokwon Song, Taehyun Lee, Jaewoo Ahn, Jae-Hyuk Sung, Gunhee Kim",
+      "url": "https://api.semanticscholar.org/CorpusId:276250013",
+      "relevance": 1,
+      "abstract": "Conceptual combination is a cognitive process that merges basic concepts, enabling the creation of complex expressions. During this process, the properties of combination (e.g., the whiteness of a peeled apple) can be inherited from basic concepts, newly emerge, or be canceled. However, previous studies have evaluated a limited set of properties and have not examined the generative process. To address this gap, we introduce the Conceptual Combination with Property Type dataset (CCPT), which consists of 12.3K annotated triplets of noun phrases, properties, and property types. Using CCPT, we establish three types of tasks to evaluate LLMs for conceptual combination thoroughly. Our key findings are threefold: (1) Our automatic metric grading property emergence and cancellation closely corresponds with human judgments. (2) LLMs, including OpenAI's o1, struggle to generate noun phrases which possess given emergent properties. (3) Our proposed method, inspired by cognitive psychology model that explains how relationships between concepts are formed, improves performances in all generative tasks. The dataset and experimental code are available at https://github.com/seokwon99/CCPT.git.",
+      "citations": 1
+    },
+    {
+      "title": "Evaluating Semantic Relations in Predicting Textual Labels for Images of Abstract and Concrete Concepts",
+      "year": 2024,
+      "authors": "Tarun Tater, Sabine Schulte im Walde, Diego Frassinelli",
+      "url": "https://api.semanticscholar.org/CorpusId:271769699",
+      "relevance": 1,
+      "abstract": "This study investigates the performance of SigLIP, a state-of-the-art Vision-Language Model (VLM), in predicting labels for images depicting 1,278 concepts. Our analysis across 300 images per concept shows that the model frequently predicts the exact user-tagged labels, but similarly, it often predicts labels that are semantically related to the exact labels in various ways: synonyms, hypernyms, co-hyponyms, and associated words, particularly for abstract concepts. We then zoom into the diversity of the user tags of images and word associations for abstract versus concrete concepts. Surprisingly, not only abstract but also concrete concepts exhibit significant variability, thus challenging the traditional view that representations of concrete concepts are less diverse.",
+      "citations": 3
+    },
+    {
+      "title": "HW-TSC at SemEval-2024 Task 9: Exploring Prompt Engineering Strategies for Brain Teaser Puzzles Through LLMs",
+      "year": 2024,
+      "authors": "Yinglu Li, Yanqing Zhao, Min Zhang, Yadong Deng, Aiju Geng, Xiaoqin Liu, Mengxin Ren, Yuang Li, Chang Su, Xiaofeng Zhao",
+      "url": "https://api.semanticscholar.org/CorpusId:270765553",
+      "relevance": 1,
+      "abstract": "Large Language Models (LLMs) have demonstrated impressive performance on many Natural Language Processing (NLP) tasks. However, their ability to solve more creative, lateral thinking puzzles remains relatively unexplored. In this work, we develop methods to enhance the lateral thinking and puzzle-solving capabilities of LLMs. We curate a dataset of word-type and sentence-type brain teasers requiring creative problem-solving abilities beyond commonsense reasoning. We first evaluate the zero-shot performance of models like GPT-3.5 and GPT-4 on this dataset. To improve their puzzle-solving skills, we employ prompting techniques like providing reasoning clues and chaining multiple examples to demonstrate the desired thinking process. We also fine-tune the state-of-the-art Mixtral 7x8b LLM on ourdataset. Our methods enable the models to achieve strong results, securing 2nd and 3rd places in the brain teaser task. Our work highlights the potential of LLMs in acquiring complex reasoning abilities with the appropriate training. The efficacy of our approaches opens up new research avenues into advancing lateral thinking and creative problem-solving with AI systems.",
+      "citations": 2
+    },
+    {
+      "title": "Automated Creativity Evaluation for Large Language Models: A Reference-Based Approach",
+      "year": 2025,
+      "authors": "Ruizhe Li, Chiwei Zhu, Benfeng Xu, Xiaorui Wang, Zhendong Mao",
+      "url": "https://api.semanticscholar.org/CorpusId:277993977",
+      "relevance": 1,
+      "abstract": "Creative writing is a key capability of Large Language Models (LLMs), with potential applications in literature, storytelling, and various creative domains. However, evaluating the creativity of machine-generated texts remains a significant challenge, as existing methods either rely on costly manual annotations or fail to align closely with human assessments. In this paper, we propose an effective automated evaluation method based on the Torrance Test of Creative Writing (TTCW), which evaluates creativity as product. Our method employs a reference-based Likert-style approach, scoring generated creative texts relative to high-quality reference texts across various tests. Experimental results demonstrate that our method significantly improves the alignment between LLM evaluations and human assessments, achieving a pairwise accuracy of 0.75 (+15\\%).",
+      "citations": 16
+    },
+    {
+      "title": "BRAINTEASER: Lateral Thinking Puzzles for Large Language Models",
+      "year": 2023,
+      "authors": "Yifan Jiang, Filip Ilievski, Kaixin Ma",
+      "url": "https://api.semanticscholar.org/CorpusId:263830212",
+      "relevance": 1,
+      "abstract": "The success of language models has inspired the NLP community to attend to tasks that require implicit and complex reasoning, relying on human-like commonsense mechanisms. While such vertical thinking tasks have been relatively popular, lateral thinking puzzles have received little attention. To bridge this gap, we devise BRAINTEASER: a multiple-choice Question Answering task designed to test the model's ability to exhibit lateral thinking and defy default commonsense associations. We design a three-step procedure for creating the first lateral thinking benchmark, consisting of data collection, distractor generation, and generation of adversarial examples, leading to 1,100 puzzles with high-quality annotations. To assess the consistency of lateral reasoning by models, we enrich BRAINTEASER based on a semantic and contextual reconstruction of its questions. Our experiments with state-of-the-art instruction- and commonsense language models reveal a significant gap between human and model performance, which is further widened when consistency across adversarial formats is considered. We make all of our code and data available to stimulate work on developing and evaluating lateral thinking models.",
+      "citations": 17
+    },
+    {
+      "title": "Text Generation Beyond Discrete Token Sampling",
+      "year": 2025,
+      "authors": "Yufan Zhuang, Liyuan Liu, C. Singh, Jingbo Shang, Jianfeng Gao",
+      "url": "https://api.semanticscholar.org/CorpusId:278782161",
+      "relevance": 1,
+      "abstract": "In standard autoregressive generation, an LLM predicts the next-token distribution, samples a discrete token, and then discards the distribution, passing only the sampled token as new input. To preserve this distribution's rich information, we propose Mixture of Inputs (MoI), a training-free method for autoregressive generation. After generating a token following the standard paradigm, we construct a new input that blends the generated discrete token with the previously discarded token distribution. Specifically, we employ a Bayesian estimation method that treats the token distribution as the prior, the sampled token as the observation, and replaces the conventional one-hot vector with the continuous posterior expectation as the new model input. MoI allows the model to maintain a richer internal representation throughout the generation process, resulting in improved text quality and reasoning capabilities. On mathematical reasoning, code generation, and PhD-level QA tasks, MoI consistently improves performance across multiple models including QwQ-32B, Nemotron-Super-49B, Gemma-3-27B, and DAPO-Qwen-32B, with no additional training and negligible computational overhead.",
+      "citations": 13
+    },
+    {
+      "title": "Weak-eval-Strong: Evaluating and Eliciting Lateral Thinking of LLMs with Situation Puzzles",
+      "year": 2024,
+      "authors": "Qi Chen, Bowen Zhang, Gang Wang, Qi Wu",
+      "url": "https://api.semanticscholar.org/CorpusId:273228026",
+      "relevance": 1,
+      "abstract": "While advancements in NLP have significantly improved the performance of Large Language Models (LLMs) on tasks requiring vertical thinking, their lateral thinking capabilities remain under-explored and challenging to measure due to the complexity of assessing creative thought processes and the scarcity of relevant data. To address these challenges, we introduce SPLAT, a benchmark leveraging Situation Puzzles to evaluate and elicit LAteral Thinking of LLMs. This benchmark, containing 975 graded situation puzzles across three difficulty levels, employs a new multi-turn player-judge framework instead of the traditional model-based evaluation, which often necessitates a stronger evaluation model. This framework simulates an interactive game where the model (player) asks the evaluation model (judge) questions about an incomplete story to infer the full scenario. The judge answers based on a detailed reference scenario or evaluates if the player's predictions align with the reference one. This approach lessens dependence on more robust evaluation models, enabling the assessment of state-of-the-art LLMs. The experiments demonstrate that a robust evaluation model, such as WizardLM-2, closely matches human judgements in both intermediate question-answering and final scenario accuracy, achieving over 80% agreement-similar to the agreement levels among humans. Furthermore, applying data and reasoning processes from our benchmark to other lateral thinking-related benchmarks, e.g., RiddleSense and BrainTeaser, leads to performance enhancements. This suggests that our benchmark effectively evaluates and elicits the lateral thinking abilities of LLMs. Code is available at: https://github.com/chenqi008/LateralThinking.",
+      "citations": 12
+    },
+    {
+      "title": "Flow of Reasoning: Training LLMs for Divergent Reasoning with Minimal Examples",
+      "year": 2024,
+      "authors": "Fangxu Yu, Lai Jiang, Haoqiang Kang, Shibo Hao, Lianhui Qin",
+      "url": "https://api.semanticscholar.org/CorpusId:278911679",
+      "relevance": 1,
+      "abstract": "The ability to generate diverse solutions to a given problem is a hallmark of human creativity. This divergent reasoning is also crucial for machines, enhancing their robustness and enabling them to assist humans in many applications such as scientific discovery. However, existing approaches to multi-step reasoning with large language models (LLMs) have mostly focused only on reasoning accuracy, without further discovering more diverse valid solutions. For example, supervised fine-tuning improves reasoning quality but requires vast labeled data, while reward-maximizing reinforcement learning finds top-reward solutions while neglecting the solution diversity. To fill this gap, we propose Flow of Reasoning (FoR), an efficient diversity-seeking LLM finetuning method aimed at improving reasoning quality and diversity with minimal data. FoR formulates multi-step LLM reasoning as a Markovian flow on a DAG-structured reasoning graph. This formulation allows us to incorporate and adapt principled GFlowNet approaches, for finetuning LLMs to sample divergent paths with probabilities proportional to the (unnormalized) reward of target problems. Extensive experiments show that, with limited training examples (e.g., 15 examples), FoR enables the discovery of diverse, creative, high-quality solutions, greatly outperforming a wide range of existing inference and training methods across six challenging reasoning tasks, including BlocksWorld (embodied reasoning), Game24 (math puzzle solving), Rubik's Cube (spatial reasoning), 1D-ARC (abstraction reasoning), GSM8k (math reasoning), and ProntoQA (logical reasoning). Code is available at https://github.com/Yu-Fangxu/FoR.",
+      "citations": 12
+    },
+    {
+      "title": "Guiding and Diversifying LLM-Based Story Generation via Answer Set Programming",
+      "year": 2024,
+      "authors": "Phoebe J. Wang, Max Kreminski",
+      "url": "https://api.semanticscholar.org/CorpusId:270214210",
+      "relevance": 1,
+      "abstract": "Instruction-tuned large language models (LLMs) are capable of generating stories in response to open-ended user requests, but the resulting stories tend to be limited in their diversity. Older, symbolic approaches to story generation (such as planning) can generate substantially more diverse plot outlines, but are limited to producing stories that recombine a fixed set of hand-engineered character action templates. Can we combine the strengths of these approaches while mitigating their weaknesses? We propose to do so by using a higher-level and more abstract symbolic specification of high-level story structure -- implemented via answer set programming (ASP) -- to guide and diversify LLM-based story generation. Via semantic similarity analysis, we demonstrate that our approach produces more diverse stories than an unguided LLM, and via code excerpts, we demonstrate the improved compactness and flexibility of ASP-based outline generation over full-fledged narrative planning.",
+      "citations": 11
+    },
+    {
+      "title": "Assessing Creativity Across Multi-Step Intervention Using Generative AI Models",
+      "year": 2025,
+      "authors": "Eran Hadas, Arnon Hershkovitz",
+      "url": "https://api.semanticscholar.org/CorpusId:277179270",
+      "relevance": 1,
+      "abstract": "Creativity is an imperative skill for today\u2019s learners, one that has important contributions to issues of inclusion and equity in education. Therefore, assessing creativity is of major importance in educational contexts. However, scoring creativity based on traditional tools suffers from subjectivity and is heavily time- and labour-consuming. This is indeed the case for the commonly used Alternative Uses Test (AUT), in which participants are asked to list as many different uses as possible for a daily object. The test measures divergent thinking (DT), which involves exploring multiple possible solutions in various semantic domains. This study leverages recent advancements in generative AI (GenAI) to automate the AUT scoring process, potentially increasing efficiency and objectivity. Using two validated models, we analyze the dynamics of creativity dimensions in a multi-step intervention aimed at improving creativity by using repeated AUT sessions (N=157 9th-grade students). Our research questions focus on the behavioural patterns of DT dimensions over time, their correlation with the number of practice opportunities, and the influence of response order on creativity scores. The results show improvement in fluency and flexibility, as a function of practice opportunities, as well as various correlations between DT dimensions. By automating the scoring process, this study aims to provide deeper insights into the development of creative skills over time and explore the capabilities of GenAI in educational assessments. Eventually, the use of automatic evaluation can incorporate creativity evaluation in various educational processes at scale.",
+      "citations": 8
+    },
+    {
+      "title": "Creativity in AI as Emergence from Domain-Limited Generative Models",
+      "year": 2026,
+      "authors": "Corina Chutaux",
+      "url": "https://api.semanticscholar.org/CorpusId:284705055",
+      "relevance": 1,
+      "abstract": "Creativity in artificial intelligence is most often addressed through evaluative frameworks that aim to measure novelty, diversity, or usefulness in generated outputs. While such approaches have provided valuable insights into the behavior of modern generative models, they largely treat creativity as a property to be assessed rather than as a phenomenon to be explicitly modeled. In parallel, recent advances in large-scale generative systems, particularly multimodal architectures, have demonstrated increasingly sophisticated forms of pattern recombination, raising questions about the nature and limits of machine creativity. This paper proposes a generative perspective on creativity in AI, framing it as an emergent property of domain-limited generative models embedded within bounded informational environments. Rather than introducing new evaluative criteria, we focus on the structural and contextual conditions under which creative behaviors arise. We introduce a conceptual decomposition of creativity into four interacting components-pattern-based generation, induced world models, contextual grounding, and arbitrarity, and examine how these components manifest in multimodal generative systems. By grounding creativity in the interaction between generative dynamics and domain-specific representations, this work aims to provide a technical framework for studying creativity as an emergent phenomenon in AI systems, rather than as a post hoc evaluative label.",
+      "citations": 0
+    },
+    {
+      "title": "Beyond Divergent Creativity: A Human-Based Evaluation of Creativity in Large Language Models",
+      "year": 2026,
+      "authors": "Kumiko Nakajima, Jan Zuiderveld, Sandro Pezzelle",
+      "url": "https://api.semanticscholar.org/CorpusId:285101919",
+      "relevance": 1,
+      "abstract": "Large language models (LLMs) are increasingly used in verbal creative tasks. However, previous assessments of the creative capabilities of LLMs remain weakly grounded in human creativity theory and are thus hard to interpret. The widely used Divergent Association Task (DAT) focuses on novelty, ignoring appropriateness, a core component of creativity. We evaluate a range of state-of-the-art LLMs on DAT and show that their scores on the task are lower than those of two baselines that do not possess any creative abilities, undermining its validity for model evaluation. Grounded in human creativity theory, which defines creativity as the combination of novelty and appropriateness, we introduce Conditional Divergent Association Task (CDAT). CDAT evaluates novelty conditional on contextual appropriateness, separating noise from creativity better than DAT, while remaining simple and objective. Under CDAT, smaller model families often show the most creativity, whereas advanced families favor appropriateness at lower novelty. We hypothesize that training and alignment likely shift models along this frontier, making outputs more appropriate but less creative. We release the dataset and code.",
+      "citations": 0
+    },
+    {
+      "title": "Evaluating Text Creativity across Diverse Domains: A Dataset and Large Language Model Evaluator",
+      "year": 2025,
+      "authors": "Qian Cao, Xiting Wang, Yuzhuo Yuan, Yahui Liu, Fang Luo, Rui-jie Song",
+      "url": "https://api.semanticscholar.org/CorpusId:278905873",
+      "relevance": 1,
+      "abstract": "Creativity evaluation remains a challenging frontier for large language models (LLMs). Current evaluations heavily rely on inefficient and costly human judgments, hindering progress in enhancing machine creativity. While automated methods exist, ranging from psychological testing to heuristic- or prompting-based approaches, they often lack generalizability or alignment with human judgment. To address these issues, we propose a novel pairwise-comparison framework for assessing textual creativity that leverages shared contextual instructions to improve evaluation consistency. We introduce CreataSet, a large-scale dataset with 100K+ human-level and 1M+ synthetic creative instruction-response pairs spanning diverse open-domain tasks. Through training on CreataSet, we develop an LLM-based evaluator named CrEval. CrEval demonstrates remarkable superiority over existing methods in alignment with human judgments. Experimental results underscore the indispensable significance of integrating both human and synthetic data to train highly robust evaluators, and showcase the practical utility of CrEval in boosting the creativity of LLMs.",
+      "citations": 4
+    },
+    {
+      "title": "From Tokens to Lattices: Emergent Lattice Structures in Language Models",
+      "year": 2025,
+      "authors": "Bo Xiong, Steffen Staab",
+      "url": "https://api.semanticscholar.org/CorpusId:277780227",
+      "relevance": 1,
+      "abstract": "Pretrained masked language models (MLMs) have demonstrated an impressive capability to comprehend and encode conceptual knowledge, revealing a lattice structure among concepts. This raises a critical question: how does this conceptualization emerge from MLM pretraining? In this paper, we explore this problem from the perspective of Formal Concept Analysis (FCA), a mathematical framework that derives concept lattices from the observations of object-attribute relationships. We show that the MLM's objective implicitly learns a \\emph{formal context} that describes objects, attributes, and their dependencies, which enables the reconstruction of a concept lattice through FCA. We propose a novel framework for concept lattice construction from pretrained MLMs and investigate the origin of the inductive biases of MLMs in lattice structure learning. Our framework differs from previous work because it does not rely on human-defined concepts and allows for discovering\"latent\"concepts that extend beyond human definitions. We create three datasets for evaluation, and the empirical results verify our hypothesis.",
+      "citations": 2
+    },
+    {
+      "title": "Automated Domain Question Mapping (DQM) with Educational Learning Materials",
+      "year": 2026,
+      "authors": "Jiho Noh, Mukhesh Raghava Katragadda, Dabae Lee",
+      "url": "https://api.semanticscholar.org/CorpusId:284648544",
+      "relevance": 1,
+      "abstract": "Concept maps have been widely utilized in education to depict knowledge structures and the interconnections between disciplinary concepts. Nonetheless, devising a computational method for automatically constructing a concept map from unstructured educational materials presents challenges due to the complexity and variability of educational content. We focus primarily on two challenges: (1) the lack of disciplinary concepts that are specifically designed for multi-level pedagogical purposes from low-order to high-order thinking, and (2) the limited availability of labeled data concerning disciplinary concepts and their interrelationships. To tackle these challenges, this research introduces an innovative approach for constructing Domain Question Maps (DQMs), rather than traditional concept maps. By formulating specific questions aligned with learning objectives, DQMs enhance knowledge representation and improve readiness for learner engagement. The findings indicate that the proposed method can effectively generate educational questions and discern hierarchical relationships among them, leading to structured question maps that facilitate personalized and adaptive learning in downstream applications.",
+      "citations": 0
+    },
+    {
+      "title": "LLM-Generated Word Association Norms",
+      "year": 2024,
+      "authors": "Katherine Abramski, Clara Lavorati, Giulio Rossetti, Massimo Stella",
+      "url": "https://api.semanticscholar.org/CorpusId:271403687",
+      "relevance": 1,
+      "abstract": ". Word associations have been extensively used in psychology to study the rich structure of human conceptual knowledge. Recently, the study of word associations has been extended to investigating the knowledge encoded in LLMs. However, because of how the LLM word associations are accessed, existing approaches have been limited in the types of comparisons that can be made between humans and LLMs. To overcome this, we create LLM-generated word association norms modeled after the Small World of Words (SWOW) human-generated word association norms consisting of over 12,000 cue words. We prompt the language models with the same cues and participant pro\ufb01les as those in the SWOW human-generated norms, and we conduct preliminary comparative analyses between humans and LLMs that explore di\ufb00erences in response variability, biases, concreteness e\ufb00ects, and network properties. Our exploration provides insights into how LLM-generated word associations can be used to investigate similarities and di\ufb00erences in how humans and LLMs process information.",
+      "citations": 5
+    },
+    {
+      "title": "Reconstructing creative thoughts: Hopfield Neural Networks",
+      "year": 2023,
+      "authors": "Denisa Checiu, M. Bode, Radwa Khalil",
+      "url": "https://api.semanticscholar.org/CorpusId:262087553",
+      "relevance": 1,
+      "abstract": "From a brain processing perspective, the perception of creative thinking is rooted in the underlying cognitive process, which facilitates exploring and cultivating novel avenues and problem-solving strategies. However, it is challenging to emulate the intricate complexity of how the human brain presents a novel way to uncover unique solutions. One potential approach to mitigate this complexity is incorporating creative cognition within the evolving artificial intelligence systems and associated neural models. Hopfield Neural Networks (HNN) are commonly acknowledged as a simplified neural model, renowned for their biological plausibility to store and retrieve information, specifically patterns of neurons. Therefore, we propose for the first time using HNN to generate a potential model that emulates specific cognitive processes of creative thinking based on generating meaningful links between seemingly disparate concepts.",
+      "citations": 9
+    },
+    {
+      "title": "Scaffolding Creativity: How Divergent and Convergent LLM Personas Shape Human Machine Creative Problem-Solving",
+      "year": 2025,
+      "authors": "Alon Rosenbaum, Y. David, Eran Kaufman, Gilad Ravid, Amit Ronen, Assaf Krebs",
+      "url": "https://api.semanticscholar.org/CorpusId:282592620",
+      "relevance": 1,
+      "abstract": "Large language models (LLMs) are increasingly shaping creative work and problem-solving; however, prior research suggests that they may diminish unassisted creativity. To address this tension, a coach-like LLM environment was developed that embodies divergent and convergent thinking personas as two complementary processes. Effectiveness and user behavior were assessed through a controlled experiment in which participants interacted with either persona, while a control group engaged with a standard LLM providing direct answers. Notably, users'perceptions of which persona best supported their creativity often diverged from objective performance measures. Trait-based analyses revealed that individual differences predict when people utilize divergent versus convergent personas, suggesting opportunities for adaptive sequencing. Furthermore, interaction patterns reflected the design thinking model, demonstrating how persona-guided support shapes creative problem-solving. Our findings provide design principles for creativity support systems that strike a balance between exploration and convergence through persona-based guidance and personalization. These insights advance human-AI collaboration tools that scaffold rather than overshadow human creativity.",
+      "citations": 0
+    },
+    {
+      "title": "Generative Large Language Models for Knowledge Representation: A Systematic Review of Concept Map Generation",
+      "year": 2025,
+      "authors": "Xiaoming Zhai",
+      "url": "https://api.semanticscholar.org/CorpusId:281394610",
+      "relevance": 1,
+      "abstract": "The rise of generative large language models (LLMs) has opened new opportunities for automating knowledge representation through concept maps, a long-standing pedagogical tool valued for fostering meaningful learning and higher-order thinking. Traditional construction of concept maps is labor-intensive, requiring significant expertise and time, limiting their scalability in education. This review systematically synthesizes the emerging body of research on LLM-enabled concept map generation, focusing on two guiding questions: (a) What methods and technical features of LLMs are employed to construct concept maps? (b) What empirical evidence exists to validate their educational utility? Through a comprehensive search across major databases and AI-in-education conference proceedings, 28 studies meeting rigorous inclusion criteria were analyzed using thematic synthesis. Findings reveal six major methodological categories: human-in-the-loop systems, weakly supervised learning models, fine-tuned domain-specific LLMs, pre-trained LLMs with prompt engineering, hybrid systems integrating knowledge bases, and modular frameworks combining symbolic and statistical tools. Validation strategies ranged from quantitative metrics (precision, recall, F1-score, semantic similarity) to qualitative evaluations (expert review, learner feedback). Results indicate LLM-generated maps hold promise for scalable, adaptive, and pedagogically relevant knowledge visualization, though challenges remain regarding validity, interpretability, multilingual adaptability, and classroom integration. Future research should prioritize interdisciplinary co-design, empirical classroom trials, and alignment with instructional practices to realize their full educational potential.",
+      "citations": 1
+    },
+    {
+      "title": "Leveraging Large Models to Evaluate Novel Content: A Case Study on Advertisement Creativity",
+      "year": 2025,
+      "authors": "Zhaoyi Joey Hou, Adriana Kovashka, Xiang Lorraine Li",
+      "url": "https://api.semanticscholar.org/CorpusId:276742494",
+      "relevance": 1,
+      "abstract": "Evaluating creativity is challenging, even for humans, not only because of its subjectivity but also because it involves complex cognitive processes. Inspired by work in marketing, we attempt to break down visual advertisement creativity into atypicality and originality. With fine-grained human annotations on these dimensions, we propose a suite of tasks specifically for such a subjective problem. We also evaluate the alignment between state-of-the-art (SoTA) vision language models (VLMs) and humans on our proposed benchmark, demonstrating both the promises and challenges of using VLMs for automatic creativity assessment.",
+      "citations": 0
+    },
+    {
+      "title": "Single LLM Debate, MoLaCE: Mixture of Latent Concept Experts Against Confirmation Bias",
+      "year": 2025,
+      "authors": "Hazel Kim, Philip Torr",
+      "url": "https://api.semanticscholar.org/CorpusId:284313674",
+      "relevance": 1,
+      "abstract": "Large language models (LLMs) are highly vulnerable to input confirmation bias. When a prompt implies a preferred answer, models often reinforce that bias rather than explore alternatives. This phenomenon remains underexplored, yet it is already harmful in base models and poses an even greater risk in multi-agent debate, where echo chambers reinforce bias instead of correction. We introduce Mixture of Latent Concept Experts (MoLaCE), a lightweight inference-time framework that addresses confirmation bias by mixing experts instantiated as different activation strengths over latent concepts that shape model responses. Our key insight is that, due to the compositional nature of language, differently phrased prompts reweight latent concepts in prompt-specific ways that affect factual correctness, so no single fixed intervention can be applied universally across inputs. This design enables a single LLM to emulate the benefits of debate internally while remaining computationally efficient and scalable. It can also be integrated into multi-agent debate frameworks to diversify perspectives and reduce correlated errors. We empirically show that it consistently reduces confirmation bias, improves robustness, and matches or surpasses multi-agent debate while requiring only a fraction of the computation.",
+      "citations": 0
+    },
+    {
+      "title": "Gaiku : Generating Haiku with Word Associations Norms",
+      "year": 2009,
+      "authors": "Y. Netzer, David Gabay, Yoav Goldberg, Michael Elhadad",
+      "url": "https://api.semanticscholar.org/CorpusId:2759448",
+      "relevance": 1,
+      "abstract": "Word associations are an important element of linguistic creativity. Traditional lexical knowledge bases such as WordNet formalize a limited set of systematic relations among words, such as synonymy, polysemy and hypernymy. Such relations maintain their systematicity when composed into lexical chains. We claim that such relations cannot explain the type of lexical associations common in poetic text. We explore in this paper the usage of Word Association Norms (WANs) as an alternative lexical knowledge source to analyze linguistic computational creativity. We specifically investigate the Haiku poetic genre, which is characterized by heavy reliance on lexical associations. We first compare the density of WAN-based word associations in a corpus of English Haiku poems to that of WordNet-based associations as well as in other non-poetic genres. These experiments confirm our hypothesis that the non-systematic lexical associations captured in WANs play an important role in poetic text. We then present Gaiku, a system to automatically generate Haikus from a seed word and using WAN-associations. Human evaluation indicate that generated Haikus are of lesser quality than human Haikus, but a high proportion of generated Haikus can confuse human readers, and a few of them trigger intriguing reactions.",
+      "citations": 84
+    },
+    {
+      "title": "Language Models as Semiotic Machines: Reconceptualizing AI Language Systems through Structuralist and Post-Structuralist Theories of Language",
+      "year": 2024,
+      "authors": "Elad Vromen",
+      "url": "https://api.semanticscholar.org/CorpusId:273403804",
+      "relevance": 1,
+      "abstract": "This paper proposes a novel framework for understanding large language models (LLMs) by reconceptualizing them as semiotic machines rather than as imitations of human cognition. Drawing from structuralist and post-structuralist theories of language-specifically the works of Ferdinand de Saussure and Jacques Derrida-I argue that LLMs should be understood as models of language itself, aligning with Derrida's concept of 'writing' (l'ecriture). The paper is structured into three parts. First, I lay the theoretical groundwork by explaining how the word2vec embedding algorithm operates within Saussure's framework of language as a relational system of signs. Second, I apply Derrida's critique of Saussure to position 'writing' as the object modeled by LLMs, offering a view of the machine's 'mind' as a statistical approximation of sign behavior. Finally, the third section addresses how modern LLMs reflect post-structuralist notions of unfixed meaning, arguing that the\"next token generation\"mechanism effectively captures the dynamic nature of meaning. By reconceptualizing LLMs as semiotic machines rather than cognitive models, this framework provides an alternative lens through which to assess the strengths and limitations of LLMs, offering new avenues for future research.",
+      "citations": 1
+    },
+    {
+      "title": "Initial Development and Evaluation of the Creative Artificial Intelligence through Recurring Developments and Determinations (CAIRDD) System",
+      "year": 2024,
+      "authors": "Jeremy Straub, Zach Johnson",
+      "url": "https://api.semanticscholar.org/CorpusId:272397938",
+      "relevance": 1,
+      "abstract": "Computer system creativity is a key step on the pathway to artificial general intelligence (AGI). It is elusive, however, due to the fact that human creativity is not fully understood and, thus, it is difficult to develop this capability in software. Large language models (LLMs) provide a facsimile of creativity and the appearance of sentience, while not actually being either creative or sentient. While LLMs have created bona fide new content, in some cases - such as with harmful hallucinations - inadvertently, their deliberate creativity is seen by some to not match that of humans. In response to this challenge, this paper proposes a technique for enhancing LLM output creativity via an iterative process of concept injection and refinement. Initial work on the development of the Creative Artificial Intelligence through Recurring Developments and Determinations (CAIRDD) system is presented and the efficacy of key system components is evaluated.",
+      "citations": 0
+    },
+    {
+      "title": "The Creative Frontier of Generative AI: Managing the Novelty-Usefulness Tradeoff",
+      "year": 2023,
+      "authors": "A. Mukherjee, Hannah H. Chang",
+      "url": "https://api.semanticscholar.org/CorpusId:259089064",
+      "relevance": 1,
+      "abstract": "In this paper, drawing inspiration from the human creativity literature, we explore the optimal balance between novelty and usefulness in generative Artificial Intelligence (AI) systems. We posit that overemphasizing either aspect can lead to limitations such as hallucinations and memorization. Hallucinations, characterized by AI responses containing random inaccuracies or falsehoods, emerge when models prioritize novelty over usefulness. Memorization, where AI models reproduce content from their training data, results from an excessive focus on usefulness, potentially limiting creativity. To address these challenges, we propose a framework that includes domain-specific analysis, data and transfer learning, user preferences and customization, custom evaluation metrics, and collaboration mechanisms. Our approach aims to generate content that is both novel and useful within specific domains, while considering the unique requirements of various contexts.",
+      "citations": 7
+    },
+    {
+      "title": "Deja Vu at SemEval 2024 Task 9: A Comparative Study of Advanced Language Models for Commonsense Reasoning",
+      "year": 2024,
+      "authors": "Trina Chakraborty, Marufur Rahman, Omar Faruqe Riyad",
+      "url": "https://api.semanticscholar.org/CorpusId:270765505",
+      "relevance": 1,
+      "abstract": "This research systematically forms an impression of the capabilities of advanced language models in addressing the BRAINTEASER task introduced at SemEval 2024, which is specifically designed to explore the models\u2019 proficiency in lateral commonsense reasoning. The task sets forth an array of Sentence and Word Puzzles, carefully crafted to challenge the models with scenarios requiring unconventional thought processes. Our methodology encompasses a holistic approach, incorporating pre-processing of data, fine-tuning of transformer-based language models, and strategic data augmentation to explore the depth and flexibility of each model\u2019s understanding. The preliminary results of our analysis are encouraging, highlighting significant potential for advancements in the models\u2019 ability to engage in lateral reasoning. Further insights gained from post-competition evaluations suggest scopes for notable enhancements in model performance, emphasizing the continuous evolution of the models in mastering complex reasoning tasks.",
+      "citations": 1
+    },
+    {
+      "title": "BAMO at SemEval-2024 Task 9: BRAINTEASER: A Novel Task Defying Common Sense",
+      "year": 2024,
+      "authors": "Baktash Ansari, Mohammadmostafa Rostamkhani, S. Eetemadi",
+      "url": "https://api.semanticscholar.org/CorpusId:270357296",
+      "relevance": 1,
+      "abstract": "This paper outlines our approach to SemEval 2024 Task 9, BRAINTEASER: A Novel Task Defying Common Sense. The task aims to evaluate the ability of language models to think creatively. The dataset comprises multi-choice questions that challenge models to think \u2018outside of the box\u2019. We fine-tune 2 models, BERT and RoBERTa Large. Next, we employ a Chain of Thought (CoT) zero-shot prompting approach with 6 large language models, such as GPT-3.5, Mixtral, and Llama2. Finally, we utilize ReConcile, a technique that employs a \u2018round table conference\u2019 approach with multiple agents for zero-shot learning, to generate consensus answers among 3 selected language models. Our best method achieves an overall accuracy of 85 percent on the sentence puzzles subtask.",
+      "citations": 1
+    },
+    {
+      "title": "ROSHA at SemEval-2024 Task 9: BRAINTEASER A Novel Task Defying Common Sense",
+      "year": 2024,
+      "authors": "Mohammadmostafa Rostamkhani, Shayan Mousavinia, S. Eetemadi",
+      "url": "https://api.semanticscholar.org/CorpusId:270765804",
+      "relevance": 1,
+      "abstract": "In our exploration of SemEval 2024 Task 9, specifically the challenging BRAINTEASER: A Novel Task Defying Common Sense, we employed various strategies for the BRAINTEASER QA task, which encompasses both sentence and word puzzles. In the initial approach, we applied the XLM-RoBERTa model both to the original training dataset and concurrently to the original dataset alongside the BiRdQA dataset and the original dataset alongside RiddleSense for comprehensive model training.Another strategy involved expanding each word within our BiRdQA dataset into a full sentence. This unique perspective aimed to enhance the semantic impact of individual words in our training regimen for word puzzle (WP) riddles. Utilizing ChatGPT-3.5, we extended each word into an extensive sentence, applying this process to all options within each riddle.Furthermore, we explored the implementation of RECONCILE (Round-table conference) using three prominent large language models\u2014ChatGPT, Gemini, and the Mixtral-8x7B Large Language Model (LLM). As a final approach, we leveraged GPT-4 results. Remarkably, our most successful experiment yielded noteworthy results, achieving a score of 0.900 for sentence puzzles (S_ori) and 0.906 for word puzzles (W_ori).",
+      "citations": 1
+    },
+    {
+      "title": "DaVinci at SemEval-2024 Task 9: Few-shot prompting GPT-3.5 for Unconventional Reasoning",
+      "year": 2024,
+      "authors": "S. Mathur, A. Jindal, Manish Shrivastava",
+      "url": "https://api.semanticscholar.org/CorpusId:269921537",
+      "relevance": 1,
+      "abstract": "While significant work has been done in the field of NLP on vertical thinking, which involves primarily logical thinking, little work has been done towards lateral thinking, which involves looking at problems from an unconventional perspective defying existing conceptions and notions. Towards this direction, SemEval 2024 introduces the task of BRAINTEASER, which involves two types of questions \u2013 Sentence Puzzle and Word Puzzle that defy conventional common-sense reasoning and constraints. In this paper, we tackle both the questions using few-shot prompting on GPT-3.5 and gain insights regarding the difference in the nature of the two types of questions. Our prompting strategy placed us 26th on the leaderboard for the Sentence Puzzle and 15th on the Word Puzzle task.",
+      "citations": 1
+    },
+    {
+      "title": "Flexibility in conceptual combinations: A neural network model of gradable adjective modification",
+      "year": 2024,
+      "authors": "Georgia-Ann Carter, Frank Keller, Paul Hoffman",
+      "url": "https://api.semanticscholar.org/CorpusId:271490660",
+      "relevance": 1,
+      "abstract": "Our ability to combine simple constituents into more complex conceptual combinations is a fundamental aspect of cognition. Gradable adjectives (e.g., \u2018tall\u2019 and \u2018light\u2019) are a critical example of this process, as their meanings vary depending on the noun with which they are combined. For example, a dark diamond is less dark than dark charcoal. Here, we investigate how a neural network encodes the flexible nature of gradable adjectives in adjective\u2013noun pairs, using the perceptual feature of brightness as a test case. We trained a neural network to predict human brightness ratings for unmodified nouns and adjective\u2013noun pairs and assessed its ability to generalize to untrained combinations (e.g., \u2018light paint\u2019 vs. \u2018dark paint\u2019). We also explored how this information is encoded. We found that flexible learning of gradable adjectives was possible, with neural networks first making predictions based on the adjective alone, and then modulating these with information from the noun later in learning. We also found that model outputs mimicked the kind of non-additive feature modulation present in human data. Our results have implications for understanding how semantic composition occurs and generate testable predictions for future work.",
+      "citations": 0
+    },
+    {
+      "title": "Think Beyond Words: Exploring Context-Relevant Visual Commonsense for Diverse Dialogue Generation",
+      "year": 2022,
+      "authors": "Yiting Liu, Liang Li, Beichen Zhang, Qin Huang",
+      "url": "https://api.semanticscholar.org/CorpusId:256631119",
+      "relevance": 1,
+      "abstract": ",",
+      "citations": 4
+    },
+    {
+      "title": "How the Brain Dynamically Constructs Sentence-Level Meanings From Word-Level Features",
+      "year": 2022,
+      "authors": "Nora E. Aguirre-Celis, R. Miikkulainen",
+      "url": "https://api.semanticscholar.org/CorpusId:248268412",
+      "relevance": 1,
+      "abstract": "How are words connected to the thoughts they help to express? Recent brain imaging studies suggest that word representations are embodied in different neural systems through which the words are experienced. Building on this idea, embodied approaches such as the Concept Attribute Representations (CAR) theory represents concepts as a set of semantic features (attributes) mapped to different brain systems. An intriguing challenge to this theory is that people weigh concept attributes differently based on context, i.e., they construct meaning dynamically according to the combination of concepts that occur in the sentence. This research addresses this challenge through the Context-dEpendent meaning REpresentations in the BRAin (CEREBRA) neural network model. Based on changes in the brain images, CEREBRA quantifies the effect of sentence context on word meanings. Computational experiments demonstrated that words in different contexts have different representations, the changes observed in the concept attributes reveal unique conceptual combinations, and that the new representations are more similar to the other words in the sentence than to the original representations. Behavioral analysis further confirmed that the changes produced by CEREBRA are actionable knowledge that can be used to predict human responses. These experiments constitute a comprehensive evaluation of CEREBRA's context-based representations, showing that CARs can be dynamic and change based on context. Thus, CEREBRA is a useful tool for understanding how word meanings are represented in the brain, providing a framework for future interdisciplinary research on the mental lexicon.",
+      "citations": 0
+    },
+    {
+      "title": "Geometric Interpretation of Layer Normalization and a Comparative Analysis with RMSNorm",
+      "year": 2026,
+      "authors": "Akshat Gupta, Atahan Ozdemir, G. Anumanchipalli",
+      "url": "https://api.semanticscholar.org/CorpusId:272753441",
+      "relevance": 1,
+      "abstract": ",",
+      "citations": 6
+    },
+    {
+      "title": "Creativity of Deep Learning: Conceptualization and Assessment",
+      "year": 2020,
+      "authors": "Johannes Schneider, Marcus Basalla",
+      "url": "https://api.semanticscholar.org/CorpusId:227305898",
+      "relevance": 1,
+      "abstract": "While the potential of deep learning(DL) for automating simple tasks is already well explored, recent research started investigating the use of deep learning for creative design, both for complete artifact creation and supporting humans in the creation process. In this paper, we use insights from computational creativity to conceptualize and assess current applications of generative deep learning in creative domains identified in a literature review. We highlight parallels between current systems and different models of human creativity as well as their shortcomings. While deep learning yields results of high value, such as high quality images, their novelity is typically limited due to multiple reasons such a being tied to a conceptual space defined by training data and humans. Current DL methods also do not allow for changes in the internal problem representation and they lack the capability to identify connections across highly different domains, both of which are seen as major drivers of human creativity.",
+      "citations": 16
+    },
+    {
+      "title": "Transformers without Normalization",
+      "year": 2025,
+      "authors": "Jiacheng Zhu, Xinlei Chen, Kaiming He, Yann LeCun, Zhuang Liu",
+      "url": "https://api.semanticscholar.org/CorpusId:276961218",
+      "relevance": 1,
+      "abstract": "Normalization layers are ubiquitous in modern neural networks and have long been considered essential. This work demonstrates that Transformers without normalization can achieve the same or better performance using a remarkably simple technique. We introduce Dynamic Tanh (DyT), an element-wise operation DyT(x) = tanh(\u03b1x), as a dropin replacement for normalization layers in Transformers. DyT is inspired by the observation that layer normalization in Transformers often produces tanh-like, S-shaped input-output mappings. By incorporating DyT, Transformers without normalization can match or exceed the performance of their normalized counterparts, mostly without hyperparameter tuning. We validate the effectiveness of Transformers with DyT across diverse settings, from recognition to generation, supervised to self-supervised learning, and computer vision to language models. These findings challenge the conventional understanding that normalization layers are indispensable in modern neural networks, and offer new insights into their role in deep networks.",
+      "citations": 135
+    },
+    {
+      "title": "Understanding and Improving Layer Normalization",
+      "year": 2019,
+      "authors": "Jingjing Xu, Xu Sun, Zhiyuan Zhang, Guangxiang Zhao, Junyang Lin",
+      "url": "https://api.semanticscholar.org/CorpusId:202763816",
+      "relevance": 1,
+      "abstract": "Layer normalization (LayerNorm) is a technique to normalize the distributions of intermediate layers. It enables smoother gradients, faster training, and better generalization accuracy. However, it is still unclear where the effectiveness stems from. In this paper, our main contribution is to take a step further in understanding LayerNorm. Many of previous studies believe that the success of LayerNorm comes from forward normalization. Unlike them, we find that the derivatives of the mean and variance are more important than forward normalization by re-centering and re-scaling backward gradients. Furthermore, we find that the parameters of LayerNorm, including the bias and gain, increase the risk of over-fitting and do not work in most cases. Experiments show that a simple version of LayerNorm (LayerNorm-simple) without the bias and gain outperforms LayerNorm on four datasets. It obtains the state-of-the-art performance on En-Vi machine translation. To address the over-fitting problem, we propose a new normalization method, Adaptive Normalization (AdaNorm), by replacing the bias and gain with a new transformation function. Experiments show that AdaNorm demonstrates better results than LayerNorm on seven out of eight datasets.",
+      "citations": 492
+    },
+    {
+      "title": "Normalization Techniques in Training DNNs: Methodology, Analysis and Application",
+      "year": 2020,
+      "authors": "Lei Huang, Jie Qin, Yi Zhou, Fan Zhu, Li Liu, Ling Shao",
+      "url": "https://api.semanticscholar.org/CorpusId:221970066",
+      "relevance": 1,
+      "abstract": "Normalization techniques are essential for accelerating the training and improving the generalization of deep neural networks (DNNs), and have successfully been used in various applications. This paper reviews and comments on the past, present and future of normalization methods in the context of DNN training. We provide a unified picture of the main motivation behind different approaches from the perspective of optimization, and present a taxonomy for understanding the similarities and differences between them. Specifically, we decompose the pipeline of the most representative normalizing activation methods into three components: the normalization area partitioning, normalization operation and normalization representation recovery. In doing so, we provide insight for designing new normalization technique. Finally, we discuss the current progress in understanding normalization methods, and provide a comprehensive review of the applications of normalization for particular tasks, in which it can effectively solve the key issues.",
+      "citations": 425
+    },
+    {
+      "title": "Approximate Inverse Model Explanations as a Semantic Evaluator for Large Language Models",
+      "year": 2026,
+      "authors": "Takafumi Nakanishi",
+      "url": "https://www.semanticscholar.org/paper/ede3f9ce4e1b50ec0a252a1dc8e11a25803b96c7",
+      "relevance": 1,
+      "abstract": "",
+      "citations": 0
+    },
+    {
+      "title": "Cultural dimensions in the perception of success: Comparative analysis of word associations across languages using LLM word embedding",
+      "year": 2025,
+      "authors": "H. B. Ozmen",
+      "url": "https://www.semanticscholar.org/paper/3c9bf9d312b168154f32fcda45a58017f7e860f7",
+      "relevance": 1,
+      "abstract": "This study investigates how the concept of success is semantically associated with culturally salient attributes across nine languages using monolingual embeddings derived from large language models. Twelve key attributes\u2014effort, ambition, talent, collaboration, happiness, luck, creativity, discipline, education, status, wealth, and respect\u2014were analyzed based on their cosine distances to \u201csuccess.\u201d Lower distances indicate stronger conceptual ties. Findings reveal that effort is universally central, appearing closest to success in all languages studied. Cultural nuances were evident: collaboration and ambition showed varying levels of association, with collectivist cultures such as Chinese and Arabic emphasizing collaboration, while individualistic cultures like Finnish and English highlighted ambition. Talent and happiness emerged as significant in specific contexts, particularly in Finnish, Russian, and Turkish corpora. Luck showed a stronger link in European languages like German and Russian, suggesting higher attribution of success to chance. Conversely, external markers like status and wealth showed weaker associations overall. These results offer a data-driven, cross-linguistic perspective on how success is framed within different cultural value systems.",
+      "citations": 0
+    },
+    {
+      "title": "Exploring Alternative Approaches to Language Modeling for Learning from Data and Knowledge",
+      "year": 2024,
+      "authors": "Yuxin Zi, Kaushik Roy, Vignesh Narayanan, Amit P. Sheth",
+      "url": "https://www.semanticscholar.org/paper/1e34c156749d7d7e0f7043c7472b52df268ddf59",
+      "relevance": 1,
+      "abstract": "Despite their extensive application in language understanding tasks, large language models (LLMs) still encounter challenges including hallucinations - occasional fabrication of information - and alignment issues - lack of associations with human-curated world models (e.g., intuitive physics or common-sense knowledge). Moreover, the black-box nature of LLMs presents significant obstacles in training them effectively to achieve desired behaviors. In particular, modifying the concept embedding spaces of LLMs can be highly intractable. This process involves analyzing the implicit impact of such adjustments on the myriad parameters within LLMs and the resulting inductive biases. We propose a novel architecture that wraps powerful function approximation architectures within an outer, interpretable read-out layer. This read-out layer can be scrutinized to explicitly observe the effects of concept modeling during the training of the LLM. Our method stands in contrast with gradient-based implicit mechanisms, which depend solely on adjustments to the LLM parameters and thus evade scrutiny. By conducting extensive experiments across both generative and discriminative language modeling tasks, we evaluate the capabilities of our proposed architecture relative to state-of-the-art LLMs of similar sizes. Additionally, we offer a qualitative examination of the interpretable read-out layer and visualize the concepts it captures. The results demonstrate the potential of our approach for effectively controlling LLM hallucinations and enhancing the alignment with human expectations.",
+      "citations": 1
+    },
+    {
+      "title": "The Doctrine of Latent Copyrights: Protecting Generative AI Models through Representational Layers",
+      "year": 2025,
+      "authors": "Ali Nawaz Khan, Bakht Munir, Ahmed Raza",
+      "url": "https://www.semanticscholar.org/paper/5355542768d7cdd4d07e395f38afdf1e6df273df",
+      "relevance": 1,
+      "abstract": "Generative artificial intelligence systems not only produce expressive outputs, but also provide rich latent spaces, i.e., mathematical objects that express the semantic relation among the training data. These unique representational strata represent creative associations and redefine the traditional limits of copyright law. The article introduces the concept of Latent Copyrights, which proposes the provision of copyright protection to intermediate representations of the products generated by AI. It examines the use of computational creativity for the purpose of copyright protection. Engaging in a comparative analysis of the copyright regimes of the U.S., U.K., and E.U., this study suggests a relative system to ensure the protection of innovation, interoperability, and responsibility. The aim is to streamline the Latent Copyright theory of intellectual property with the technicalities of machine learning by offering a paradigm that conceptualizes representational layers of an AI-generated product as a medium of Copyright.",
+      "citations": 0
+    },
+    {
+      "title": "Probing Large Language Models for Scientific Synonyms",
+      "year": 2023,
+      "authors": "Freya Thie\u00dfen, Jennifer D'Souza, Markus Stocker",
+      "url": "https://www.semanticscholar.org/paper/6cc1e17a0a9179adb7464a538db6d3a12e7c14c5",
+      "relevance": 1,
+      "abstract": "",
+      "citations": 7
+    },
+    {
+      "title": "Neural Redshift: Random Networks are not Random Functions",
+      "year": 2024,
+      "authors": "Damien Teney, A. Nicolicioiu, Valentin Hartmann, Ehsan Abbasnejad",
+      "url": "https://api.semanticscholar.org/CorpusId:268249167",
+      "relevance": 1,
+      "abstract": "Our understanding of the generalization capabilities of neural networks (NNs) is still incomplete. Prevailing explanations are based on implicit biases of gradient de-scent (GD) but they cannot account for the capabilities of models from gradient-free methods [9] nor the simplicity bias recently observed in untrained networks [29]. This paper seeks other sources of generalization in NNs. Findings. To understand the inductive biases provided by architectures independently from GD, we examine un-trained, random-weight networks. Even simple MLPs show strong inductive biases: uniform sampling in weight space yields a very biased distribution of functions in terms of complexity. But unlike common wisdom, NNs do not have an inherent \u201csimplicity bias\u201d. This property depends on components such as ReLUs, residual connections, and layer normalizations. Alternative architectures can be built with a bias for any level of complexity. Transformers also inherit all these properties from their building blocks. Implications. We provide a fresh explanation for the success of deep learning independent from gradient-based training. It points at promising avenues for controlling the solutions implemented by trained models.",
+      "citations": 41
+    },
+    {
+      "title": "The Curse of Depth in Large Language Models",
+      "year": 2025,
+      "authors": "Wenfang Sun, Xinyuan Song, Pengxiang Li, Lu Yin, Yefeng Zheng, Shiwei Liu",
+      "url": "https://api.semanticscholar.org/CorpusId:276249718",
+      "relevance": 1,
+      "abstract": "In this paper, we introduce the Curse of Depth, a concept that highlights, explains, and addresses the recent observation in modern Large Language Models (LLMs) where nearly half of the layers are less effective than expected. We first confirm the wide existence of this phenomenon across the most popular families of LLMs such as Llama, Mistral, DeepSeek, and Qwen. Our analysis, theoretically and empirically, identifies that the underlying reason for the ineffectiveness of deep layers in LLMs is the widespread usage of Pre-Layer Normalization (Pre-LN). While Pre-LN stabilizes the training of Transformer LLMs, its output variance exponentially grows with the model depth, which undesirably causes the derivative of the deep Transformer blocks to be an identity matrix, and therefore barely contributes to the training. To resolve this training pitfall, we propose LayerNorm Scaling (LNS), which scales the variance of output of the layer normalization inversely by the square root of its depth. This simple modification mitigates the output variance explosion of deeper Transformer layers, improving their contribution. Across a wide range of model sizes (130M to 7B), our experiments show that LNS consistently outperforms previous normalization and scaling techniques in enhancing LLM pre-training performance. Moreover, this improvement seamlessly carries over to supervised fine-tuning. All these gains can be attributed to the fact that LayerNorm Scaling enables deeper layers to contribute more effectively during training. Our code is available at \\href{https://github.com/lmsdss/LayerNorm-Scaling}{LayerNorm-Scaling}.",
+      "citations": 36
+    },
+    {
+      "title": "Deconstructing Computer Poets: Making Selected Processes Available as Services",
+      "year": 2015,
+      "authors": "Pablo Gerv\u00e1s",
+      "url": "https://api.semanticscholar.org/CorpusId:30383448",
+      "relevance": 1,
+      "abstract": "The article explores the potential of redefining as services a number of functionalities involved in poetry generation systems to better serve the challenge of working toward a yet unknown successful computational model of the creative task being addressed. This is performed by considering how some of the processes currently modeled in existing systems for poetry generation might be deconstructed into a set of services susceptible of being recombined in different ways to be integrated in other developments. Building on prior attempts to propose an evolutionary architecture that allows integration of a number of artificial intelligence technologies in combination, this article explores the advantages of service\u2010oriented architecture for reimplementing as publicly available services some selected functionality of the Wishful Automatic Spanish Poet (WASP) poetry generation system.",
+      "citations": 11
+    },
+    {
+      "title": "Peri-LN: Revisiting Normalization Layer in the Transformer Architecture",
+      "year": 2025,
+      "authors": "Jeonghoon Kim, Byeongchan Lee, Cheonbok Park, Yeontaek Oh, Beomjun Kim, Taehwan Yoo, Seongjin Shin, Dongyoon Han, Jinwoo Shin, K. Yoo",
+      "url": "https://api.semanticscholar.org/CorpusId:276116295",
+      "relevance": 1,
+      "abstract": "Selecting a layer normalization (LN) strategy that stabilizes training and speeds convergence in Transformers remains difficult, even for today's large language models (LLM). We present a comprehensive analytical foundation for understanding how different LN strategies influence training dynamics in large-scale Transformers. Until recently, Pre-LN and Post-LN have long dominated practices despite their limitations in large-scale training. However, several open-source models have recently begun silently adopting a third strategy without much explanation. This strategy places normalization layer peripherally around sublayers, a design we term Peri-LN. While Peri-LN has demonstrated promising performance, its precise mechanisms and benefits remain almost unexplored. Our in-depth analysis delineates the distinct behaviors of LN strategies, showing how each placement shapes activation variance and gradient propagation. To validate our theoretical insight, we conduct extensive experiments on Transformers up to $3.2$B parameters, showing that Peri-LN consistently achieves more balanced variance growth, steadier gradient flow, and convergence stability. Our results suggest that Peri-LN warrants broader consideration for large-scale Transformer architectures, providing renewed insights into the optimal placement of LN.",
+      "citations": 21
+    },
+    {
+      "title": "Layer Normalization",
+      "year": 2016,
+      "authors": "Jimmy Ba, J. Kiros, Geoffrey E. Hinton",
+      "url": "https://api.semanticscholar.org/CorpusId:8236317",
+      "relevance": 1,
+      "abstract": "Training state-of-the-art, deep neural networks is computationally expensive. One way to reduce the training time is to normalize the activities of the neurons. A recently introduced technique called batch normalization uses the distribution of the summed input to a neuron over a mini-batch of training cases to compute a mean and variance which are then used to normalize the summed input to that neuron on each training case. This significantly reduces the training time in feed-forward neural networks. However, the effect of batch normalization is dependent on the mini-batch size and it is not obvious how to apply it to recurrent neural networks. In this paper, we transpose batch normalization into layer normalization by computing the mean and variance used for normalization from all of the summed inputs to the neurons in a layer on a single training case. Like batch normalization, we also give each neuron its own adaptive bias and gain which are applied after the normalization but before the non-linearity. Unlike batch normalization, layer normalization performs exactly the same computation at training and test times. It is also straightforward to apply to recurrent neural networks by computing the normalization statistics separately at each time step. Layer normalization is very effective at stabilizing the hidden state dynamics in recurrent networks. Empirically, we show that layer normalization can substantially reduce the training time compared with previously published techniques.",
+      "citations": 12340
+    },
+    {
+      "title": "Parameter-Efficient Tuning on Layer Normalization for Pre-trained Language Models",
+      "year": 2022,
+      "authors": "Wang Qi, Yu-Ping Ruan, Y. Zuo, Taihao Li",
+      "url": "https://api.semanticscholar.org/CorpusId:253553467",
+      "relevance": 1,
+      "abstract": "Conventional fine-tuning encounters increasing difficulties given the size of current Pre-trained Language Models, which makes parameter-efficient tuning become the focal point of frontier research. Previous methods in this field add tunable adapters into MHA or/and FFN of Transformer blocks to enable PLMs achieve transferability. However, as an important part of Transformer architecture, the power of layer normalization for parameter-efficent tuning is ignored. In this paper, we first propose LN-tuning, by tuning the gain and bias term of Layer Normalization module with only 0.03\\% parameters, which is of high time-efficency and significantly superior to baselines which are less than 0.1\\% tunable parameters. Further, we study the unified framework of combining LN-tuning with previous ones and we find that: (1) the unified framework of combining prefix-tuning, the adapter-based method working on MHA, and LN-tuning achieves SOTA performance. (2) unified framework which tunes MHA and LayerNorm simultaneously can get performance improvement but those which tune FFN and LayerNorm simultaneous will cause performance decrease. Ablation study validates LN-tuning is of no abundant parameters and gives a further understanding of it.",
+      "citations": 25
+    },
+    {
+      "title": "Normalization in Attention Dynamics",
+      "year": 2025,
+      "authors": "Nikita Karagodin, Shu Ge, Yury Polyanskiy, Philippe Rigollet",
+      "url": "https://api.semanticscholar.org/CorpusId:282390226",
+      "relevance": 1,
+      "abstract": "We study the effect of normalization schemes on token representations in deep transformers. Modeling their evolution as interacting particles on the sphere, we show that normalization acts as a form of speed regulation. This perspective enables a unified analysis of several schemes -- including Post-LN, Pre-LN, Mix-LN, Peri-LN, nGPT -- revealing how they influence clustering dynamics and representation collapse. Our framework clarifies how different schemes shape token representations across layers and provides a principled basis for comparing them, identifying Peri-LN as a particularly effective choice.",
+      "citations": 3
+    },
+    {
+      "title": "Rethinking LLM Advancement: Compute-Dependent and Independent Paths to Progress",
+      "year": 2025,
+      "authors": "Jack Sanderson, Teddy Foley, Spencer Guo, Anqi Qu, Henry Josephson",
+      "url": "https://api.semanticscholar.org/CorpusId:278368113",
+      "relevance": 1,
+      "abstract": "Regulatory efforts to govern large language model (LLM) development have predominantly focused on restricting access to high-performance computational resources. This study evaluates the efficacy of such measures by examining whether LLM capabilities can advance through algorithmic innovation in compute-constrained environments. We propose a novel framework distinguishing compute-dependent innovations--which yield disproportionate benefits at high compute--from compute-independent innovations, which improve efficiency across compute scales. The impact is quantified using Compute-Equivalent Gain (CEG). Experimental validation with nanoGPT models confirms that compute-independent advancements yield significant performance gains (e.g., with combined CEG up to $3.5\\times$) across the tested scales. In contrast, compute-dependent advancements were detrimental to performance at smaller experimental scales, but showed improved CEG (on par with the baseline) as model size increased, a trend consistent with their definition of yielding primary benefits at higher compute. Crucially, these findings indicate that restrictions on computational hardware, while potentially slowing LLM progress, are insufficient to prevent all capability gains driven by algorithmic advancements. We argue that effective AI oversight must therefore incorporate mechanisms for understanding, anticipating, and potentially guiding algorithmic research, moving beyond a singular focus on hardware. The proposed framework also serves as an analytical tool for forecasting AI progress.",
+      "citations": 2
+    },
+    {
+      "title": "On Separate Normalization in Self-supervised Transformers",
+      "year": 2023,
+      "authors": "Xiaohui Chen, Yinkai Wang, Yuanqi Du, S. Hassoun, Liping Liu",
+      "url": "https://api.semanticscholar.org/CorpusId:262217416",
+      "relevance": 1,
+      "abstract": "Self-supervised training methods for transformers have demonstrated remarkable performance across various domains. Previous transformer-based models, such as masked autoencoders (MAE), typically utilize a single normalization layer for both the [CLS] symbol and the tokens. We propose in this paper a simple modification that employs separate normalization layers for the tokens and the [CLS] symbol to better capture their distinct characteristics and enhance downstream task performance. Our method aims to alleviate the potential negative effects of using the same normalization statistics for both token types, which may not be optimally aligned with their individual roles. We empirically show that by utilizing a separate normalization layer, the [CLS] embeddings can better encode the global contextual information and are distributed more uniformly in its anisotropic space. When replacing the conventional normalization layer with the two separate layers, we observe an average 2.7% performance improvement over the image, natural language, and graph domains.",
+      "citations": 4
+    },
+    {
+      "title": "DistilLock: Safeguarding LLMs from Unauthorized Knowledge Distillation on the Edge",
+      "year": 2025,
+      "authors": "Asmita Mohanty, Gezheng Kang, Lei Gao, Murali Annavaram",
+      "url": "https://api.semanticscholar.org/CorpusId:282209828",
+      "relevance": 1,
+      "abstract": "Large Language Models (LLMs) have demonstrated strong performance across diverse tasks, but fine-tuning them typically relies on cloud-based, centralized infrastructures. This requires data owners to upload potentially sensitive data to external servers, raising serious privacy concerns. An alternative approach is to fine-tune LLMs directly on edge devices using local data; however, this introduces a new challenge: the model owner must transfer proprietary models to the edge, which risks intellectual property (IP) leakage. To address this dilemma, we propose DistilLock, a TEE-assisted fine-tuning framework that enables privacy-preserving knowledge distillation on the edge. In DistilLock, a proprietary foundation model is executed within a trusted execution environment (TEE) enclave on the data owner's device, acting as a secure black-box teacher. This setup preserves both data privacy and model IP by preventing direct access to model internals. Furthermore, DistilLock employs a model obfuscation mechanism to offload obfuscated weights to untrusted accelerators for efficient knowledge distillation without compromising security. We demonstrate that DistilLock prevents unauthorized knowledge distillation processes and model-stealing attacks while maintaining high computational efficiency, but offering a secure and practical solution for edge-based LLM personalization.",
+      "citations": 0
+    },
+    {
+      "title": "SeeDNorm: Self-Rescaled Dynamic Normalization",
+      "year": 2025,
+      "authors": "Wenrui Cai, Defa Zhu, Qingjie Liu, Qiyang Min",
+      "url": "https://api.semanticscholar.org/CorpusId:282389808",
+      "relevance": 1,
+      "abstract": "Normalization layer constitutes an essential component in neural networks. In transformers, the predominantly used RMSNorm constrains vectors to a unit hypersphere, followed by dimension-wise rescaling through a learnable scaling coefficient $\\gamma$ to maintain the representational capacity of the model. However, RMSNorm discards the input norm information in forward pass and a static scaling factor $\\gamma$ may be insufficient to accommodate the wide variability of input data and distributional shifts, thereby limiting further performance improvements, particularly in zero-shot scenarios that large language models routinely encounter. To address this limitation, we propose SeeDNorm, which enhances the representational capability of the model by dynamically adjusting the scaling coefficient based on the current input, thereby preserving the input norm information and enabling data-dependent, self-rescaled dynamic normalization. During backpropagation, SeeDNorm retains the ability of RMSNorm to dynamically adjust gradient according to the input norm. We provide a detailed analysis of the training optimization for SeedNorm and proposed corresponding solutions to address potential instability issues that may arise when applying SeeDNorm. We validate the effectiveness of SeeDNorm across models of varying sizes in large language model pre-training as well as supervised and unsupervised computer vision tasks. By introducing a minimal number of parameters and with neglligible impact on model efficiency, SeeDNorm achieves consistently superior performance compared to previously commonly used normalization layers such as RMSNorm and LayerNorm, as well as element-wise activation alternatives to normalization layers like DyT.",
+      "citations": 5
+    },
+    {
+      "title": "Systematic Weight Evaluation for Pruning Large Language Models: Enhancing Performance and Sustainability",
+      "year": 2025,
+      "authors": "Ashhadul Islam, S. Belhaouari, A. Bermak",
+      "url": "https://api.semanticscholar.org/CorpusId:276576138",
+      "relevance": 1,
+      "abstract": "The exponential growth of large language models (LLMs) like ChatGPT has revolutionized artificial intelligence, offering unprecedented capabilities in natural language processing. However, the extensive computational resources required for training these models have significant environmental implications, including high carbon emissions, energy consumption, and water usage. This research presents a novel approach to LLM pruning, focusing on the systematic evaluation of individual weight importance throughout the training process. By monitoring parameter evolution over time, we propose a method that effectively reduces model size without compromising performance. Extensive experiments with both a scaled-down LLM and a large multimodal model reveal that moderate pruning enhances efficiency and reduces loss, while excessive pruning drastically deteriorates model performance. These findings highlight the critical need for optimized AI models to ensure sustainable development, balancing technological advancement with environmental responsibility.",
+      "citations": 0
+    },
+    {
+      "title": "Arcee Trinity Large Technical Report",
+      "year": 2026,
+      "authors": "Varun Singh, Lucas Krauss, Sami Jaghouar, Matej Sirovatka, Charles Goddard, Fares Obied, Jack Min Ong, Jannik Straube, Fern, Aria Harley, C. Stewart, Colin Kealty, Maziyar Panahi, Simon Kirsten, Anushka Deshpande, Anneketh Vij, Arthur Bresnu, Pranav Veldurthi, Raghav Ravishankar, Hardik Bishnoi, DatologyAI Team, A. Team, Prime Intellect Team, Mark McQuade, Johannes Hagemann, Lucas Atkins",
+      "url": "https://api.semanticscholar.org/CorpusId:285787352",
+      "relevance": 1,
+      "abstract": "We present the technical report for Arcee Trinity Large, a sparse Mixture-of-Experts model with 400B total parameters and 13B activated per token. Additionally, we report on Trinity Nano and Trinity Mini, with Trinity Nano having 6B total parameters with 1B activated per token, Trinity Mini having 26B total parameters with 3B activated per token. The models'modern architecture includes interleaved local and global attention, gated attention, depth-scaled sandwich norm, and sigmoid routing for Mixture-of-Experts. For Trinity Large, we also introduce a new MoE load balancing strategy titled Soft-clamped Momentum Expert Bias Updates (SMEBU). We train the models using the Muon optimizer. All three models completed training with zero loss spikes. Trinity Nano and Trinity Mini were pre-trained on 10 trillion tokens, and Trinity Large was pre-trained on 17 trillion tokens. The model checkpoints are available at https://huggingface.co/arcee-ai.",
+      "citations": 2
+    },
+    {
+      "title": "Model Hemorrhage and the Robustness Limits of Large Language Models",
+      "year": 2025,
+      "authors": "Ziyang Ma, Zuchao Li, Lefei Zhang, Gui-Song Xia, Bo Du, Liangpei Zhang, Dacheng Tao",
+      "url": "https://api.semanticscholar.org/CorpusId:277452419",
+      "relevance": 1,
+      "abstract": "Large language models (LLMs) demonstrate strong performance across natural language processing tasks, yet undergo significant performance degradation when modified for deployment through quantization, pruning, or decoding strategy adjustments. We define this phenomenon as model hemorrhage - performance decline caused by parameter alterations and architectural changes. Through systematic analysis of various LLM frameworks, we identify key vulnerability patterns: layer expansion frequently disrupts attention mechanisms, compression techniques induce information loss cascades, and decoding adjustments amplify prediction divergences. Our investigation reveals transformer architectures exhibit inherent robustness thresholds that determine hemorrhage severity across modification types. We propose three mitigation strategies: gradient-aware pruning preserves critical weight pathways, dynamic quantization scaling maintains activation integrity, and decoding calibration aligns generation trajectories with original model distributions. This work establishes foundational metrics for evaluating model stability during adaptation, providing practical guidelines for maintaining performance while enabling efficient LLM deployment. Our findings advance understanding of neural network resilience under architectural transformations, particularly for large-scale language models.",
+      "citations": 1
+    },
+    {
+      "title": "Calibration Across Layers: Understanding Calibration Evolution in LLMs",
+      "year": 2025,
+      "authors": "Abhinav Joshi, A. Ahmad, Ashutosh Modi",
+      "url": "https://api.semanticscholar.org/CorpusId:282738806",
+      "relevance": 1,
+      "abstract": "Large Language Models (LLMs) have demonstrated inherent calibration capabilities, where predicted probabilities align well with correctness, despite prior findings that deep neural networks are often overconfident. Recent studies have linked this behavior to specific components in the final layer, such as entropy neurons and the unembedding matrix null space. In this work, we provide a complementary perspective by investigating how calibration evolves throughout the network depth. Analyzing multiple open-weight models on the MMLU benchmark, we uncover a distinct confidence correction phase in the upper/later layers, where model confidence is actively recalibrated after decision certainty has been reached. Furthermore, we identify a low-dimensional calibration direction in the residual stream whose perturbation significantly improves calibration metrics (ECE and MCE) without harming accuracy. Our findings suggest that calibration is a distributed phenomenon, shaped throughout the network forward pass, not just in its final projection, providing new insights into how confidence-regulating mechanisms operate within LLMs.",
+      "citations": 4
+    },
+    {
+      "title": "The Hidden Power of Normalization Layers in Neural Networks: Exponential Capacity Control",
+      "year": 2025,
+      "authors": "Khoat Than",
+      "url": "https://api.semanticscholar.org/CorpusId:282738520",
+      "relevance": 1,
+      "abstract": "Normalization layers are critical components of modern AI systems, such as ChatGPT, Gemini, DeepSeek, etc. Empirically, they are known to stabilize training dynamics and improve generalization ability. However, the underlying theoretical mechanism by which normalization layers contribute to both optimization and generalization remains largely unexplained, especially when using many normalization layers in a deep neural network (DNN). In this work, we develop a theoretical framework that elucidates the role of normalization through the lens of capacity control. We prove that an unnormalized DNN can exhibit exponentially large Lipschitz constants with respect to either its parameters or inputs, implying excessive functional capacity and potential overfitting. Such bad DNNs are uncountably many. In contrast, the insertion of normalization layers provably can reduce the Lipschitz constant at an exponential rate in the number of normalization layers. This exponential reduction yields two fundamental consequences: (1) it smooths the loss landscape at an exponential rate, facilitating faster and more stable optimization; and (2) it constrains the effective capacity of the network, thereby enhancing generalization guarantees on unseen data. Our results thus offer a principled explanation for the empirical success of normalization methods in deep learning.",
+      "citations": 0
+    },
+    {
+      "title": "GIM: Improved Interpretability for Large Language Models",
+      "year": 2025,
+      "authors": "Joakim Edin, R'obert Csord'as, Tuukka Ruotsalo, Zhengxuan Wu, Maria Maistro, Jing Huang, Lars Maal\u00f8e",
+      "url": "https://api.semanticscholar.org/CorpusId:278886221",
+      "relevance": 1,
+      "abstract": "Ensuring faithful interpretability in large language models is imperative for trustworthy and reliable AI. A key obstacle is self-repair, a phenomenon where networks compensate for reduced signal in one component by amplifying others, masking the true importance of the ablated component. While prior work attributes self-repair to layer normalization and back-up components that compensate for ablated components, we identify a novel form occurring within the attention mechanism, where softmax redistribution conceals the influence of important attention scores. This leads traditional ablation and gradient-based methods to underestimate the significance of all components contributing to these attention scores. We introduce Gradient Interaction Modifications (GIM), a technique that accounts for self-repair during backpropagation. Extensive experiments across multiple large language models (Gemma 2B/9B, LLAMA 1B/3B/8B, Qwen 1.5B/3B) and diverse tasks demonstrate that GIM significantly improves faithfulness over existing circuit identification and feature attribution methods. Our work is a significant step toward better understanding the inner mechanisms of LLMs, which is crucial for improving them and ensuring their safety. Our code is available at https://github.com/JoakimEdin/gim.",
+      "citations": 2
+    },
+    {
+      "title": "Understanding the Failure of Batch Normalization for Transformers in NLP",
+      "year": 2022,
+      "authors": "Jiaxi Wang, Ji Wu, Lei Huang",
+      "url": "https://api.semanticscholar.org/CorpusId:252815659",
+      "relevance": 1,
+      "abstract": "Batch Normalization (BN) is a core and prevalent technique in accelerating the training of deep neural networks and improving the generalization on Computer Vision (CV) tasks. However, it fails to defend its position in Natural Language Processing (NLP), which is dominated by Layer Normalization (LN). In this paper, we are trying to answer why BN usually performs worse than LN in NLP tasks with Transformer models. We find that the inconsistency between training and inference of BN is the leading cause that results in the failure of BN in NLP. We define Training Inference Discrepancy (TID) to quantitatively measure this inconsistency and reveal that TID can indicate BN's performance, supported by extensive experiments, including image classification, neural machine translation, language modeling, sequence labeling, and text classification tasks. We find that BN can obtain much better test performance than LN when TID keeps small through training. To suppress the explosion of TID, we propose Regularized BN (RBN) that adds a simple regularization term to narrow the gap between batch statistics and population statistics of BN. RBN improves the performance of BN consistently and outperforms or is on par with LN on 17 out of 20 settings, involving ten datasets and two common variants of Transformer Our code is available at https://github.com/wjxts/RegularizedBN.",
+      "citations": 13
+    },
+    {
+      "title": "Extremely low-resource neural machine translation for Asian languages",
+      "year": 2020,
+      "authors": "Rapha\u00ebl Rubino, Benjamin Marie, Raj Dabre, A. Fujita, M. Utiyama, E. Sumita",
+      "url": "https://api.semanticscholar.org/CorpusId:231858833",
+      "relevance": 1,
+      "abstract": "This paper presents a set of effective approaches to handle extremely low-resource language pairs for self-attention based neural machine translation (NMT) focusing on English and four Asian languages. Starting from an initial set of parallel sentences used to train bilingual baseline models, we introduce additional monolingual corpora and data processing techniques to improve translation quality. We describe a series of best practices and empirically validate the methods through an evaluation conducted on eight translation directions, based on state-of-the-art NMT approaches such as hyper-parameter search, data augmentation with forward and backward translation in combination with tags and noise, as well as joint multilingual training. Experiments show that the commonly used default architecture of self-attention NMT models does not reach the best results, validating previous work on the importance of hyper-parameter tuning. Additionally, empirical results indicate the amount of synthetic data required to efficiently increase the parameters of the models leading to the best translation quality measured by automatic metrics. We show that the best NMT models trained on large amount of tagged back-translations outperform three other synthetic data generation approaches. Finally, comparison with statistical machine translation (SMT) indicates that extremely low-resource NMT requires a large amount of synthetic parallel data obtained with back-translation in order to close the performance gap with the preceding SMT approach.",
+      "citations": 25
+    },
+    {
+      "title": "Rethinking Batch Normalization in Transformers",
+      "year": 2020,
+      "authors": "Sheng Shen, Z. Yao, A. Gholami, Michael W. Mahoney, K. Keutzer",
+      "url": "https://api.semanticscholar.org/CorpusId:212736912",
+      "relevance": 1,
+      "abstract": "The standard normalization method for neural network (NN) models used in Natural Language Processing (NLP) is layer normalization (LN). This is different than batch normalization (BN), which is widely-adopted in Computer Vision. The preferred use of LN in NLP is principally due to the empirical observation that a (naive/vanilla) use of BN leads to significant performance degradation for NLP tasks; however, a thorough understanding of the underlying reasons for this is not always evident. In this paper, we perform a systematic study of NLP transformer models to understand why BN has a poor performance, as compared to LN. We find that the statistics of NLP data across the batch dimension exhibit large fluctuations throughout training. This results in instability, if BN is naively implemented. To address this, we propose Power Normalization (PN), a novel normalization scheme that resolves this issue by (i) relaxing zero-mean normalization in BN, (ii) incorporating a running quadratic mean instead of per batch statistics to stabilize fluctuations, and (iii) using an approximate backpropagation for incorporating the running statistics in the forward pass. We show theoretically, under mild assumptions, that PN leads to a smaller Lipschitz constant for the loss, compared with BN. Furthermore, we prove that the approximate backpropagation scheme leads to bounded gradients. We extensively test PN for transformers on a range of NLP tasks, and we show that it significantly outperforms both LN and BN. In particular, PN outperforms LN by 0.4/0.6 BLEU on IWSLT14/WMT14 and 5.6/3.0 PPL on PTB/WikiText-103.",
+      "citations": 17
+    }
+  ]
+}
+
+Results saved to: paper_search_results/layer_normalization_creativity_language_models_concept_association_20260426_024444.jsonl

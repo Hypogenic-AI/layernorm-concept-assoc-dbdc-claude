@@ -1,0 +1,115 @@
+\section{Methodology}
+\label{sec:method}
+
+\para{Models.}
+We study three pretrained Pre-LN decoder-only Transformers loaded in FP32 on
+a single NVIDIA RTX A6000 (49 GB): \gptsmall (124M parameters), \gptmedium
+(355M), and \pythia (410M). \gptsmall is the canonical baseline used by
+\citet{brody2023expressivity}; \gptmedium adds a scale check; \pythia
+introduces a distinct training corpus and is the model used by
+\citet{gupta2024geometric}. All checkpoints are pulled from HuggingFace at
+fixed revisions; random seeds are set globally across \texttt{random},
+\texttt{numpy}, and \texttt{torch}.
+
+\subsection{LayerNorm Intervention Recipes}
+\label{sec:method:recipes}
+
+We hook every \verb|nn.LayerNorm| in each Transformer block and replace its
+forward pass with one of the recipes in \tabref{tab:recipes}. Each non-stock
+recipe is applied to one of four layer ranges: \tgtall (every block),
+\tgtearly (blocks $0\dots\lfloor n/3\rfloor$), \tgtmid
+($\lfloor n/3\rfloor\dots\lfloor 2n/3\rfloor$), and \tgtlate
+($\lfloor 2n/3\rfloor\dots n$). The final-block \layernorm and the LM-head
+\layernorm are always preserved, following \citet{kanavalau2026taper}'s
+finding that the final normalisation is the critical scale anchor.
+
+\begin{table}[t]
+\centering
+\caption{\layernorm intervention recipes. $\mu$ and $\sigma$ are the
+per-token mean and standard deviation; $\gamma,\beta$ are the learned
+affine parameters.}
+\label{tab:recipes}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Recipe} & \textbf{Replacement} & \textbf{Geometric meaning} \\
+\midrule
+\stockln    & $\layernorm(\vx)$ (control) & --- \\
+\nomean     & $\vx \cdot \text{rsqrt}(\overline{\vx^2}) \cdot \gamma + \beta$ & \rmsnorm-equivalent \\
+\noaffine   & $(\vx-\mu)/\sigma$ & drop $\gamma,\beta$ \\
+\weakened   & $\alpha\cdot\layernorm(\vx)+(1-\alpha)\vx$, $\alpha\in\{0.25,0.5,0.75\}$ & partial \layernorm \\
+\identityln & $\vx$ & bypass entirely \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Divergent Association Task}
+\label{sec:method:dat}
+
+We adopt the \dat protocol of \citet{olson2021naming} and
+\citet{chen2023probing}: produce $10$ unrelated nouns, retain $7$ that are
+valid \glove-300d entries, and score
+\[
+\dat = \frac{100}{n(n-1)} \sum_{i\neq j} \big(1 - \cos(\vv_i, \vv_j)\big),
+\]
+with \glove-6B-300d \citep{pennington2014glove}.
+
+\para{Iterative one-noun protocol.}
+Base \gptsmall cannot reliably emit a $10$-noun list in a single shot. We
+therefore use an iterative protocol: anchored by a random seed word from
+$\{\text{apple, shoe, river, engine, book, wallet, candle, fence, mirror,
+rocket}\}$, the model is asked to emit one new noun at a time conditioned on
+the growing list. This produces clean, parseable single-token nouns at every
+step. Absolute \dat numbers should be interpreted under this protocol;
+relative comparisons across interventions are within-protocol and valid.
+
+\para{Validity gating.}
+For each $10$-slot generation we record a validity rate: the fraction of
+slots that produced a \glove-valid English noun. We require validity
+$\ge 0.9$ to call a measurement ``coherent''. Below this threshold,
+generations are gibberish and \dat becomes uninterpretable: out-of-vocabulary
+tokens have effectively random \glove embeddings and therefore score
+spuriously high (we document this artifact in \secref{sec:results:96trio}).
+
+\subsection{Decoding Strategies}
+\label{sec:method:decoding}
+
+We sweep three decoding regimes:
+(i) \greedy: deterministic argmax;
+(ii) \topp: top-$p{=}0.9$, $T{=}0.7$ \citep{holtzman2020curious};
+(iii) \hight: $T{=}1.2$, top-$p{=}0.95$.
+All three set \verb|repetition_penalty|$=1.6$ and
+\verb|no_repeat_ngram_size|$=2$ to suppress \gptsmall's degenerate
+single-token loops.
+
+\subsection{Per-layer Concept-Association Geometry}
+\label{sec:method:geometry}
+
+For a fixed bank of $20$ unrelated nouns, we capture last-token hidden states
+at every layer and compute three quantities: (i) mean pairwise cosine
+distance over all $\binom{20}{2}=190$ pairs (concept distinguishability),
+(ii) the L2-norm distribution std/mean ratio (norm-collapse evidence
+following \citet{gupta2024geometric}), and (iii) the angle to the uniform
+vector $\bm{1}$ (sanity check on \layernorm's projection).
+
+\subsection{Statistics}
+\label{sec:method:stats}
+
+Because \dat distributions are skewed and sample sizes are modest, we use
+non-parametric tests. The primary test is a Mann--Whitney $U$ test of \dat
+under each intervention against \stockln. We report Cohen's $d$ as the
+effect size. For per-layer geometry we use a Wilcoxon paired test with each
+of the $190$ pairs as the matched unit. Multiple-comparison correction uses
+Bonferroni at $\alpha{=}0.05/18{\approx}0.003$ over the $18$
+fluency-preserving \nomean cells.
+
+\subsection{Sample sizes and compute}
+\label{sec:method:samples}
+
+Each (model, decoding, intervention) cell is run with $20$ generations,
+each producing $10$ noun-slots --- $13$ cells $\times\,20\,\text{runs}\times
+10\,\text{slots}=2{,}600$ noun generations per (model, decoding) pair. The
+high-$T$ panel uses $n{=}15$ runs per cell. Wall time is approximately
+$7\!-\!15$ minutes per (model, decoding) for the full \dat grid;
+$\sim\!30\,\text{s}$ for geometry and $\sim\!10\,\text{s}$ for perplexity.
+All raw outputs (per-step generated nouns), per-layer hidden-state
+statistics, and configuration JSONs are persisted to \texttt{results/}.

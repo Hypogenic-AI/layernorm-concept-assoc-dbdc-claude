@@ -1,0 +1,14 @@
+PDF: papers/arxiv_2410.01131_ngpt_normalized_transformer_with_representation_learning_on_.pdf
+Total pages: 25
+Pages per chunk: 3
+
+Chunks:
+  arxiv_2410.01131_ngpt_normalized_transformer_with_representation_learning_on__chunk_001.pdf: pages 1-3
+  arxiv_2410.01131_ngpt_normalized_transformer_with_representation_learning_on__chunk_002.pdf: pages 4-6
+  arxiv_2410.01131_ngpt_normalized_transformer_with_representation_learning_on__chunk_003.pdf: pages 7-9
+  arxiv_2410.01131_ngpt_normalized_transformer_with_representation_learning_on__chunk_004.pdf: pages 10-12
+  arxiv_2410.01131_ngpt_normalized_transformer_with_representation_learning_on__chunk_005.pdf: pages 13-15
+  arxiv_2410.01131_ngpt_normalized_transformer_with_representation_learning_on__chunk_006.pdf: pages 16-18
+  arxiv_2410.01131_ngpt_normalized_transformer_with_representation_learning_on__chunk_007.pdf: pages 19-21
+  arxiv_2410.01131_ngpt_normalized_transformer_with_representation_learning_on__chunk_008.pdf: pages 22-24
+  arxiv_2410.01131_ngpt_normalized_transformer_with_representation_learning_on__chunk_009.pdf: page 25

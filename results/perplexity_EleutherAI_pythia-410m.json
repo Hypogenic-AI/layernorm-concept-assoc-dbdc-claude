@@ -1,0 +1,106 @@
+[
+  {
+    "model": "EleutherAI/pythia-410m",
+    "recipe": "stock",
+    "target": "all",
+    "alpha": 0.0,
+    "nll": 2.7244045734405518,
+    "ppl": 15.247332572937012
+  },
+  {
+    "model": "EleutherAI/pythia-410m",
+    "recipe": "no_mean",
+    "target": "all",
+    "alpha": 0.0,
+    "nll": 2.757676839828491,
+    "ppl": 15.763179779052734
+  },
+  {
+    "model": "EleutherAI/pythia-410m",
+    "recipe": "no_affine",
+    "target": "all",
+    "alpha": 0.0,
+    "nll": 4.163730144500732,
+    "ppl": 64.31096649169922
+  },
+  {
+    "model": "EleutherAI/pythia-410m",
+    "recipe": "weakened_a",
+    "target": "all",
+    "alpha": 0.75,
+    "nll": 11.936381340026855,
+    "ppl": 152723.03125
+  },
+  {
+    "model": "EleutherAI/pythia-410m",
+    "recipe": "weakened_a",
+    "target": "all",
+    "alpha": 0.5,
+    "nll": 7.3112664222717285,
+    "ppl": 1497.0718994140625
+  },
+  {
+    "model": "EleutherAI/pythia-410m",
+    "recipe": "weakened_a",
+    "target": "all",
+    "alpha": 0.25,
+    "nll": 8.596463203430176,
+    "ppl": 5412.48291015625
+  },
+  {
+    "model": "EleutherAI/pythia-410m",
+    "recipe": "identity",
+    "target": "all",
+    "alpha": 0.0,
+    "nll": 8.489289283752441,
+    "ppl": 4862.4091796875
+  },
+  {
+    "model": "EleutherAI/pythia-410m",
+    "recipe": "no_mean",
+    "target": "early",
+    "alpha": 0.0,
+    "nll": 2.7179343700408936,
+    "ppl": 15.14899730682373
+  },
+  {
+    "model": "EleutherAI/pythia-410m",
+    "recipe": "no_mean",
+    "target": "mid",
+    "alpha": 0.0,
+    "nll": 2.7179133892059326,
+    "ppl": 15.148679733276367
+  },
+  {
+    "model": "EleutherAI/pythia-410m",
+    "recipe": "no_mean",
+    "target": "late",
+    "alpha": 0.0,
+    "nll": 2.7661848068237305,
+    "ppl": 15.89786434173584
+  },
+  {
+    "model": "EleutherAI/pythia-410m",
+    "recipe": "weakened_a",
+    "target": "early",
+    "alpha": 0.5,
+    "nll": 7.713327407836914,
+    "ppl": 2237.9765625
+  },
+  {
+    "model": "EleutherAI/pythia-410m",
+    "recipe": "weakened_a",
+    "target": "mid",
+    "alpha": 0.5,
+    "nll": 11.232718467712402,
+    "ppl": 75562.734375
+  },
+  {
+    "model": "EleutherAI/pythia-410m",
+    "recipe": "weakened_a",
+    "target": "late",
+    "alpha": 0.5,
+    "nll": 11.454706192016602,
+    "ppl": 94344.3046875
+  }
+]

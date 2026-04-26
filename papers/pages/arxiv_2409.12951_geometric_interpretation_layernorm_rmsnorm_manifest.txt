@@ -1,0 +1,10 @@
+PDF: papers/arxiv_2409.12951_geometric_interpretation_layernorm_rmsnorm.pdf
+Total pages: 14
+Pages per chunk: 3
+
+Chunks:
+  arxiv_2409.12951_geometric_interpretation_layernorm_rmsnorm_chunk_001.pdf: pages 1-3
+  arxiv_2409.12951_geometric_interpretation_layernorm_rmsnorm_chunk_002.pdf: pages 4-6
+  arxiv_2409.12951_geometric_interpretation_layernorm_rmsnorm_chunk_003.pdf: pages 7-9
+  arxiv_2409.12951_geometric_interpretation_layernorm_rmsnorm_chunk_004.pdf: pages 10-12
+  arxiv_2409.12951_geometric_interpretation_layernorm_rmsnorm_chunk_005.pdf: pages 13-14

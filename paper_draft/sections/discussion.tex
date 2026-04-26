@@ -1,0 +1,146 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Hypothesis Assessment}
+
+\tabref{tab:hyp} maps our predictions to observations.
+
+\begin{table}[t]
+\centering
+\caption{Hypothesis assessment. ``partial'' = direction observed in some
+conditions but not others; ``flipped'' = predicted direction not observed.}
+\label{tab:hyp}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Sub-hypothesis} & \textbf{Predicted} & \textbf{Observed} & \textbf{Verdict} \\
+\midrule
+H1: \layernorm compresses concept distance      & yes  & \pythia: $+7\%$; \gptsmall: $\sim 0$ & partial \\
+H2: ablating \layernorm increases \dat          & yes  & only at high-$T$ sampling          & partial \\
+H3: effect localised to early layers            & yes  & uniform across targets at high-$T$ & flipped \\
+H4: effect persists across decoders             & yes  & decoder-dependent                  & no \\
+H5: surprisal does not solely explain \dat shift & --   & under-tested                       & open \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Why Does the Latent Expansion Not Propagate?}
+
+Three reasons stand out for why the $+7\%$ pair-distance expansion in
+\pythia does not surface as a $+7\%$ \dat shift.
+
+\para{The LM head is tuned to the stock geometry.}
+The unembedding matrix is a learned linear map onto the vocabulary; its
+rows are aligned with the \emph{stock} hidden-state distribution. When
+\nomean re-spreads the final hidden states, the LM head's row alignment is
+unchanged, so per-vocabulary logits and the resulting softmax change only
+modestly. The dominant geometric constraint is the LM head, which is
+preserved by all our interventions.
+
+\para{Decoding recompresses the output distribution.}
+The \dat prompt is heavily anchored (``the next noun in a list of
+unrelated single-word nouns''). The conditional distribution over candidate
+tokens is narrow --- only nouns survive top-$p{=}0.9$ at $T{=}0.7$. A few
+percent of latent shift does not change the argmax token, and therefore
+does not change \dat. At $T{=}1.2$, top-$p{=}0.95$, the candidate set is
+broader, and small probability shifts can flip the sampled token. This is
+why the high-$T$ panel is the only one where the geometric expansion
+surfaces in the behavioural metric.
+
+\para{The final block is preserved.}
+Following \citet{kanavalau2026taper}, we leave the final \layernorm intact
+to keep the LM head's input distribution calibrated. This final cleanup
+absorbs much of the intermediate variation introduced by upstream
+ablations.
+
+\subsection{Alignment with Prior Work}
+
+\para{Geometry.}
+\citet{brody2023expressivity} and \citet{gupta2024geometric} predict that
+\nomean is near-redundant on already-zero-mean hidden states. We
+reproduce this: \nomean changes perplexity by $3\!-\!12\%$ and the angle
+to $\bm{1}$ stays $\sim\!88\!-\!92^\circ$ regardless of intervention.
+
+\para{Subspace coupling.}
+\citet{menary2024transformer} predict that O($10\%$) L2-norm perturbations
+collapse $\sim\!1\%$ of attention heads. We observe \emph{catastrophic}
+breakage at $\alpha\le 0.5$ \weakened (PPL $> 1{,}000$) --- consistent with
+crossing the threshold for many heads simultaneously.
+
+\para{Layer specificity.}
+\citet{singhal2025impact} find early-layer \layernorm most influential for
+training-time memorisation. Our \dat data does \emph{not} show
+early-layer specificity at inference. The discrepancy may reflect that
+their effects are locked in early during training and are not easily
+perturbed by inference-time hooks.
+
+\para{Internal vs.\ output randomness.}
+\citet{nagarajan2025roll} argue that internal randomness beats output
+randomness for diversity. Our results do not contradict this, but suggest
+\layernorm is not the right place to inject internal randomness:
+input-level seed conditioning, as they propose, likely engages different
+mechanisms.
+
+\subsection{Surprises}
+
+Three results surprised us.
+First, \tgtlate \nomean is the \emph{biggest} (positive but
+non-significant) effect in \gptsmall \topp --- the \emph{opposite} of the
+\citet{singhal2025impact} early-layer memorisation story. Second,
+broken interventions inflate \dat \emph{artifactually} via gibberish words
+with random embeddings; we are not aware of prior \dat-LLM work that gates
+on validity rate as we do, and we recommend it as a methodological
+default. Third, \pythia and \gptsmall disagree on the geometric
+\emph{direction} of \layernorm's effect at the final layer: \pythia
+expands under \nomean, \gptsmall contracts. This hints at architectural
+or training-data-specific behaviour and motivates multi-model evaluation
+of any \layernorm-creativity intervention.
+
+\subsection{Limitations}
+
+\para{Inference-time only.}
+We do not retrain. \textsc{TaperNorm} \citep{kanavalau2026taper}, \textsc{nGPT}
+\citep{loshchilov2025ngpt}, and \citet{singhal2025impact} all show
+training-time effects of \layernorm that dominate. A fully causal test
+would compare models trained with vs.\ without \layernorm on the same
+data. This is beyond a single-session compute budget but is the natural
+follow-up.
+
+\para{Small models.}
+We study models in the $124\!-\!410$M range. The concept-incongruence
+phenomenon is most observable in much larger instruction-tuned models;
+generalisation to \textsc{Llama}-class is open.
+
+\para{Final \layernorm preserved.}
+We intentionally keep the last \layernorm so the LM head's input
+distribution stays calibrated. Ablating that final \layernorm produces
+uninterpretable outputs and is a different experiment.
+
+\para{One creativity metric.}
+\dat is one creativity probe; algorithmic-creativity tasks
+\citep{nagarajan2025roll}, the Alternative Uses Test, and creative writing
+were not tested. The \dat-specific null is not a global null on
+creativity-vs-\layernorm.
+
+\para{Iterative one-noun protocol.}
+\citet{chen2023probing} use one-shot list generation on
+instruction-tuned LLMs; base \gptsmall cannot. Our iterative protocol asks
+for one noun given the partial list each step, which conditions on a
+growing unrelated context. Absolute \dat numbers should be interpreted
+under this protocol; relative comparisons across interventions are
+within-protocol and valid.
+
+\subsection{Broader Implications}
+
+The widespread intuition --- that softening \layernorm at inference might
+unlock creative diversity --- is not borne out by our experiments.
+\layernorm's geometric grip on hidden states is real and reproducible, but
+it is not the dominant gate between latent variation and output diversity.
+The LM-head and softmax recompress most of the freed variation, and only
+when the decoder is also relaxed (\eg high temperature) does any of it
+surface in \dat. For practitioners interested in creative-divergence
+gains, the cleaner levers are decoder design (min-$p$ sampling
+\citep{nguyen2025minp}; seed-conditioning \citep{nagarajan2025roll}) and
+training-time interventions (\textsc{TaperNorm}, \textsc{nGPT}). For
+mechanistic interpretability, our results recommend that any future
+\layernorm-creativity claim be co-validated against (i) a fluency check,
+(ii) a validity-rate gate, and (iii) more than one decoder regime.

@@ -1,0 +1,106 @@
+[
+  {
+    "model": "gpt2-medium",
+    "recipe": "stock",
+    "target": "all",
+    "alpha": 0.0,
+    "nll": 2.8129420280456543,
+    "ppl": 16.658857345581055
+  },
+  {
+    "model": "gpt2-medium",
+    "recipe": "no_mean",
+    "target": "all",
+    "alpha": 0.0,
+    "nll": 3.1180038452148438,
+    "ppl": 22.601219177246094
+  },
+  {
+    "model": "gpt2-medium",
+    "recipe": "no_affine",
+    "target": "all",
+    "alpha": 0.0,
+    "nll": 9.817100524902344,
+    "ppl": 18344.783203125
+  },
+  {
+    "model": "gpt2-medium",
+    "recipe": "weakened_a",
+    "target": "all",
+    "alpha": 0.75,
+    "nll": NaN,
+    "ppl": Infinity
+  },
+  {
+    "model": "gpt2-medium",
+    "recipe": "weakened_a",
+    "target": "all",
+    "alpha": 0.5,
+    "nll": NaN,
+    "ppl": Infinity
+  },
+  {
+    "model": "gpt2-medium",
+    "recipe": "weakened_a",
+    "target": "all",
+    "alpha": 0.25,
+    "nll": NaN,
+    "ppl": Infinity
+  },
+  {
+    "model": "gpt2-medium",
+    "recipe": "identity",
+    "target": "all",
+    "alpha": 0.0,
+    "nll": NaN,
+    "ppl": Infinity
+  },
+  {
+    "model": "gpt2-medium",
+    "recipe": "no_mean",
+    "target": "early",
+    "alpha": 0.0,
+    "nll": 2.917144536972046,
+    "ppl": 18.488418579101562
+  },
+  {
+    "model": "gpt2-medium",
+    "recipe": "no_mean",
+    "target": "mid",
+    "alpha": 0.0,
+    "nll": 2.9388749599456787,
+    "ppl": 18.894577026367188
+  },
+  {
+    "model": "gpt2-medium",
+    "recipe": "no_mean",
+    "target": "late",
+    "alpha": 0.0,
+    "nll": 2.814913034439087,
+    "ppl": 16.69172477722168
+  },
+  {
+    "model": "gpt2-medium",
+    "recipe": "weakened_a",
+    "target": "early",
+    "alpha": 0.5,
+    "nll": 10.237269401550293,
+    "ppl": 27924.76953125
+  },
+  {
+    "model": "gpt2-medium",
+    "recipe": "weakened_a",
+    "target": "mid",
+    "alpha": 0.5,
+    "nll": 14.394214630126953,
+    "ppl": 1783725.375
+  },
+  {
+    "model": "gpt2-medium",
+    "recipe": "weakened_a",
+    "target": "late",
+    "alpha": 0.5,
+    "nll": 10.210169792175293,
+    "ppl": 27178.181640625
+  }
+]

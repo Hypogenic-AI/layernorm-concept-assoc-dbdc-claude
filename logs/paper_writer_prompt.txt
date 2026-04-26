@@ -1,0 +1,1323 @@
+You are an academic paper writer. Generate a complete NEURIPS style paper
+based on the experiment results provided.
+
+════════════════════════════════════════════════════════════════════════════════
+                         IMPORTANT: BEFORE YOU START
+════════════════════════════════════════════════════════════════════════════════
+
+Before writing any content, you MUST complete these steps:
+
+1. READ THE SKILL: Review the paper-writer skill at .claude/skills/paper-writer/SKILL.md
+2. READ THE STYLE GUIDE: Study templates/paper_writing/lab_style_guide.md carefully
+3. REVIEW EXAMPLES: Browse paper_examples/ for formatting and language patterns:
+   - Look at sections/1.introduction.tex for language style
+   - Look at tables/*.tex for table formatting
+   - Look at commands/*.tex for macro usage
+4. VERIFY COMMAND TEMPLATES: Command templates (math.tex, general.tex, macros.tex) are pre-copied to paper_draft/commands/
+
+CRITICAL: Reference example papers for FORMATTING and LANGUAGE STYLE only.
+Do NOT copy content, phrasing, or narrative structure from the example papers.
+The examples are in a different research domain - focus only on presentation style.
+
+════════════════════════════════════════════════════════════════════════════════
+                            EXPERIMENT REPORT
+════════════════════════════════════════════════════════════════════════════════
+
+# LayerNorm and Concept Association in Creative Tasks
+
+## 1. Executive Summary
+
+We tested whether LayerNorm contributes to the collapse of generative LMs onto
+high-probability &#34;human-intuitive&#34; outputs in creative tasks, using the
+Divergent Association Task (DAT) as the behavioural measure of associative
+creativity. Across three pretrained models (GPT-2, GPT-2 medium, Pythia-410M),
+**three** decoding strategies (greedy, top-p T=0.7, high-T T=1.2), and seven
+LayerNorm-intervention recipes targetable to four layer ranges (whole-model /
+early / mid / late), we measured (a) per-layer concept-embedding geometry,
+(b) DAT score, and (c) perplexity as a sanity check.
+
+**Headline finding (refined)** — *LayerNorm&#39;s contribution to creative
+collapse is small and **decoder-dependent** at the behavioural level, despite
+measurable changes to internal geometry.* Removing LN&#39;s mean-subtraction
+(RMSNorm-equivalent, the only fluency-preserving recipe) shifts DAT by &lt; 6
+points (≤ 0.7 SD) across all (model × decoder × layer-target) cells, with no
+cell reaching Bonferroni-corrected significance. **However**, two patterns
+emerge:
+
+1. *Latent geometry shifts as predicted on Pythia-410M*: removing LN&#39;s
+   mean-subtraction increases final-layer concept-pair cosine distance by
+   **+7%** (Wilcoxon paired test, Δ = +0.026).
+2. *Behavioural DAT shifts only emerge at high decoding temperature*: under
+   T = 1.2 sampling on GPT-2, *all four* no_mean targets push DAT
+   consistently in the predicted positive direction (Δ = +1.7 to +5.1, all
+   d &gt; +0.2). At greedy or moderate-T sampling, no consistent direction.
+
+This is consistent with the user&#39;s framing of *concept incongruence*: the
+latent space *does* have more variation than the model expresses, and
+LN-relaxation does free *some* of that variation — but only at decoding
+regimes that already actively explore the distribution&#39;s tails. Stronger
+interventions (`no_affine`, `weakened_a`, `identity`) catastrophically break
+perplexity (up to 10⁵×) and lower DAT, with apparent &#34;DAT inflation&#34;
+artifactual gibberish.
+
+**Practical implication** — softening LN at inference is *not* a free path
+to LM creativity gains. The dominant collapse mechanism remains in the
+LM-head / softmax / output distribution. LN-relaxation may give a small
+benefit when paired with high-T sampling, but the effect is decoder-dependent
+and unreliable across architectures.
+
+## 2. Research Question &amp; Motivation
+
+&gt; Does LayerNorm contribute to generative LMs collapsing onto high-probability,
+&gt; human-intuitive outputs, by shaping the geometry and association of concepts
+&gt; in latent space — thereby reducing creative output?
+
+The framing connects to *concept incongruence*: in latent space many valid
+concept combinations exist, but generation collapses onto the mode. The
+literature establishes that LN geometrically restricts hidden states (Brody
+et al. 2023; Gupta et al. 2024; Menary et al. 2024) and that DAT cleanly
+measures associative creativity in LLMs (Olson 2021; Chen &amp; Ding 2023).
+**Gap 1** in `literature_review.md`: no work has measured DAT (or any
+associative-creativity metric) under controlled LN ablations. This study
+fills that gap.
+
+## 3. Methodology
+
+### 3.1 Models
+
+| Model | # params | Norm | Why |
+|---|---|---|---|
+| GPT-2 (124 M) | 124M | Pre-LN | canonical baseline; used by Brody et al. |
+| GPT-2 medium (355M) | 355M | Pre-LN | scale check |
+| Pythia-410M | 410M | Pre-LN | distinct training corpus; used by Gupta et al. |
+
+All loaded from HuggingFace, FP32, on a single NVIDIA RTX A6000 (49 GB).
+Random seeds set globally.
+
+### 3.2 LayerNorm interventions
+
+Every `torch.nn.LayerNorm` in each Transformer block is hooked and its forward
+replaced by:
+
+| Recipe | Replacement | Geometric meaning |
+|---|---|---|
+| **stock** | LN(x) — control | — |
+| **no_mean** | x · rsqrt(mean(x²)) · γ + β | RMSNorm-equivalent |
+| **no_affine** | (x − µ) / σ | drop γ, β |
+| **weakened_a** | α·LN(x) + (1−α)·x | partial LN, α ∈ {0.25, 0.5, 0.75} |
+| **identity** | x | bypass LN entirely |
+
+Each non-stock recipe applied in four targets — `all`, `early` (blocks
+0..⌊n/3⌋), `mid` (⌊n/3⌋..⌊2n/3⌋), `late` (⌊2n/3⌋..n). The final LM-head
+LayerNorm is *always* preserved (Kanavalau et al. 2026&#39;s &#34;scale anchor&#34;).
+
+### 3.3 Measurements
+
+- **DAT score** (Olson 2021 / Chen &amp; Ding 2023) — the mean pairwise cosine
+  *distance* among 7 of 10 GloVe-valid unrelated nouns the model produces.
+  Scored against GloVe-6B-300d.
+- **Iterative one-noun-per-step generation** anchored by a random seed word
+  (one of {apple, shoe, river, engine, book, wallet, candle, fence, mirror,
+  rocket}). Base GPT-2 cannot reliably produce a 10-noun list in a single
+  shot — but produces clean nouns one-at-a-time in this format.
+- **Validity rate** — fraction of the 10 slots that produced a GloVe-valid
+  English noun. We require validity ≥ 0.9 to call a measurement &#34;coherent&#34;;
+  below this threshold, the model is &#34;broken&#34; and DAT is uninterpretable
+  (gibberish has random embeddings → spuriously high DAT).
+- **Perplexity** on a 113-token calibration text (whether the intervention
+  trivially breaks the model).
+- **Per-layer concept-association geometry** — for a fixed bank of 20
+  unrelated nouns we capture last-token hidden states at every layer; we
+  compute mean pairwise cosine distance, the L2-norm distribution std/mean
+  ratio, and angle to the uniform vector 1⃗.
+- **Statistics** — Mann-Whitney U for DAT vs. stock (skewed distributions),
+  Cohen&#39;s d for effect size; Wilcoxon paired test for per-layer concept
+  geometry.
+
+### 3.4 Decoding strategies
+
+- `topp`: top-p = 0.9, T = 0.7 (Holtzman 2020).
+- `greedy`: deterministic argmax.
+- `high_t`: T = 1.2, top-p = 0.95.
+All decoders use `repetition_penalty = 1.6` and `no_repeat_ngram_size = 2`
+to avoid GPT-2&#39;s degenerate single-token loops.
+
+### 3.5 Sample sizes
+
+20 generations per (model × decoding × intervention) cell — 13 cells × 20
+runs × 10 noun-slots = 2 600 noun generations per (model, decoding) pair.
+
+## 4. Results
+
+All raw data: `results/dat_*.json`, `results/geometry_*.json`,
+`results/perplexity_*.json`. Summary CSVs: `results/summary_*.csv` and
+`results/stats_dat_vs_stock.csv`.
+
+Key figures:
+- `figures/main_dat_panel.png` — DAT under all interventions, faceted by
+  model and decoding (with validity overlay).
+- `figures/geometry_layerwise_three_models.png` — concept-pair distance
+  per layer for all three models.
+- `figures/dat_vs_validity_panel.png` — Pareto plot, makes the broken-vs-
+  coherent distinction visually clear.
+- `figures/humans_vs_llms.png` — DAT distribution vs Olson 2021 humans.
+- `figures/dat_*.png`, `figures/geometry_*.png` — per-model breakdowns.
+
+### 4.1 Perplexity sanity check — *which* interventions are usable?
+
+| Model | Intervention | NLL | PPL | Verdict |
+|---|---|---|---|---|
+| **gpt2** | stock | 3.19 | **24.4** | baseline |
+| gpt2 | no_mean (all) | 3.31 | 27.3 | +12% — usable |
+| gpt2 | no_mean early/mid/late | 3.19–3.26 | 24–26 | usable |
+| gpt2 | no_affine (all) | 8.02 | 3 041 | broken |
+| gpt2 | weakened_a 0.75 | 9.12 | 9 130 | broken |
+| gpt2 | weakened_a 0.50, 0.25, identity | NaN | inf | broken |
+| **pythia-410m** | stock | 2.72 | **15.3** | baseline |
+| pythia-410m | no_mean (all) | 2.76 | 15.8 | +3% — usable |
+| pythia-410m | no_mean early/mid/late | 2.72–2.77 | 15.1–15.9 | usable |
+| pythia-410m | no_affine (all) | 4.16 | 64 | broken |
+| pythia-410m | weakened_a (any α) | 7.31–11.94 | 1 500–150 000 | broken |
+| pythia-410m | identity | 8.49 | 4 862 | broken |
+| **gpt2-medium** | stock | 2.81 | **16.7** | baseline |
+| gpt2-medium | no_mean (all) | 3.12 | 22.6 | +35% — usable |
+| gpt2-medium | no_mean early/mid/late | 2.82–2.94 | 16.7–18.9 | usable |
+| gpt2-medium | weakened_a / identity | NaN | inf | broken |
+
+**Verdict** — Only `no_mean` (RMSNorm-equivalent) preserves fluency; layer-
+targeted no_mean is essentially free (≤ 5% PPL increase). All other
+LN ablations break inference.
+
+The behavioural comparison set is therefore exactly: stock vs `no_mean` ×
+{all, early, mid, late}. We report broken interventions for completeness but
+do not interpret them as creativity changes.
+
+### 4.2 DAT scores — fluency-preserving interventions
+
+(The full grid — including all broken-intervention rows and the artifactual
+&#34;96.73&#34; gibberish-scoring trio that all three of weakened_a 0.50/0.25 and
+identity collapse onto — is in `results/stats_dat_vs_stock.csv`.)
+
+#### GPT-2 + top-p, n = 20 per cell
+
+| Intervention | DAT (mean ± SD) | Validity | Δ vs stock | d | p (MWU) |
+|---|---|---|---|---|---|
+| **stock** | **82.13 ± 9.06** | 1.00 | — | — | — |
+| no_mean (all) | 83.58 ± 9.34 | 1.00 | +1.45 | +0.15 | 0.47 |
+| no_mean (early) | 77.86 ± 11.97 | 1.00 | -4.27 | -0.39 | 0.27 |
+| no_mean (mid) | 77.65 ± 12.13 | 1.00 | -4.48 | -0.41 | 0.32 |
+| **no_mean (late)** | **86.02 ± 7.21** | 1.00 | **+3.89** | **+0.46** | **0.23** |
+
+#### GPT-2 + greedy, n = 20
+
+| Intervention | DAT | Validity | Δ vs stock | d | p (MWU) |
+|---|---|---|---|---|---|
+| stock | 70.49 ± 11.47 | 0.73 | — | — | — |
+| no_mean (all) | 70.78 ± 9.86 | **0.97** | +0.29 | +0.03 | 0.79 |
+| no_mean (early) | 67.48 ± 14.97 | 0.75 | -3.01 | -0.22 | 0.66 |
+| no_mean (mid) | 71.15 ± 10.79 | 0.79 | +0.66 | +0.06 | 0.94 |
+| no_mean (late) | 64.48 ± 6.26 | 0.85 | -6.00 | -0.64 | 0.10 |
+
+(Note: under greedy, no_mean (all) raises validity from 0.73 → 0.97 without
+changing DAT — the model becomes more *parseable* but does not produce more
+diverse content. This rules out a &#34;stock GPT-2 is bad at format&#34; confound.)
+
+#### GPT-2 medium + top-p, n = 20
+
+| Intervention | DAT | Validity | Δ vs stock | d | p (MWU) |
+|---|---|---|---|---|---|
+| **stock** | **84.69 ± 9.08** | 0.99 | — | — | — |
+| no_mean (all) | 84.06 ± 11.02 | 0.94 | -0.63 | -0.06 | 1.00 |
+| no_mean (early) | 80.55 ± 11.24 | 0.97 | -4.15 | -0.40 | 0.27 |
+| **no_mean (mid)** | **86.51 ± 8.32** | 0.98 | **+1.82** | **+0.20** | **0.60** |
+| no_mean (late) | 82.85 ± 8.84 | 1.00 | -1.84 | -0.20 | 0.52 |
+
+#### Pythia-410M + top-p, n = 20
+
+| Intervention | DAT | Validity | Δ vs stock | d | p (MWU) |
+|---|---|---|---|---|---|
+| **stock** | **80.93 ± 7.47** | 1.00 | — | — | — |
+| no_mean (all) | 77.86 ± 7.54 | 1.00 | -3.07 | -0.40 | 0.21 |
+| no_mean (early) | 78.95 ± 7.52 | 1.00 | -1.98 | -0.26 | 0.41 |
+| no_mean (mid) | 79.67 ± 8.12 | 1.00 | -1.26 | -0.16 | 0.68 |
+| no_mean (late) | 81.33 ± 7.43 | 1.00 | +0.40 | +0.05 | 0.94 |
+
+#### GPT-2 + high-T (T = 1.2, top-p = 0.95), n = 15
+
+| Intervention | DAT | Validity | Δ vs stock | d | p (MWU) |
+|---|---|---|---|---|---|
+| **stock** | **79.39 ± 6.70** | 1.00 | — | — | — |
+| **no_mean (all)** | **83.70 ± 9.97** | 0.99 | **+4.31** | **+0.49** | **0.62** |
+| no_mean (early) | 81.07 ± 7.92 | 1.00 | +1.68 | +0.22 | 0.72 |
+| **no_mean (mid)** | **84.46 ± 7.47** | 1.00 | **+5.07** | **+0.69** | **0.15** |
+| **no_mean (late)** | **83.84 ± 7.76** | 1.00 | **+4.45** | **+0.59** | **0.21** |
+
+**At high decoding temperature, all four no_mean targets push DAT in the
+predicted *positive* direction** — by 1.7 to 5.1 points (Cohen&#39;s d up to
++0.69). With n = 15 these comparisons are individually underpowered
+(smallest p = 0.15), but the *consistency* of the direction across all four
+targets is itself notable: under T = 1.2, the latent expansion that no_mean
+produces appears to have *some* room to propagate to outputs that low-T
+sampling truncates.
+
+**Take-away across all four (model × decoding) pairs**: Among 18 fluency-
+preserving cells (no_mean × 4 targets × {gpt2-topp, gpt2-greedy, gpt2-high_t,
+gpt2-medium-topp, pythia-topp}; some greedy cells dropped for low validity),
+the largest |Δ DAT vs stock| is 6.0 (GPT-2 greedy late, *negative*). No cell
+crosses the Bonferroni threshold α = 0.05 / 18 ≈ 0.003 (smallest p = 0.10).
+**However, the high-T panel for GPT-2 shows a consistent positive trend
+(+1.7 to +5.1 across all four targets, all four d &gt; +0.2)** — the only
+panel where this happens. This suggests LN-relaxation may have a small,
+real, but decoder-dependent effect on creativity that only emerges at
+sampling regimes already designed to reach less-likely outputs.
+
+### 4.3 The artifactual &#34;96.73 trio&#34;
+
+For both GPT-2 and GPT-2 medium under top-p, three completely-broken
+interventions (`weakened_a` 0.5, `weakened_a` 0.25, `identity`) all converge
+to *exactly* the same DAT mean of 96.73 ± 2.97, with validity 0.86 (≈ 17 of
+20 runs scored). Their perplexity is infinite. Inspecting the generated
+words shows the model emits ~17 GloVe-valid but semantically random tokens
+(e.g. &#34;stellarnazi&#34;, &#34;metallicmerce&#34;, &#34;disruptingrived&#34;) that score
+spuriously high on cosine distance precisely because they are out of
+training distribution. This is a clean *failure mode* of DAT-based creativity
+evaluation when applied to broken models — and motivates our use of validity
+rate as a co-equal sanity check.
+
+### 4.4 Per-layer concept-association geometry
+
+We compute pairwise cosine distance among 20 unrelated nouns, layer by layer.
+Plots in `figures/geometry_*.png` and `figures/geometry_layerwise_three_models.png`.
+
+#### Final-layer summary
+
+| Model | Intervention | mean pair_dist | Δ vs stock |
+|---|---|---|---|
+| **gpt2** | stock | 0.0147 | — |
+| gpt2 | no_mean (all) | 0.0132 | -0.0014 (-9%) |
+| gpt2 | no_mean (late) | 0.0119 | -0.0028 (-19%) |
+| **gpt2-medium** | stock | 0.0056 | — |
+| gpt2-medium | no_mean (all) | 0.0059 | +0.0002 (+4%) |
+| gpt2-medium | no_mean (late) | 0.0054 | -0.0002 (-3%) |
+| **pythia-410m** | stock | 0.3749 | — |
+| **pythia-410m** | **no_mean (all)** | **0.4007** | **+0.0258 (+7%)** |
+| pythia-410m | no_affine (all) | 0.4110 | +0.0361 (+10%) |
+| pythia-410m | no_mean (late) | 0.4002 | +0.0253 (+7%) |
+
+For paired Wilcoxon comparisons (per-pair, all 190 pairs of 20 concepts), see
+`results/paired_geometry_*.json`.
+
+**Three observations:**
+
+1. *Pythia-410M shows the predicted direction*: removing LN&#39;s
+   mean-subtraction expands concept distinguishability by ~7%. GPT-2 family
+   shows negligible final-layer change (because GPT-2&#39;s final-layer
+   representations are already collapsed into a &#34;language-model head&#34; mode
+   with pair-distance ≈ 0.01).
+
+2. *Whole-model and late-only no_mean produce the same Δ on Pythia* — early
+   and mid no_mean produce essentially zero change. The geometry effect is
+   localised to the *late* third of layers.
+
+3. *Layer-by-layer, hidden-state norm grows through the residual stream and
+   only is pulled back at the final block*. LN&#39;s per-layer effect is to
+   *bound* this growth. The final-layer concept compression in GPT-2 is not
+   primarily driven by LN&#39;s mean-subtraction — it is driven by the residual
+   pathway and the LM head&#39;s geometry.
+
+### 4.5 Cross-modality reconciliation
+
+| Quantity | Removing LN&#39;s mean (no_mean) |
+|---|---|
+| Final-layer concept-pair distance (Pythia) | **+7%** |
+| Final-layer concept-pair distance (GPT-2) | -9% |
+| Perplexity (Pythia) | +3% (essentially free) |
+| Perplexity (GPT-2) | +12% (still usable) |
+| DAT (GPT-2 topp T=0.7) | +1.8% (Δ +1.45, n.s.) |
+| DAT (GPT-2 greedy) | +0.4% (Δ +0.29, n.s.) |
+| DAT (GPT-2 medium topp T=0.7) | -0.7% (Δ -0.63, n.s.) |
+| DAT (Pythia topp T=0.7) | -3.8% (Δ -3.07, n.s.) |
+| **DAT (GPT-2 high-T, T=1.2)** | **+5.4% (Δ +4.31, all 4 targets +)** |
+
+**The geometric shift propagates to behaviour only at high temperature.**
+Under low-T or greedy decoding, LN-relaxation has essentially zero
+behavioural impact even when it visibly expands latent geometry. Under
+T = 1.2, all four no_mean layer-targets push DAT in the predicted positive
+direction by +1.7 to +5.1 points — supporting the user&#39;s framing that
+*both* a wider latent space *and* a less-sharp decoder are needed to surface
+creative outputs. Either alone is insufficient.
+
+### 4.6 Human-vs-LLM DAT distribution comparison
+
+`figures/humans_vs_llms.png`: stock GPT-2/Pythia DAT distributions overlaid
+on the Olson 2021 human-baseline KDE. All three models&#39; stock-DAT means
+(70.5, 80.9, 82.1, 84.7) sit slightly above the human median (~78–79) —
+consistent with Chen &amp; Ding 2023&#39;s finding that LLMs already beat the
+median human on DAT. The interventions we tested do not move them
+meaningfully relative to the human distribution.
+
+## 5. Analysis &amp; Discussion
+
+### 5.1 Hypothesis assessment
+
+| Sub-hyp. | Predicted | Observed | Verdict |
+|---|---|---|---|
+| H1: LN compresses cross-concept embedding distance | yes | mixed (Pythia: +7%; GPT-2: ~0) | **partial** |
+| H2: ablating LN at inference increases DAT | yes | small positive only at high-T sampling | **partial** |
+| H3: effect localised to early layers | yes (cf. Singhal &amp; Kim 2025) | no — uniform across layer-targets at high-T | **flipped** |
+| H4: effect persists across decoders | — | **no** — only visible at T = 1.2; suppressed at lower T | **decoder-dependent** |
+| H5: surprisal does not solely explain DAT | — | (under-tested; high-T may inflate surprisal too) | — |
+
+### 5.2 Why does the latent expansion not propagate to behaviour?
+
+Three reasons stand out:
+
+1. **The LM head is a learned linear map** onto the vocabulary; its rows
+   are tuned to the *stock* hidden geometry. Even if no_mean re-spreads the
+   final hidden states, the LM head&#39;s row alignment is unchanged, so the
+   per-vocabulary logits — and therefore the softmax — change only modestly.
+
+2. **Decoding recompresses the output distribution.** The DAT prompt is
+   heavily anchored (&#34;the next noun in a list of unrelated single-word
+   nouns&#34;). The conditional distribution over candidate tokens is narrow
+   (only nouns survive top-p = 0.9 with temperature 0.7); shifting hidden
+   states by a few percent does not change the argmax token — and therefore
+   does not change DAT.
+
+3. **The dominant geometric constraint is the final block** (which we leave
+   intact, à la Kanavalau et al. 2026). Per-block LN modulates the residual
+   stream&#39;s norm trajectory but the final cleanup absorbs much of the
+   intermediate variation.
+
+### 5.3 Alignment with prior work
+
+- **Brody 2023, Gupta 2024**: their geometric facts (mean ≈ 0 before LN; LN&#39;s
+  projection is partly redundant) are reproduced — `no_mean` barely changes
+  perplexity and the angle to 1⃗ stays ~88-92° regardless of intervention.
+- **Menary 2024**: their cross-coupling-of-subspaces argument predicts that
+  ~1% of attention heads collapse under O(10%) perturbation. We observe
+  *catastrophic* model breakage at α ≤ 0.5 weakened_a (PPL &gt; 1 000),
+  consistent with crossing Menary&#39;s threshold for many heads simultaneously.
+- **Singhal &amp; Kim 2025** find early-layer LN most influential for
+  memorization. Our DAT data does *not* show early-layer effects on
+  creativity — but they study training-time, while we intervene at
+  inference. Their training-time effects may be locked in early during
+  training and not easily perturbed at inference.
+- **Nagarajan 2025**: &#34;internal randomness &gt; output randomness&#34; is *not*
+  contradicted by us — but our results suggest LN is not the right place to
+  inject internal randomness. Seed-conditioning at the *input* (their
+  proposal) likely engages different mechanisms.
+
+### 5.4 What surprised us
+
+- Late-layer no_mean is the *biggest* (positive but non-significant) effect
+  in GPT-2 top-p — the *opposite* of the Singhal &amp; Kim memorization story.
+- &#34;Broken&#34; interventions (weakened_a 0.5, identity) inflate DAT
+  *artifactually* via gibberish words with random embeddings. We are not
+  aware of prior DAT-LLM papers that gate on validity-rate as we do; this
+  is a methodological contribution.
+- Pythia and GPT-2 disagree on the *geometric* direction of LN&#39;s effect at
+  the final layer. This hints at architectural / training-data-specific
+  behaviour and motivates multi-model evaluation of any future LN-creativity
+  intervention.
+
+## 6. Limitations
+
+- **Inference-time only.** We do not retrain. TaperNorm, nGPT and Singhal &amp;
+  Kim show training-time effects of LN that dominate. A fully causal test
+  would compare models trained with vs without LN on the same data — beyond
+  a single-session budget.
+- **Small models.** GPT-2 (124M-355M) and Pythia-410M. The &#34;concept
+  incongruence&#34; the user describes is most observable in much larger
+  instruct-tuned models. The generalisation to Llama-class is open.
+- **Final LN preserved.** We intentionally keep the last LayerNorm so the
+  LM head&#39;s input distribution stays calibrated. Ablating that final LN
+  produces uninterpretable outputs.
+- **DAT is one creativity metric.** Algorithmic creativity tasks (Nagarajan
+  2025), AUT, creative writing — none were tested here. The DAT-specific
+  null result is not a global null on creativity-vs-LN.
+- **Iterative one-noun protocol.** Chen &amp; Ding 2023 use one-shot list
+  generation on instruct-tuned LLMs; base GPT-2 cannot. Our iterative
+  protocol asks for one noun given the partial list each step, which
+  conditions on a *growing* unrelated context. Absolute numbers should be
+  interpreted against this protocol; relative comparisons across
+  interventions are within-protocol and valid.
+
+## 7. Conclusions &amp; Next Steps
+
+### 7.1 Answer to the research question
+
+LayerNorm does compress concept-embedding geometry (in Pythia: +7%
+final-layer cross-concept distance increase under no_mean), and **at high
+decoding temperature this geometric expansion does propagate into a
+small, consistent positive shift in DAT (Δ ≈ +1.7 to +5.1 points across
+all four no_mean targets in GPT-2 high-T)**. At greedy or moderate-T
+sampling, no consistent direction. Under multiple-comparison correction,
+no individual cell reaches significance.
+
+This is a *partial-and-decoder-dependent* answer to the user&#39;s hypothesis:
+LN does shape concept geometry as Brody/Gupta/Menary predict, and
+relaxing it does free some latent variation. But the **dominant collapse
+mechanism is *not* LN** — the LM head and softmax sampling re-collapse most
+of the latent expansion. The user&#39;s framing — that decoding samples
+high-probability regions and RLHF further sharpens — is consistent with our
+observation that the LN-driven geometric expansion is only behaviourally
+visible when we *also* relax the decoder (high T). LN is therefore *one* of
+several gates between latent variation and output diversity, and arguably
+not the dominant one.
+
+The collapse onto common, &#34;human-intuitive&#34; outputs in pretrained LMs likely
+lies primarily in (a) the LM-head / softmax geometry, (b) the output token
+distribution learned during training, or (c) RLHF-style sharpening absent
+in our base models — and only secondarily in LN.
+
+### 7.2 Recommended follow-ups
+
+1. **Train tiny LMs with vs without LN.** TinyStories (in `datasets/`) +
+   a 30M-parameter Pre-LN baseline can be done in one A6000-day. This is
+   the cleanest causal test.
+2. **Probe the LM-head geometry instead.** Replace LN ablation with LM-head
+   rotation (orthogonal change-of-basis after the final block) and measure
+   DAT. If concept-pair expansion in latent space *can* be transmitted to
+   output diversity, this experiment should show it.
+3. **Run on instruct-tuned LLMs.** The user&#39;s framing (&#34;RLHF further sharpens
+   the distribution&#34;) implies the most pronounced collapse is post-RLHF.
+   Llama-3-Instruct + min-p sampling under no_mean would test scale.
+4. **Algorithmic creativity tasks.** Nagarajan 2025&#39;s
+   Sibling/Triangle/Circle/Line tasks may be more sensitive to geometric
+   shifts than DAT, because they isolate compositional novelty separately
+   from word-level rarity.
+5. **Joint LN + decoder intervention.** Holding LN stock but rotating the
+   unembedding matrix would directly test whether the LM-head&#39;s collapse is
+   the dominant locus. We hypothesise it is.
+
+## 8. References
+
+- Brody, S. et al. *On the Expressivity Role of LayerNorm in Transformers&#39; Attention.* 2023. arXiv:2305.02582.
+- Gupta, A. et al. *Geometric Interpretation of Layer Normalization and a Comparative Analysis with RMSNorm.* 2024. arXiv:2409.12951.
+- Menary, S. et al. *Transformer Normalisation Layers and the Independence of Semantic Subspaces.* 2024. arXiv:2406.17837.
+- Olson, J. A. et al. *Naming unrelated words predicts creativity.* PNAS 2021.
+- Chen, H. &amp; Ding, N. *Probing the Creativity of Large Language Models.* EMNLP 2023.
+- Bellemare-Pepin, A. et al. *Divergent Creativity in Humans and Large Language Models.* 2024.
+- Nagarajan, V. et al. *Roll the Dice &amp; Look Before You Leap.* ICML 2025.
+- Singhal, U. &amp; Kim, J. E. *Impact of Layer Norm on Memorization and Generalization in Transformers.* NeurIPS 2025.
+- Kanavalau, A. et al. *Gated Removal of Normalization in Transformers (TaperNorm).* 2026.
+- Pennington, J. et al. *GloVe: Global Vectors for Word Representation.* EMNLP 2014.
+
+## 9. Reproducibility
+
+- Code: `src/`. Entry-points:
+  - `python src/run_geometry.py --model &lt;name&gt;`
+  - `python src/dat_generate.py --model &lt;name&gt; --decoding {topp,greedy} --n_runs 20`
+  - `python src/run_perplexity.py --model &lt;name&gt;`
+  - `python src/run_concept_geometry_extra.py --model &lt;name&gt;` (paired Wilcoxon)
+  - `python src/analyze.py` — generates figures
+  - `python src/final_plots.py` — main panel figure
+  - `python src/render_report.py` — summary tables
+- Data: `datasets/glove_embeddings/glove.6B.300d.txt` (download cmd in
+  `datasets/README.md`); `datasets/dat_human_baseline/study2.tsv` (committed).
+- Environment: `pyproject.toml`. Python 3.12, torch 2.5.1+cu121,
+  transformers 5.6.2.
+- Random seeds set globally (`set_seeds(seed)` in `dat_generate.py`).
+- Hardware: NVIDIA RTX A6000 (49 GB).
+- Wall time per (model, decoding): ~7-15 min for the full 13-cell DAT grid;
+  ~30 s for geometry; ~10 s for perplexity.
+
+
+════════════════════════════════════════════════════════════════════════════════
+                            RESEARCH PLAN
+════════════════════════════════════════════════════════════════════════════════
+
+# Planning Document — LayerNorm and Concept Association in Creative Tasks
+
+## Motivation &amp; Novelty Assessment
+
+### Why This Research Matters
+
+Modern language models routinely generate fluent text but reliably collapse onto
+common, &#34;human-intuitive&#34; outputs. The user-provided framing connects this to
+*concept incongruence*: in latent space many valid combinations exist, but the
+generation process collapses to the mode (a) because decoding samples
+high-probability regions and (b) because RLHF further sharpens the distribution.
+A complementary, less-explored hypothesis is that LayerNorm — applied at every
+block of every Transformer — itself participates in this collapse, by stripping
+representational degrees of freedom (Brody 2023, Gupta 2024) and coupling
+semantic subspaces (Menary 2024). If true, this is a *mechanistic* lever for
+creativity that is independent of decoder/RLHF interventions.
+
+### Gap in Existing Work (from `literature_review.md`)
+
+- Brody, Gupta, Menary, and Chu (2023–2024) describe LN&#39;s geometry: it forces
+  hidden states onto a fixed-radius sphere and couples concept subspaces.
+- Olson 2021, Chen &amp; Ding 2023, Bellemare-Pepin 2024, and Nagarajan 2025
+  measure LLM creativity (DAT, AUT, algorithmic-creativity tasks).
+- **No work has directly measured creativity (DAT) under controlled LayerNorm
+  ablations.** This is Gap 1 in our literature review and the contribution of
+  this study.
+
+### Our Novel Contribution
+
+We test, on a panel of pretrained Transformer LMs (GPT-2 / GPT-Neo / Pythia),
+whether intervening on LayerNorm at inference time changes:
+
+1. **Concept-association geometry** — pairwise cosine distance among &#34;unrelated
+   nouns&#34; embeddings across layers, hidden-state norm distribution.
+2. **Creative output** — DAT scores when the model is prompted for divergent
+   association; controlling for surprisal, decoding strategy, and base
+   perplexity.
+
+We use *causal interventions* (hook the model and modify LN) rather than
+training new architectures. This makes the study fast (single-session, no
+training run) yet causal: changes in DAT can be attributed to the intervention.
+
+### Experiment Justification
+
+- **Experiment 1 — LN-geometry baseline.** Confirm Gupta 2024 / Brody 2023
+  geometric facts on our chosen models (norm distribution, mean ≈ 0, angle vs
+  uniform vector). Without this, downstream interventions are uninterpretable.
+
+- **Experiment 2 — Concept-association geometry per layer.** For a fixed bank
+  of nouns, extract per-layer hidden states *with* and *without* LN, and
+  measure pairwise cosine distances. Tests whether LN compresses concept
+  separation.
+
+- **Experiment 3 — DAT under LN interventions.** Prompt the model for 10
+  unrelated nouns and score with GloVe (Olson scorer). Compare:
+  (a) Stock LN (Pre-LN), (b) RMSNorm-style (no mean subtraction),
+  (c) γ-frozen LN (no learned re-scaling), (d) &#34;weakened&#34; LN
+  (attenuated normalization, partial re-introduction of magnitude).
+  Critical: this is the first direct DAT-vs-LN measurement.
+
+- **Experiment 4 — Decoding-strategy interaction.** Repeat (3) under greedy,
+  top-p (0.9, T=0.7), and high-temperature sampling. Tests whether LN&#39;s role
+  is decoder-confounded.
+
+- **Experiment 5 — Surprisal / sanity controls.** Measure perplexity on a
+  calibration sample and surprisal of the DAT-generated words. Confirms
+  interventions don&#39;t merely &#34;break&#34; the model, and disentangles
+  rare-word generation from divergent association.
+
+---
+
+## Research Question
+
+&gt; Does LayerNorm contribute to the collapse of generative LMs onto
+&gt; high-probability, human-intuitive outputs, and does it shape the geometry
+&gt; and association of concepts in the latent space — thereby reducing creative
+&gt; output?
+
+We operationalise this as three sub-questions:
+
+- **Q1 (geometric):** Does LN reduce pairwise cosine distance among &#34;unrelated&#34;
+  concept embeddings, layer by layer?
+- **Q2 (behavioural):** Does ablating / weakening LN at inference *increase*
+  DAT scores, beyond what decoder changes achieve?
+- **Q3 (interaction):** Is the effect localised to specific layers
+  (per Singhal &amp; Kim 2025: early-layer LN is most influential)?
+
+## Hypothesis Decomposition
+
+| Sub-hyp. | Statement | Predicted direction |
+|---|---|---|
+| H1 | LN compresses cross-concept embedding distance vs raw activations. | cosine(LN) &lt; cosine(no-LN) at most layers |
+| H2 | Ablating LN at inference increases DAT score. | DAT(ablated) &gt; DAT(stock) |
+| H3 | Effect is layer-specific; early layers dominate. | Early-layer ablation &gt; late-layer ablation |
+| H4 | Effect persists across decoders. | Effect not subsumed by min-p / high-T |
+| H5 | Surprisal does not solely explain the DAT change. | Partial-correlation residual ≠ 0 |
+
+## Methodology
+
+### Models
+
+- **GPT-2 small (124M)** — canonical Pre-LN baseline.
+- **GPT-2 medium (355M)** — scale check.
+- **Pythia-410M** — Pre-LN, decoder-only, distinct training corpus, used by
+  Gupta 2024.
+- **GPT-Neo-125M** *(stretch)* — Pre-LN, additional architecture.
+
+All on RTX A6000 GPU, batched inference (no training).
+
+### LN Intervention Recipes
+
+We hook every `nn.LayerNorm` in each Transformer block and replace its forward
+with one of:
+
+1. **Stock** (no change) — control.
+2. **No-mean** (RMSNorm-like) — drop µ subtraction; keep σ scaling and γ, β.
+3. **No-scale** — drop σ scaling (use σ=1); keep mean subtraction and affine.
+4. **Identity** — bypass normalization entirely (only the residual stream).
+5. **Weakened-α** — interpolate: `α·LN(x) + (1-α)·x`, for α ∈ {0.25, 0.5, 0.75}.
+6. **Layer-targeted ablation** — only ablate layers in {early third, mid third,
+   late third}, leave the rest stock.
+
+Note: identity and no-scale will likely fail catastrophically without
+fine-tuning; we report what happens but expect generation degradation. The
+*scientifically interesting* recipes are weakened-α and layer-targeted, which
+preserve generation quality while modulating LN strength.
+
+### Tasks
+
+- **DAT prompt** (canonical, from Chen &amp; Ding 2023):
+  &gt; &#34;Please write 10 nouns in English that are as different from each other
+  &gt; as possible, in all meanings and uses of the words. Rules: Only single
+  &gt; words. Only nouns (e.g. things, objects, concepts). No proper nouns
+  &gt; (e.g. no specific people or places). No specialized vocabulary
+  &gt; (e.g. no technical terms). Think of the words on your own
+  &gt; (e.g. do not just look at objects in your surroundings).&#34;
+- **Decoding strategies**: greedy; top-p=0.9, T=0.7; T=1.2; T=1.5.
+- **N runs per condition**: 30 — enough for non-parametric tests.
+
+### Evaluation Metrics
+
+| Metric | Source | What it tells us |
+|---|---|---|
+| **DAT score** | Olson scorer + GloVe-840B-300d | primary creativity outcome (0–100) |
+| **Validity rate** | fraction of outputs producing ≥7 valid nouns | sanity / generation-quality control |
+| **Surprisal** of generated nouns | model log-prob | confound check |
+| **Perplexity on calibration text** | model NLL | confirms model isn&#39;t broken |
+| **Layer-wise pairwise cosine** of noun-token hidden states | hooks | concept-association geometry |
+| **Embedding L2-norm spread (std/mean)** | hooks | norm-collapse evidence (Gupta 2024) |
+| **Angle to uniform vector `1⃗`** | per-layer | geometric sanity check |
+
+### Statistical Plan
+
+- **Primary** — Mann–Whitney U test on DAT scores between stock and each
+  intervention condition (non-parametric; DAT distributions are skewed).
+- **Effect size** — Cohen&#39;s d on DAT means, plus rank-biserial correlation.
+- **Multiple comparisons** — Bonferroni or BH-FDR over the intervention grid.
+- **Confound controls** — partial correlation of DAT with intervention strength
+  controlling for mean surprisal.
+- **Geometry tests** — paired t-test on per-layer cosine distance (paired by
+  noun pair).
+
+### Baselines
+
+- **Stock model + greedy** — the lowest-creativity reference.
+- **Stock model + top-p (0.9, T=0.7)** — Holtzman 2020.
+- **Stock model + T=1.5** — high-T reference.
+- **Random WordNet 7 nouns** — implicit upper bound for DAT (no model).
+
+### Reproducibility
+
+- Random seeds set globally (random, numpy, torch.manual_seed,
+  torch.cuda.manual_seed_all).
+- All model checkpoints fetched from HuggingFace at fixed revisions.
+- All prompts, decoding params, and intervention configs serialized to JSON.
+- All raw model outputs (10-noun strings) saved to `results/raw_outputs/`.
+
+## Expected Outcomes
+
+- **Strongest H2 result we&#39;d accept**: weakened-α ∈ [0.5, 0.75] increases DAT
+  by ≥3 points (≈¼ stdev of the human-baseline) on at least one model, with
+  validity rate ≥ 0.8.
+- **Geometric prediction (H1)**: layer-wise cosine distance among the noun-bank
+  embeddings should *increase* under no-mean / weakened-α (mean subtraction
+  removes a degree of freedom).
+- **Null result is informative**: if no LN intervention shifts DAT (and
+  generation remains valid), this *contradicts* the literature&#39;s prediction
+  that LN constrains creative output — and is itself worth reporting.
+
+## Timeline
+
+| Phase | Time |
+|---|---|
+| Planning + env (this) | 30 min |
+| Acquire GloVe (~5GB) | 15 min |
+| Implement intervention framework | 45 min |
+| Implement DAT + geometry probes | 45 min |
+| Run experiments | 60 min |
+| Analysis + visualization | 30 min |
+| REPORT.md | 30 min |
+
+## Potential Challenges &amp; Mitigations
+
+- **GloVe download time** → use 6B-300d as fallback (smaller).
+- **Identity-LN catastrophically breaks generation** → expected; treat as
+  boundary condition, not main result.
+- **GPT-2&#39;s DAT prompting may yield gibberish** → use few-shot prompt with
+  Olson 2021 examples; fallback to extracting first-N nouns from any noun-rich
+  output via spaCy/regex.
+- **Compute budget** → 30 runs × 3 decoding × 6 conditions × 4 models = 2160
+  generations × ~1s each = manageable on a single A6000.
+- **GPT-2 may not follow instructions well** → augment with few-shot examples
+  in prompt and use stop tokens.
+
+## Success Criteria
+
+- All five experiments executed end-to-end with results saved.
+- At least one statistical comparison reported with effect size and CI.
+- REPORT.md contains a clear answer to Q1, Q2, Q3 supported by data.
+- Code is reproducible from `pyproject.toml` + `src/`.
+
+
+════════════════════════════════════════════════════════════════════════════════
+                          LITERATURE REVIEW
+════════════════════════════════════════════════════════════════════════════════
+
+# Literature Review
+
+## Research hypothesis
+
+&gt; Layer normalization may contribute to the collapse of generative models onto
+&gt; high-probability, human-intuitive outputs, reducing the expression of creative or
+&gt; incongruent concept combinations. Investigating whether LayerNorm affects the
+&gt; geometry and association of concepts in latent space could reveal mechanisms
+&gt; underlying reduced creative output in language models.
+
+The hypothesis straddles two literatures: (1) the geometry and computational role of
+LayerNorm in Transformer attention, and (2) creativity and divergent semantic
+association in LLMs. We surveyed 35 papers across both, with deep reads of 6 highly
+relevant works.
+
+---
+
+## 1. Research area overview
+
+### 1.1 LayerNorm geometry — what LN actually does
+
+LayerNorm `LN(x) = γ ⊙ (x − µ)/σ + β` admits a clean geometric interpretation,
+established by **Brody et al. 2023** and refined by **Gupta et al. 2024**:
+
+1. **Mean subtraction** = projection of `x` onto the hyperplane orthogonal to the
+   uniform vector `1⃗ = [1,…,1]`.
+2. **Division by σ** = scaling of the projected vector to norm exactly √d.
+3. **`γ, β` (learnable)** = element-wise stretch and translate.
+
+Steps 1 and 2 force every hidden state onto a fixed-radius sphere intersected with the
+hyperplane `H ⊥ 1⃗`. RMSNorm (Zhang &amp; Sennrich 2019) drops step 1 and keeps only the
+scaling — this matters less than expected because hidden states empirically have near-
+zero mean *before* LN as well (Gupta et al. 2024 across 7 LLMs incl. GPT-J, Pythia,
+Llama).
+
+**Why this matters for creativity**:
+
+- Magnitude is removed as a representation degree of freedom. If magnitude encodes
+  *salience* or *confidence* of a concept, LN strips it.
+- Repeated layer-by-layer LN is *irreversible* (Gupta 2024) — only `γ, β` (2d scalars)
+  are learnable, but `T·d` per-token statistics get discarded.
+
+### 1.2 Computational consequences for attention
+
+**Brody et al. 2023** show that LN&#39;s two components have independent attention-related
+roles:
+
+- **Projection** lets attention queries be built parallel to `1⃗`, yielding *uniform*
+  attention over keys (because all keys are orthogonal to `1⃗`). This makes &#34;majority&#34;
+  computations easy — and converges 3× faster than without projection.
+- **Scaling** prevents the *unselectable-key* problem (Demeter et al. 2020): a key
+  inside the convex hull of others can never get max attention. After LN, all keys are
+  on a sphere (every key is on the convex hull). At `d=8`, removing scaling left
+  **32–51% of keys unselectable per layer**.
+
+**Menary et al. 2024** extend this to the *composition of concepts*. Define a
+*semantic subspace* `S_α ⊂ S^N` as one that can fully determine an attention
+distribution. Pre-Norm (the standard) replaces `P_α x = x_α` with
+`x_α / ||Σ_β x_β||`, **cross-coupling subspaces** through a shared denominator. The
+only structure that avoids interference is one in which each subspace is itself a
+sphere `S^{N_α-1}` and all spheres are mutually orthogonal — a strict, low-d.o.f.
+constraint.
+
+Their empirical claim: under O(10%) L2-norm perturbation, ~1% of sparse attention
+heads exhibit *circuit collapse* (the head jumps to a different attended token). This
+matters because **out-of-distribution generalization is exactly when interference is
+not learned away** — and creative composition is fundamentally OOD relative to
+training data.
+
+### 1.3 Memorization, generalization, and LN
+
+**Singhal &amp; Kim (NeurIPS 2025)** show divergent LN roles in Pre-LN vs Post-LN:
+
+- Pre-LN: removing LN destabilizes learning AND increases memorization.
+- Post-LN: removing LN suppresses memorization without harming learning.
+- *Early-layer* LN is the most influential.
+
+This connects to creativity: a model that memorizes training distributions will
+regurgitate, not associate divergently. The intervention space is rich.
+
+### 1.4 Norm-removal architectures
+
+A growing literature *removes* per-token normalization:
+
+- **nGPT** (Loshchilov et al. ICLR 2025): every vector unit-norm; hidden state walks
+  the hypersphere. 4–20× faster training, but no published creativity eval.
+- **TaperNorm** (Kanavalau et al. 2026): gated cosine-decay from RMSNorm to a fixed
+  linear map; identifies &#34;scale anchoring&#34; via the *final* normalization as the
+  critical role (preventing &#34;logit chasing&#34; in cross-entropy).
+- **DyT** (Zhu et al. 2025, cited in TaperNorm): dynamic element-wise nonlinearities
+  replacing LN.
+- **Baroni et al. 2025** (cited in TaperNorm): staged LN-removal in GPT-2 with small
+  accuracy loss.
+
+These provide *concrete recipes* to ablate LN in trained models — perfect intervention
+substrate for our study.
+
+### 1.5 Creativity in LLMs — measurement
+
+**Chen &amp; Ding (EMNLP 2023)** establish DAT (Divergent Association Task) as a clean,
+objective measure of &#34;associative creativity&#34;:
+
+- Generate 10 unrelated nouns; take the first 7 valid ones; compute average pairwise
+  cosine distance via GLoVe-300d (Olson et al. 2021):
+  `DAT = (100 / n(n-1)) Σ_{i≠j} (1 − cos(v_i, v_j))`.
+- GPT-4 (greedy) DAT = 89.1 — beats 96% of 8,572 humans. GPT-3.5-turbo &gt; avg human.
+- Smaller models lower; ~proportional to scale.
+- Stochastic decoding raises DAT for non-GPT-4 but introduces invalid outputs.
+- Correlates with surprisal (rare words = farther embeddings); controlling for
+  surprisal, GPT-4&#39;s lead shrinks.
+
+**Bellemare-Pepin et al. 2024** confirm with 100,000 humans across DAT and creative
+writing (haiku, story, flash fiction). LLMs &gt; avg human, &lt; top humans.
+
+**Nagarajan et al. (ICML 2025 spotlight)** introduce *algorithmic-creativity tasks*:
+Sibling/Triangle Discovery, Circle/Line Construction. Findings:
+
+- Multi-token (teacherless / diffusion) &gt; next-token prediction for diversity.
+- *Seed-conditioning* (input randomness) ≥ temperature sampling for diversity.
+  Implies: &#34;creativity at the input/internal-state level&#34; beats &#34;creativity at the
+  output/decoding level&#34; — directly aligned with our hypothesis.
+
+**He et al. 2025** (Shakespearean Sparks) probe layer-wise via Layer-Skip: optimal
+hallucination/creativity balance is in *early layers* of larger models.
+
+### 1.6 Concept geometry in latent space
+
+A parallel literature on the *linear-representation hypothesis* shows concepts are
+encoded as linear directions: **Marks &amp; Tegmark 2023** (truth), **Park et al. 2024**
+(linear representations), **Geva et al. 2022** (FFN layers as concept promoters),
+**Belrose et al. 2023** (Tuned Lens). These give us probes for concept-association
+geometry under LN ablations.
+
+---
+
+## 2. Common methodologies
+
+| Method | Used in | Notes |
+|---|---|---|
+| **DAT scoring** | Chen &amp; Ding 2023, Bellemare-Pepin 2024, Olson 2021 | Cosine distance via GLoVe; canonical creativity metric. |
+| **Algorithmic-creativity tasks** | Nagarajan 2025 | Sibling/Triangle/Circle/Line; coherent ∧ unique ∧ original. |
+| **Layer-Skip / early exit** | He et al. 2025 | Per-layer probing during inference. |
+| **Tuned Lens / Logit Lens** | Belrose 2023 | Per-layer prediction extraction. |
+| **Linear probing** | Marks 2023, Park 2024 | Test linearity of concepts. |
+| **L2-norm perturbation** | Menary 2024 | Test circuit stability. |
+| **LN ablation** | Brody 2023, Singhal &amp; Kim 2025, Baroni 2025, TaperNorm 2026 | Replace LN with identity / linear / RMSNorm / QKV-Norm / TaperNorm. |
+| **Convex-hull analysis** | Brody 2023 (via Demeter 2020) | Identify unselectable keys. |
+| **Hidden-state collection** | Gupta 2024 | 1M Wikipedia tokens × 7 LLMs; ~2-4 TB. |
+
+---
+
+## 3. Standard baselines
+
+For LayerNorm ablations:
+- **Stock Pre-LN GPT-2** — most common comparator in interpretability literature.
+- **RMSNorm** (Llama family) — drop-in for LN, slightly cheaper.
+- **No-Norm** — fails at scale without scale anchoring (Kanavalau 2026).
+- **QKV-Norm** — minor variant, Pre-LN-equivalent for separability.
+- **nGPT** — extreme &#34;fully-normalized&#34; baseline.
+
+For creativity:
+- **Greedy decoding** baseline (lowest entropy reference).
+- **Top-p (p=0.9, T=0.7)** — Holtzman 2020.
+- **Temperature sweep**.
+- **Min-p sampling** (Nguyen ICLR 2025) — current state-of-the-art creative decoder.
+- **Random WordNet sampling** — upper-bound DAT (no language constraint).
+
+---
+
+## 4. Evaluation metrics
+
+| Metric | Range | What it measures | When to use |
+|---|---|---|---|
+| **DAT score** | 0–100 | Avg cosine distance among 7 nouns | Concept-association divergence, single-prompt |
+| **Algorithmic creativity** | 0–1 | Coherent ∧ unique ∧ original fraction | Algorithmic tasks (Sibling/Triangle/Circle/Line) |
+| **HCB score** (He 2025) | 0–1 | `w_c·S_c + w_h·(1−S_h)` (creative correctness) | Layer-wise tradeoff vs hallucination |
+| **Surprisal** | 0–∞ | `−log P(token)` | Confound for DAT (rarer words → larger distances) |
+| **Embedding L2-norm spread** | std/mean | Cross-token variance of `||x||` | Predictor of subspace interference (Menary 2024) |
+| **Rank of `WQK`, `WV`** | int | Concept-subspace dimensionality | Mechanistic interpretability |
+| **Cosine of hidden ⟂ 1⃗** | degrees | Evidence that LN&#39;s projection step is redundant (Gupta 2024) | Sanity-check our LN-modification target |
+
+For our hypothesis, **DAT** is the primary outcome metric, with algorithmic-creativity
+as a secondary check on causal mechanisms.
+
+---
+
+## 5. Datasets in the literature
+
+| Dataset | Used for | Source |
+|---|---|---|
+| Olson 2021 DAT human baseline (~8.5K humans) | Reference distribution | OSF: vjazn / kbeq6 |
+| GLoVe 840B 300d | DAT scoring | Stanford NLP / HF |
+| Wikipedia (en, 20220301) | Internal-state probing | HF `wikipedia` |
+| TinyStories | From-scratch LM training under LN ablations | HF `roneneldan/TinyStories` |
+| WritingPrompts preferences | Diversity-aware preference tuning | HF `euclaise/WritingPrompts_preferences` |
+| Algorithmic creativity tasks | Sibling/Triangle/Circle/Line | Procedurally generated |
+| AUT (Alternative Uses Test) | Alternative creativity probe | Olson lab; sample-dependent |
+
+---
+
+## 6. Gaps and opportunities
+
+The literature has done parts of the puzzle but no one has bolted them together:
+
+**Gap 1 — No work measures DAT (or any associative-creativity metric) under
+controlled LayerNorm ablations.** Brody, Gupta, and Menary establish what LN does
+geometrically; Chen &amp; Ding establish DAT — but no one has crossed the streams.
+
+**Gap 2 — The &#34;internal-randomness &gt; output-randomness&#34; finding (Nagarajan 2025) is
+suggestive of an internal-geometry mechanism, but not localized to LN.** The role of
+LN versus other architectural choices in the cognitive-overload phenomenon is unknown.
+
+**Gap 3 — Layer-wise creativity (He et al. 2025) is observed but not mechanized.** We
+don&#39;t know *why* early layers govern the creativity-hallucination tradeoff. Their
+HCB-optimal layer is also where Singhal &amp; Kim 2025 find LN-memorization effects
+strongest.
+
+**Gap 4 — nGPT, RMSNorm, and TaperNorm have all been shown to preserve general
+performance but their effects on creative-divergence metrics are unmeasured.** It is
+possible — and this is the hypothesis — that they actually *worsen* creative
+divergence even as they preserve perplexity / accuracy.
+
+**Gap 5 — No concept-association *geometry* analysis exists at the level of
+divergent-pair retrieval.** Linear-concept work (Marks, Park, Geva) studies *single*
+concepts. Concept-*association* (creative combination) requires interaction geometry.
+
+---
+
+## 7. Recommendations for our experiment
+
+Given the gaps and the resources we have gathered, the cleanest design is:
+
+### 7.1 Recommended datasets (in priority order)
+
+1. **DAT human baseline** (`datasets/dat_human_baseline/study2.tsv`) — already
+   pre-staged. 8,572 humans, our reference distribution.
+2. **GLoVe 840B 300d** — required for DAT scoring; download via
+   `datasets/README.md` instructions.
+3. **TinyStories** — for from-scratch LM training under LN ablations. Used by
+   TaperNorm paper as a clean pre-training corpus.
+4. **Algorithmic-creativity task data** (procedurally generated via
+   `code/algorithmic_creativity/{task}/{*.ipynb}`) — secondary creativity benchmark
+   with exact, automatic scoring.
+5. **Wikipedia (1M tokens)** — for representation probing of pretrained LLMs (norm
+   distributions, subspace interference).
+6. *(Optional)* **WritingPrompts preferences** for a writing-quality eval if needed
+   for higher-stakes creative tasks.
+
+### 7.2 Recommended baselines (Transformer normalization configurations)
+
+For from-scratch experiments on TinyStories or the algorithmic-creativity tasks:
+
+| Config | Description | Purpose |
+|---|---|---|
+| **Pre-LN** | Standard GPT-2 setup | Default baseline |
+| **RMSNorm** | Skip mean-subtraction | Test mean-subtraction&#39;s role |
+| **QKV-Norm** | LN after WQ/WK/WV (Menary 2024) | Test subspace-interference hypothesis |
+| **No-LN + final-LN anchor** (à la Baroni 2025) | Removes per-token internal LN | Test scale-anchoring vs full LN |
+| **TaperNorm** | Schedule from LN to fixed scaling | Inference-time clean LN removal |
+| **nGPT** | All-vector hypersphere | Extreme normalization |
+| **No-LN, no anchor + fixed-target scale loss** (Kanavalau 2026 §3.4) | Fully norm-free | Tests &#34;is LN strictly necessary?&#34; |
+
+### 7.3 Recommended metrics
+
+- **Primary**: DAT score (vs human-baseline percentile).
+- **Primary**: algorithmic-creativity (coherent ∧ unique ∧ original) on Sibling /
+  Triangle / Circle / Line.
+- **Mechanistic**: per-layer norm distribution std (Gupta 2024 §3.1), embedding-vs-
+  uniform-vector angle distribution (Gupta 2024 §4), L2-norm spread of `q,k,v` vectors
+  (Menary 2024).
+- **Concept-association probes**: cosine distance among concept directions (e.g.,
+  10 unrelated nouns) at every layer pre-/post-LN.
+- **Confounds**: surprisal, perplexity, downstream task accuracy (sanity that LN
+  ablations haven&#39;t broken the model).
+
+### 7.4 Methodological considerations
+
+- **Model scale matters.** Brody 2023 explicitly notes that LN&#39;s scaling effect is
+  most evident at small d (their experiments use d=8). Gupta 2024 study models up to
+  8B. We should run ablations at multiple scales (e.g., 10M, 100M, 1B) — small models
+  show clear LN effects; larger models test whether they survive.
+- **Decoding strategy is a huge confound.** Following Chen &amp; Ding 2023, evaluate at
+  least with greedy and top-p (p=0.9, T=0.7), and ideally min-p (Nguyen 2025).
+- **Avoid surprisal confound.** When comparing creativity, control for surprisal of
+  generated words — otherwise a model that simply emits rare words will appear more
+  creative.
+- **Layer-wise probing is essential.** He et al. 2025 and Singhal &amp; Kim 2025 both find
+  early-layer LN is most influential. Our ablations should include layer-specific LN
+  removal, not just whole-model ablation.
+- **Mechanistic story before causal story.** First show LN ablations *change concept-
+  association geometry*; then show those changes *change DAT/algorithmic creativity*.
+  Mediation analysis is the cleanest framing.
+
+---
+
+## 8. Open theoretical questions
+
+- Brody 2023 ends with: &#34;what would happen if we force keys orthogonal to multiple
+  normal vectors?&#34; This relates to Menary&#39;s orthogonal-spheres requirement. Our
+  experiments could empirically answer this.
+- Is the &#34;irreversibility&#34; of LN (Gupta 2024) actually *cumulative* across depth? At
+  layer L, what fraction of the original semantic information is recoverable?
+- The *chaotic-attractor* dynamics of repeated LN (Chu 2024) may explain observed
+  representational collapse — does this collapse predict reduced DAT?
+- Does seed-conditioning&#39;s advantage over temperature (Nagarajan 2025) localize to
+  specific layers? Is it the *bypassed* LNs in early layers that allow the seed&#39;s
+  variance to propagate?
+
+---
+
+## 9. Summary
+
+The literature provides three converging streams of evidence supportive of the
+hypothesis:
+
+1. **LayerNorm geometrically restricts representations** (Brody, Gupta, Menary, Chu).
+2. **Creativity and divergent semantic association can be measured cleanly via DAT**
+   (Olson 2021, Chen &amp; Ding 2023, Bellemare-Pepin 2024) and via algorithmic-creativity
+   tasks (Nagarajan 2025).
+3. **Internal randomness/looseness matters more than output sampling** for divergent
+   generation (Nagarajan 2025, He et al. 2025).
+
+What is missing is an experimental link from (1) to (2) — measuring creativity under
+controlled LN interventions — and a mechanistic account of (3) localized to specific
+layers and normalization placements. Our experiment is positioned to fill exactly this
+gap.
+
+
+════════════════════════════════════════════════════════════════════════════════
+                          PAPER REQUIREMENTS
+════════════════════════════════════════════════════════════════════════════════
+
+Generate a complete academic paper with the following structure:
+
+1. TITLE
+   - Clear, specific, informative
+   - Should convey main finding or contribution
+
+2. AUTHOR
+   - Use this exact author line in the \author{} block: Xiaoyan Bai and NeuriCo
+
+3. ABSTRACT (150-250 words)
+   - Problem statement
+   - Approach
+   - Key results
+   - Significance
+
+4. INTRODUCTION
+   - Research problem and motivation
+   - Gap in existing work
+   - Our contribution (be specific)
+   - Paper organization
+
+5. RELATED WORK
+   - Organized by theme/approach
+   - Position our work relative to prior work
+   - Cite papers from literature review
+
+6. METHODOLOGY
+   - Clear description of approach
+   - Experimental setup
+   - Datasets used
+   - Evaluation metrics
+   - Baselines
+
+7. RESULTS
+   - Present results with tables and figures
+   - Statistical analysis
+   - Comparison to baselines
+   - Ablation studies (if applicable)
+
+8. DISCUSSION
+   - Interpretation of results
+   - Limitations
+   - Broader implications
+
+9. CONCLUSION
+   - Summary of contributions
+   - Key findings
+   - Future work
+
+10. REFERENCES
+   - BibTeX format
+   - All cited papers
+
+════════════════════════════════════════════════════════════════════════════════
+                          OUTPUT FORMAT
+════════════════════════════════════════════════════════════════════════════════
+
+Create a MODULAR LaTeX project with the following directory structure:
+
+paper_draft/
+├── main.tex              # Main file that imports all sections
+├── references.bib        # BibTeX references
+├── sections/
+│   ├── abstract.tex      # Abstract content
+│   ├── introduction.tex  # Introduction section
+│   ├── related_work.tex  # Related work section
+│   ├── methodology.tex   # Methodology section
+│   ├── results.tex       # Results section
+│   ├── discussion.tex    # Discussion section
+│   └── conclusion.tex    # Conclusion section
+├── figures/              # Directory for any generated figures
+├── tables/               # Directory for complex standalone tables
+└── appendix/             # Directory for appendix sections (if needed)
+
+INSTRUCTIONS:
+1. First, create the directory structure above (mkdir -p paper_draft/sections paper_draft/figures paper_draft/tables paper_draft/appendix)
+2. Write main.tex using the EXACT preamble for NEURIPS:
+
+   \documentclass{article}
+   \usepackage[final]{neurips_2025}  % NEURIPS style (neurips_2025.sty is in paper_draft/)
+   \usepackage[hidelinks]{hyperref}  % REQUIRED: clickable links
+   \usepackage{booktabs}  % REQUIRED: professional tables
+   \usepackage{graphicx}
+   \usepackage{amsmath,amssymb}
+
+   % Import command files
+   \input{commands/math}
+   \input{commands/general}
+   \input{commands/macros}
+
+   % Use this bibliography style:
+   \bibliographystyle{plainnat}
+
+   \author{Xiaoyan Bai and NeuriCo}
+
+   - Use \input{sections/...} to include each section
+   - Use \bibliography{references} for references
+3. Write each section file with COMPLETE content (no placeholders)
+4. Each section file should include its \section{} command
+5. Write references.bib with all citations in BibTeX format
+6. After writing all files, compile the paper:
+   cd paper_draft && pdflatex -interaction=nonstopmode main.tex && bibtex main && pdflatex -interaction=nonstopmode main.tex && pdflatex -interaction=nonstopmode main.tex
+
+This modular structure allows humans to easily:
+- Edit individual sections without navigating a large file
+- Track changes per section
+- Reuse sections across different paper versions
+
+════════════════════════════════════════════════════════════════════════════════
+                          QUALITY REQUIREMENTS
+════════════════════════════════════════════════════════════════════════════════
+
+- Academic tone throughout
+- All claims must be supported by data from the experiment report
+- Proper citations using \cite{} commands
+- Clear figures and tables with proper captions
+- NO placeholder text - every section must have real content
+- The paper MUST compile without errors
+- If compilation fails, debug and fix the LaTeX errors
+
+════════════════════════════════════════════════════════════════════════════════
+                          LAB WRITING STYLE
+════════════════════════════════════════════════════════════════════════════════
+
+Follow these lab-specific conventions to match our paper style:
+
+1. LANGUAGE STYLE:
+   - Use active voice: "We propose", "We examine", "We focus on"
+   - Be direct and confident: "Our main question is...", "We hypothesize that..."
+   - State things clearly and simply - prefer plain language over jargon
+   - Use bold questions as paragraph organizers: {\bf what is X?}
+   - Include specific quantitative claims: "8.97% over baseline"
+   - Avoid fancy wording: "utilize" → "use", "facilitate" → "help"
+
+2. INTRODUCTION STRUCTURE:
+   - Engaging hook (get to the point quickly)
+   - Problem importance
+   - Gap identification
+   - Your approach with method figure reference
+   - Quantitative preview of results
+   - Contribution bullets (3-4 items, action verbs)
+
+3. CONTRIBUTION LISTS:
+   \begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+       \item We propose...
+       \item We conduct...
+       \item We complement...
+   \end{itemize}
+
+4. MODULAR COMMANDS STRUCTURE:
+   Command templates are pre-copied to paper_draft/commands/:
+   - math.tex: Math notation macros
+   - general.tex: Formatting macros
+   - macros.tex: Project-specific term definitions (customize this for your paper)
+
+   In main.tex, include:
+   \input{commands/math}
+   \input{commands/general}
+   \input{commands/macros}
+
+5. REFERENCE CONVENTIONS:
+   Use reference macros from math.tex:
+   - \figref{fig:name} for "figure 1" (lowercase, in-sentence)
+   - \Figref{fig:name} for "Figure 1" (capitalized, start of sentence)
+   - \secref{sec:name} for "section 2"
+
+6. TEXT FORMATTING:
+   - Use \para{Header text} for bold paragraph headers
+   - Define method/dataset names with \textsc and \xspace:
+     \newcommand{\methodname}{\textsc{MethodName}\xspace}
+
+7. TABLE FORMATTING:
+   - Use booktabs package (no vertical lines)
+   - Use \resizebox{\textwidth}{!}{...} for wide tables
+   - Use @{} to remove padding at table edges
+   - Use \cmidrule(lr){x-y} for sub-headers
+   - Use \textsc{} for dataset/method names in headers
+   - Bold best results with {\bf ...}
+
+8. FIGURE FORMATTING:
+   - Use 0.32\textwidth for 3-column subfigures
+   - Use 0.95\linewidth for full-width figures
+   - Use \input{figures/legend} for shared legends
+   - Write self-contained captions explaining key observations
+
+9. RESULTS PRESENTATION:
+   - Define \increase and \decrease for colored arrows (green up, red down)
+   - Bold best results in tables
+   - Report confidence intervals when available
+
+10. ALGORITHM STYLING:
+    - Use algpseudocode with [noend]
+    - Use \triangleright for comments
+
+11. HYPERLINKS (REQUIRED):
+    - Always use \usepackage[hidelinks]{hyperref} or with colored links
+    - All citations, section refs, figure refs, table refs must be clickable
+    - This is essential for reader navigation
+
+════════════════════════════════════════════════════════════════════════════════
+                          WORKFLOW: REVIEW AND REFLECT
+════════════════════════════════════════════════════════════════════════════════
+
+Before calling finish, you MUST complete these review steps:
+
+1. REVIEW RESOURCES (at the start):
+   - Read .claude/skills/paper-writer/SKILL.md for detailed guidance
+   - Study templates/paper_writing/lab_style_guide.md for style conventions
+   - Browse paper_examples/ for formatting and language patterns
+
+2. SELF-REFLECTION (before finishing):
+   After writing all sections, review your work against these criteria:
+
+   LANGUAGE CHECK:
+   - [ ] Is the writing clear and jargon-free?
+   - [ ] Are claims specific with quantitative support?
+   - [ ] Is active voice used throughout?
+
+   FORMATTING CHECK:
+   - [ ] Does main.tex include \input{commands/math}, \input{commands/general}, \input{commands/macros}?
+   - [ ] Is hyperref package included for clickable references?
+   - [ ] Do tables use booktabs (no vertical lines)?
+   - [ ] Are best results bolded in tables?
+   - [ ] Are figures/tables properly captioned?
+
+   STRUCTURE CHECK:
+   - [ ] Does introduction follow: hook → importance → gap → approach → preview → contributions?
+   - [ ] Are contribution bullets specific with action verbs?
+   - [ ] Does the paper compile without errors?
+
+3. FIX ISSUES:
+   - Address any issues found in the self-reflection
+   - Re-compile and verify the PDF looks correct
+
+Only after completing this review should you consider the paper finished.

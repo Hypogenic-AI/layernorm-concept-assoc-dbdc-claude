@@ -1,0 +1,49 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We provide the first direct measurement of the Divergent Association Task
+under controlled \layernorm interventions, across three pretrained Pre-LN
+Transformers, three decoders, seven recipes, and four layer ranges. The
+answer to the headline question --- ``does \layernorm cause creative
+collapse?'' --- is partial and decoder-dependent. \layernorm does compress
+concept-association geometry as \citet{brody2023expressivity} and
+\citet{gupta2024geometric} predict, and removing its mean-subtraction does
+expand concept-pair distance ($+7\%$ on \pythia). But the freed latent
+variation only surfaces in \dat under high-temperature decoding, where it
+lifts \gptsmall \dat by $+1.7$ to $+5.1$ points across all four layer
+targets. Under greedy or moderate-$T$ top-$p$ sampling, no model shows a
+consistent direction. After multiple-comparison correction, no individual
+cell reaches significance.
+
+\para{Key takeaway.}
+\layernorm is one of several gates between latent variation and output
+diversity, but not the dominant one. The LM-head and softmax recompress
+most of the freed latent variation, and decoding sharpness gates whether
+geometric room translates into behavioural diversity. Softening
+\layernorm at inference is therefore not a free path to language-model
+creativity gains.
+
+\para{Future work.}
+Five follow-ups directly address the limitations.
+(i) \emph{From-scratch training.} Train tiny LMs (\eg 30M parameters on
+TinyStories) with and without \layernorm and rerun \dat; this is the
+cleanest causal test and was infeasible in our compute budget.
+(ii) \emph{LM-head intervention.} Replace \layernorm ablation with an
+orthogonal change-of-basis at the unembedding; if concept-pair expansion
+\emph{can} be transmitted to output diversity, this experiment should
+show it.
+(iii) \emph{Larger, instruction-tuned models.} The concept-collapse story
+is sharpest after RLHF; \textsc{Llama}-3-Instruct under \nomean with
+min-$p$ sampling would test scale.
+(iv) \emph{Algorithmic-creativity probes.} The Sibling/Triangle/Circle/Line
+tasks of \citet{nagarajan2025roll} may be more sensitive to geometric
+shifts than \dat, because they isolate compositional novelty separately
+from word-level rarity.
+(v) \emph{Joint LN--decoder ablation.} Holding \layernorm stock but
+rotating the unembedding matrix would directly test whether the LM-head
+is the dominant locus of collapse. We hypothesise it is.
+
+The broader programme --- mapping the gates between latent variation and
+output diversity --- is wide open. Our negative result on inference-time
+\layernorm clears one candidate from the list and points downstream,
+toward the LM head and the decoder.

@@ -1,0 +1,92 @@
+\section{Introduction}
+\label{sec:intro}
+
+Modern language models routinely generate fluent text but reliably collapse
+onto common, ``human-intuitive'' outputs in creative tasks. Ask a base
+\gptsmall for ten unrelated nouns and the same shortlist appears across
+seeds; ask an instruction-tuned model and the homogenisation is even
+sharper. This collapse is the observable face of \emph{concept incongruence}:
+many valid combinations exist in latent space, but the generation process
+contracts onto the mode.
+
+Two mechanisms are usually implicated. The first is \emph{decoding}: top-$p$
+and temperature sampling deliberately suppress the distribution's tails. The
+second is \emph{post-training}: instruction tuning and RLHF further sharpen
+the conditional distribution toward preferred answers. A third candidate ---
+much less explored empirically --- sits inside the architecture itself:
+\layernorm. Recent geometric analyses establish that \layernorm projects
+hidden states onto a hyperplane orthogonal to the uniform vector $\bm{1}$
+and rescales them onto a fixed-radius sphere
+\citep{brody2023expressivity,gupta2024geometric,menary2024transformer}.
+Magnitude is removed as a representational degree of freedom, and concept
+subspaces are coupled through a shared denominator. If \layernorm itself
+contributes to creative collapse, this is a \emph{mechanistic} lever
+independent of decoder or post-training intervention.
+
+\para{Gap.}
+The literature has done parts of the puzzle but has not bolted them
+together. Geometric work
+\citep{brody2023expressivity,gupta2024geometric,menary2024transformer}
+establishes what \layernorm does to representations. Behavioural work
+\citep{olson2021naming,chen2023probing,bellemare2024divergent,nagarajan2025roll}
+establishes that the Divergent Association Task (\dat) cleanly measures
+associative creativity. \emph{No prior work measures \dat under controlled
+\layernorm ablations.} This paper fills that gap.
+
+\para{Approach.}
+We hook every \verb|nn.LayerNorm| in three pretrained Pre-LN Transformers
+(\gptsmall, \gptmedium, \pythia), replace its forward pass with one of
+seven recipes (\stockln, \nomean, \noaffine, \weakened with
+$\alpha\in\{0.25,0.5,0.75\}$, and \identityln), apply each to four layer
+ranges (\tgtall, \tgtearly, \tgtmid, \tgtlate), and measure: (i) per-layer
+concept-pair cosine distance among 20 unrelated nouns; (ii) \dat scored
+against \glove-6B-300d on iterative one-noun-per-step generation; (iii)
+perplexity on a calibration text. We sweep three decoding strategies
+(greedy, top-$p$ with $T{=}0.7$, high-temperature with $T{=}1.2$). The
+final-block \layernorm is preserved in all conditions, following
+\citet{kanavalau2026taper}'s ``scale anchor'' result.
+
+\para{Findings preview.}
+Only \nomean (\ie \rmsnorm-equivalent) preserves fluency; all stronger
+ablations inflate perplexity by $10^{2}\!-\!10^{5}\times$ and emit gibberish.
+Within the fluency-preserving cells, removing mean-subtraction increases
+final-layer concept-pair distance by $+7\%$ on \pythia (Wilcoxon paired
+test, $\Delta{=}{+}0.026$). The behavioural \dat shift, however, is
+\emph{decoder-dependent}: under greedy and moderate-$T$ top-$p$, no cell
+moves \dat in a consistent direction. Only at $T{=}1.2$ does the geometric
+expansion propagate, with all four \nomean targets pushing \dat by $+1.7$
+to $+5.1$ points and Cohen's $d$ up to $+0.69$. Under Bonferroni correction
+across $18$ comparisons, no individual cell reaches significance, but the
+unanimous direction of the high-$T$ panel is itself the signal. We also
+document an artifactual ``\dat inflation'' failure mode: when interventions
+break the model, the surviving outputs are out-of-vocabulary tokens with
+random embeddings that score spuriously high on cosine distance.
+
+\para{Contributions.}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+    \item We provide the first direct measurement of \dat under controlled
+          \layernorm ablations, across three Pre-LN models, three decoders,
+          seven intervention recipes, and four layer ranges
+          ($2{,}600$ noun generations per (model, decoder) pair).
+    \item We show that the geometric expansion predicted by
+          \citet{gupta2024geometric} \emph{does} appear at the final layer of
+          \pythia ($+7\%$ pair distance) but is decoder-gated at the
+          behavioural level: \dat shifts only emerge under high-temperature
+          sampling.
+    \item We identify a \dat-specific failure mode where broken models
+          score spuriously high via out-of-vocabulary tokens, motivating
+          validity-rate gating as a co-equal sanity check.
+    \item We localise the dominant collapse mechanism away from
+          \layernorm: even when \layernorm is relaxed enough to expand
+          latent geometry, the LM-head and softmax recompress most of the
+          freed variation. \layernorm is one of several gates between
+          latent variation and output diversity, but not the dominant one.
+\end{itemize}
+
+The paper proceeds as follows.
+\secref{sec:related} reviews \layernorm geometry and \dat-based
+creativity measurement. \secref{sec:method} details the intervention
+framework, prompts, and statistics. \secref{sec:results} reports
+perplexity, \dat, and per-layer geometry. \secref{sec:discussion}
+interprets the cross-modality reconciliation, lists limitations, and
+relates findings to prior work. \secref{sec:conclusion} concludes.

@@ -1,0 +1,106 @@
+[
+  {
+    "model": "gpt2",
+    "recipe": "stock",
+    "target": "all",
+    "alpha": 0.0,
+    "nll": 3.1930503845214844,
+    "ppl": 24.362628936767578
+  },
+  {
+    "model": "gpt2",
+    "recipe": "no_mean",
+    "target": "all",
+    "alpha": 0.0,
+    "nll": 3.306461811065674,
+    "ppl": 27.288402557373047
+  },
+  {
+    "model": "gpt2",
+    "recipe": "no_affine",
+    "target": "all",
+    "alpha": 0.0,
+    "nll": 8.019869804382324,
+    "ppl": 3040.781494140625
+  },
+  {
+    "model": "gpt2",
+    "recipe": "weakened_a",
+    "target": "all",
+    "alpha": 0.75,
+    "nll": 9.119318962097168,
+    "ppl": 9129.9814453125
+  },
+  {
+    "model": "gpt2",
+    "recipe": "weakened_a",
+    "target": "all",
+    "alpha": 0.5,
+    "nll": NaN,
+    "ppl": Infinity
+  },
+  {
+    "model": "gpt2",
+    "recipe": "weakened_a",
+    "target": "all",
+    "alpha": 0.25,
+    "nll": NaN,
+    "ppl": Infinity
+  },
+  {
+    "model": "gpt2",
+    "recipe": "identity",
+    "target": "all",
+    "alpha": 0.0,
+    "nll": NaN,
+    "ppl": Infinity
+  },
+  {
+    "model": "gpt2",
+    "recipe": "no_mean",
+    "target": "early",
+    "alpha": 0.0,
+    "nll": 3.1857259273529053,
+    "ppl": 24.184839248657227
+  },
+  {
+    "model": "gpt2",
+    "recipe": "no_mean",
+    "target": "mid",
+    "alpha": 0.0,
+    "nll": 3.2606041431427,
+    "ppl": 26.065279006958008
+  },
+  {
+    "model": "gpt2",
+    "recipe": "no_mean",
+    "target": "late",
+    "alpha": 0.0,
+    "nll": 3.237539052963257,
+    "ppl": 25.470962524414062
+  },
+  {
+    "model": "gpt2",
+    "recipe": "weakened_a",
+    "target": "early",
+    "alpha": 0.5,
+    "nll": 7.528061866760254,
+    "ppl": 1859.498046875
+  },
+  {
+    "model": "gpt2",
+    "recipe": "weakened_a",
+    "target": "mid",
+    "alpha": 0.5,
+    "nll": 9.878108978271484,
+    "ppl": 19498.814453125
+  },
+  {
+    "model": "gpt2",
+    "recipe": "weakened_a",
+    "target": "late",
+    "alpha": 0.5,
+    "nll": 9.184926986694336,
+    "ppl": 9749.068359375
+  }
+]

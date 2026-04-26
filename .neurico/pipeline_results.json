@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "stages": {
+    "resource_finder": {
+      "success": true,
+      "completion_marker": "/workspaces/layernorm-concept-assoc-dbdc-claude/.resource_finder_complete",
+      "outputs": {
+        "literature_review": "/workspaces/layernorm-concept-assoc-dbdc-claude/literature_review.md",
+        "resources_catalog": "/workspaces/layernorm-concept-assoc-dbdc-claude/resources.md",
+        "papers_dir": "/workspaces/layernorm-concept-assoc-dbdc-claude/papers",
+        "datasets_dir": "/workspaces/layernorm-concept-assoc-dbdc-claude/datasets",
+        "code_dir": "/workspaces/layernorm-concept-assoc-dbdc-claude/code"
+      },
+      "log_file": "/workspaces/layernorm-concept-assoc-dbdc-claude/logs/resource_finder_claude.log",
+      "transcript_file": "/workspaces/layernorm-concept-assoc-dbdc-claude/logs/resource_finder_claude_transcript.jsonl",
+      "elapsed_time": 2694.4832170009613
+    },
+    "experiment_runner": {
+      "success": true,
+      "return_code": 0,
+      "elapsed_time": 3777.725085735321,
+      "log_file": "/workspaces/layernorm-concept-assoc-dbdc-claude/logs/execution_claude.log",
+      "transcript_file": "/workspaces/layernorm-concept-assoc-dbdc-claude/logs/execution_claude_transcript.jsonl"
+    }
+  },
+  "work_dir": "/workspaces/layernorm-concept-assoc-dbdc-claude"
+}
